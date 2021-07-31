@@ -162,15 +162,18 @@
         </nav>
             {{-- social-netoworks --}}
             <div class="social-networks flex justify-center pt-7">
-                <a href="https://www.facebook.com/mrkukufarmersltd" target="_blank" class="no-underline">
+                <a href="https://www.facebook.com/mrkukufarmersltd" target="_blank"
+                 class="no-underline">
                     <img src="{{ asset('images/social-icons/facebook.png') }}" alt="Mr kuku facebook account"
                         class=" w-10 h-10">
                 </a>
-                <a href="" class="no-underline ml-4">
+                <a href="https://twitter.com/farmers_mr" target="_blank"
+                 class="no-underline ml-4">
                     <img src="{{ asset('images/social-icons/twitter.png') }}" alt="Mr kuku facebook account"
                         class=" w-10 h-10">
                 </a>
-                <a href="" class="no-underline ml-4">
+                <a href="https://www.instagram.com/mrkuku_farmers/" target="_blank"
+                 class="no-underline ml-4">
                     <img src="{{ asset('images/social-icons/instagram.png') }}" alt="Mr kuku facebook account"
                         class=" w-10 h-10">
                 </a>
