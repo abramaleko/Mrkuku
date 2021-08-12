@@ -1,0 +1,73 @@
+.header
+{
+    .header-text{
+        font-size: 35px;
+    }
+     @media only screen and (max-width:600px)
+    {
+        .header-text{
+            font-size: 30px !important;
+        }
+    }
+}
+
+.invest
+{
+    margin-top: 7rem;
+
+    @media only screen and (max-width:600px) {
+      margin-top: 5rem;
+    }
+
+    .header-invest
+    {
+        font-size: 35px;
+    }
+         @media only screen and (max-width:600px)
+    {
+        .header-invest{
+            font-size: 25px !important;
+            text-align: center;
+        }
+    }
+}
+
+.video
+{
+ .header-text{
+     font-size: 32px;
+ }
+ @media only screen and (max-width:600px) {
+  .header-text{
+      font-size: 25px !important;
+  }
+  .youtube-video{
+     width: 100% !important;
+     height: 350px !important;;
+  }
+ }
+}
+
+.newsletter
+{
+    margin-top: 5rem;;
+   .header-text{
+       font-size: 32px;
+   }
+   .header-text2{
+       font-size: 22px;
+       font-family: 'Raleway', sans-serif;
+   }
+   @media only screen and (max-width:600px) {
+       .header-text{
+          font-size: 20px !important;
+       }
+      .header-text2{
+          font-size: 18px !important;
+      }
+      .subscribe{
+          display: block;
+          margin-top: 2rem;
+      }
+   }
+}

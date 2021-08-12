@@ -1,0 +1,39 @@
+.header-text{
+    font-size: 32px;;
+}
+
+.header
+{
+    .header-text2{
+        font-size: 22px;
+        font-family: 'Raleway', sans-serif;
+    }
+}
+.packages{
+    .header-text2{
+        font-size: 18px;
+        font-family: 'Raleway', sans-serif;
+    }
+}
+
+.invest-us{
+        .header-text2{
+            font-size: 20px;
+        }
+}
+.how-to-invest{
+    .header-text2{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width:600px)
+{
+    .header-text{
+        font-size: 21px !important;
+    }
+    .header-text2{
+        font-size: 18px !important;
+    }
+}
+

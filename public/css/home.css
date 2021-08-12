@@ -1,0 +1,62 @@
+.header .header-text {
+  font-size: 35px;
+}
+@media only screen and (max-width: 600px) {
+  .header .header-text {
+    font-size: 30px !important;
+  }
+}
+
+.invest {
+  margin-top: 7rem;
+}
+@media only screen and (max-width: 600px) {
+  .invest {
+    margin-top: 5rem;
+  }
+}
+.invest .header-invest {
+  font-size: 35px;
+}
+@media only screen and (max-width: 600px) {
+  .invest .header-invest {
+    font-size: 25px !important;
+    text-align: center;
+  }
+}
+
+.video .header-text {
+  font-size: 32px;
+}
+@media only screen and (max-width: 600px) {
+  .video .header-text {
+    font-size: 25px !important;
+  }
+  .video .youtube-video {
+    width: 100% !important;
+    height: 350px !important;
+  }
+}
+
+.newsletter {
+  margin-top: 5rem;
+}
+.newsletter .header-text {
+  font-size: 32px;
+}
+.newsletter .header-text2 {
+  font-size: 22px;
+  font-family: "Raleway", sans-serif;
+}
+@media only screen and (max-width: 600px) {
+  .newsletter .header-text {
+    font-size: 20px !important;
+  }
+  .newsletter .header-text2 {
+    font-size: 18px !important;
+  }
+  .newsletter .subscribe {
+    display: block;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,12 @@
+.contact-form input {
+  width: 30rem;
+}
+.contact-form textarea {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  width: 35rem;
+}
+
+.call .number {
+  font-family: "Raleway", sans-serif;
+}

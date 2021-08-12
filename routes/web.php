@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,26 +17,35 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('web.index');
-})->name('home');
+Route::get('/',[HomeController::class,'home'])
+->name('home');
 
-Route::get('/investments', function () {
-    return view('web.investments');
-})->name('investments');
+Route::get('/investments',[HomeController::class,'investments'])
+->name('investments');
 
-Route::get('/learn', function () {
-    return view('web.learn');
-})->name('learn');
+Route::get('/learn',[HomeController::class,'learn'])
+->name('learn');
 
-Route::get('/company', function () {
-    return view('web.company');
-})->name('company');
+Route::get('/contact',[HomeController::class,'contact'])
+->name('contact');
 
-Route::get('/contact', function () {
-    return view('web.contact');
-})->name('contact');
+//Investments packages links
+Route::name('investments.')->group(function(){
+    Route::get('/investments/gold',function(){
+        return view ('web.gold');
+    })->name('gold');
 
+    Route::get('/investments/diamond',function(){
+        return view ('web.diamond');
+    })->name('diamond');
+
+
+    Route::get('/investments/tanzanite',function(){
+        return view ('web.tanzanite');
+    })->name('tanzanite');
+});
+
+Route::resource('blog', BlogController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
