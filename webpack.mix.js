@@ -15,6 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
 mix.sass('resources/sass/home.scss', 'public/css/')
 mix.sass('resources/sass/investments.scss', 'public/css/')
 mix.sass('resources/sass/contact.scss', 'public/css/')
+mix.sass('resources/sass/blog/create.scss', 'public/css/blog')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),

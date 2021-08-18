@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\App\Blog\Create;
+use App\Http\Livewire\App\Blog\Dashboard;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +48,26 @@ Route::name('investments.')->group(function(){
     })->name('tanzanite');
 });
 
-Route::resource('blog', BlogController::class);
+Route::get('posts./',[BlogController::class,'allPosts'] )
+->name('blog.allPosts');
+
+//blog routes
+Route::prefix('blog')->name('blog.')->group(function(){
+    // Route::get('/posts',[BlogController::class,'allPosts'] )
+    // ->name('allPosts');
+
+    //dashboard posts
+    Route::get('/dashboard',Dashboard::class )
+    ->middleware('auth')
+    ->name('dashboard');
+
+   //create&save blog post
+    Route::get('/create',Create::class )
+    ->middleware('auth')
+    ->name('create');
+
+});
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

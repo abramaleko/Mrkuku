@@ -23,118 +23,147 @@
 <body class="font-sans antialiased">
 
     <div class="min-h-screen bg-gray-100">
-        <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 h- md:h-24 md:py-4">
-            <!-- Primary Navigation Menu -->
-            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-4">
-                <div class="flex justify-between h-16">
-                    <div class="flex">
-                        <!-- Logo -->
-                        <div class="flex items-center flex-shrink-0">
-                            <a href="{{ route('home') }}">
-                                <x-jet-application-mark class="block w-auto h-9" />
-                            </a>
-                        </div>
+        <!-- component -->
+        <div class="bg-blue-500">
+            <nav class="relative flex items-center justify-between px-4 py-4 bg-white">
+                <a class="ml-4 leading-none" href="{{ route('home') }}">
+                    <x-jet-application-mark class="block w-auto h-9" />
+                </a>
+                <div class="lg:hidden">
+                    <button class="flex items-center p-3 text-blue-600 navbar-burger">
+                        <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <title>Mobile menu</title>
+                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul
+                    class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+                    <li>
+                        <a class="text-gray-400 lg:text-lg hover:text-gray-500 {{ request()->routeIs('home') ? 'font-semibold text-blue-500' : '' }}"
+                        href="{{ route('home') }}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                            class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </li>
+                    <li><a class="text-gray-600 hover:text-gray-500 lg:text-lg {{ request()->routeIs('investments') ? 'font-semibold text-blue-500' : '' }}"
+                         href="{{ route('investments') }}">
+                            Investments
+                        </a>
+                    </li>
+                    <li class="text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                            class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a class="text-gray-600 hover:text-gray-500 lg:text-lg {{ request()->routeIs('blog.allPosts') ? 'font-semibold text-blue-500' : '' }}"
+                         href="{{ route('blog.allPosts') }}">
+                            Blog
+                        </a>
+                    </li>
+                    <li class="text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                            class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a class="lg:text-lg text-gray-600 hover:text-gray-500 {{ request()->routeIs('learn') ? 'font-semibold text-blue-500' : '' }}"
+                         href="{{route('learn')}}">
+                            Learn
+                        </a>
+                    </li>
+                    <li class="text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                            class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </li>
+                    <li><a class=" lg:text-lg text-gray-600 hover:text-gray-500 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
+                         href="{{ route('contact') }}">
+                        Contact
+                    </a>
+                </li>
+                </ul>
+                <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-gray-500 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600 rounded-xl"
+                    href="{{route('login')}}">Sign In</a>
+                <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
+                    href="{{route('register')}}">Sign up</a>
+            </nav>
+            <div class="relative z-50 hidden navbar-menu">
+                <div class="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop"></div>
+                <nav
+                    class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm px-6 py-6 overflow-y-auto bg-white border-r">
+                    <div class="flex items-center mb-8">
+                        <a class="mr-auto text-3xl leading-none" href="{{ route('home') }}">
+                            <div class="ml-2">
+                                <span class="block text-2xl tracking-tighter">Mr Kuku</span>
+                                <span class="block pt-1 text-sm text-gray-500">Your success is our legacy</span>
 
-                        <!-- Navigation Links -->
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-24 sm:flex">
-                            <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                                {{ __('Home') }}
-                            </x-jet-nav-link>
-
-                            <x-jet-nav-link href="{{ route('investments') }}"
-                                :active="request()->routeIs('investments')">
-                                {{ __('Investments') }}
-                            </x-jet-nav-link>
-
-                            <x-jet-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')">
-                                {{ __('Blog') }}
-                            </x-jet-nav-link>
-
-                            <x-jet-nav-link href="{{ route('learn') }}" :active="request()->routeIs('learn')">
-                                {{ __('Learn') }}
-                            </x-jet-nav-link>
-
-                            <x-jet-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-                                {{ __('Contact') }}
-                            </x-jet-nav-link>
-                        </div>
-                    </div>
-
-                    <div class="hidden sm:flex sm:items-center sm:ml-6">
-
-                        <!-- if user is loged in link to dashboard if not login -->
-                        @if (Auth::check())
-                            <a href={{ 'dashboard' }}
-                                class="px-4 py-2 text-sm text-center text-white bg-blue-500 border rounded-lg hover:bg-blue-400">
-                                Dashboard
-                            </a>
-                        @else
-                            <a href={{ 'login' }}
-                                class="px-6 py-4 text-sm tracking-widest text-center text-white bg-red-500 border rounded-lg hover:bg-red-400">
-                                LOG IN
-                            </a>
-                        @endif
-                    </div>
-
-                    <!-- Hamburger -->
-                    <div class="flex items-center -mr-2 sm:hidden">
-                        <button @click="open = ! open"
-                            class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
-                            <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16" />
-                                <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
-                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12" />
+                            </div>
+                        </a>
+                        <button class="navbar-close">
+                            <svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                         </button>
                     </div>
-                </div>
+                    <div>
+                        <ul>
+                            <li class="mb-1">
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('home') ? 'font-semibold text-blue-500' : '' }}"
+                                    href="{{route('home')}}">Home</a>
+                            </li>
+                            <li class="mb-1">
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('investments') ? 'font-semibold text-blue-500' : '' }}"
+                                    href="{{route('investments')}}">Investments</a>
+                            </li>
+                            <li class="mb-1">
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('blog.allPosts') ? 'font-semibold text-blue-500' : '' }}"
+                                    href="{{route('blog.allPosts')}}">Blog</a>
+                            </li>
+                            <li class="mb-1">
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('learn') ? 'font-semibold text-blue-500' : '' }}"
+                                    href="{{route('learn')}}">Learn</a>
+                            </li>
+                            <li class="mb-1">
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
+                                    href="{{route('contact')}}">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="pt-6">
+                            <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
+                                href="{{route('login')}}">Sign in</a>
+                            <a class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-blue-600 hover:bg-blue-700 rounded-xl"
+                                href="{{route('register')}}">Sign Up</a>
+                        </div>
+                        <p class="my-4 text-xs text-center text-gray-400">
+                            <span>2021 © Mr Kuku Farmers Ltd</span>
+                        </p>
+                    </div>
+                </nav>
             </div>
-
-            <!-- Responsive Navigation Menu -->
-            <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-                <div class="pt-2 pb-3 space-y-1">
-                    <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
-                    </x-jet-responsive-nav-link>
-
-                    <x-jet-responsive-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')">
-                        {{ __('Blog') }}
-                    </x-jet-responsive-nav-link>
-
-                    <x-jet-responsive-nav-link href="{{ route('learn') }}" :active="request()->routeIs('learn')">
-                        {{ __('Learn') }}
-                    </x-jet-responsive-nav-link>
-
-                    <x-jet-responsive-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-                        {{ __('Contact') }}
-                    </x-jet-responsive-nav-link>
-                </div>
-
-                <!-- Responsive Settings Options -->
-                <!-- if user is loged in link to dashboard if not login -->
-                <div class="block mb-4">
-                    @if (Auth::check())
-                        <a href={{ 'dashboard' }}
-                            class="px-3 py-2 mb-2 ml-2 text-center text-white bg-blue-400 border rounded-md">
-                            Dashboard
-                        </a>
-                    @else
-                        <a href={{ 'login' }}
-                            class="px-3 py-2 mb-2 ml-2 text-center text-white bg-red-400 border rounded-md">
-                            LOG IN
-                        </a>
-                    @endif
-                </div>
-            </div>
-        </nav>
+        </div>
         <!-- Page Content -->
         <main>
             @yield('content')
         </main>
-
 
         <div class="pt-8 footer" style="  clear: both;
     position: relative;
@@ -147,12 +176,14 @@
                     </a>
                 </div>
                 <div class="px-6 py-2">
-                    <a href="{{ route('investments') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                    <a href="{{ route('investments') }}"
+                        class="text-base leading-6 text-gray-500 hover:text-gray-900">
                         Investments
                     </a>
                 </div>
                 <div class="px-6 py-2">
-                    <a href="{{ route('blog.index') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                    <a href="{{ route('blog.allPosts') }}"
+                        class="text-base leading-6 text-gray-500 hover:text-gray-900">
                         Blog
                     </a>
                 </div>
@@ -206,7 +237,49 @@
             </div>
 
         </div>
-       @yield('scripts')
+        <script>
+            // Burger menus
+            document.addEventListener('DOMContentLoaded', function() {
+                // open
+                const burger = document.querySelectorAll('.navbar-burger');
+                const menu = document.querySelectorAll('.navbar-menu');
+
+                if (burger.length && menu.length) {
+                    for (var i = 0; i < burger.length; i++) {
+                        burger[i].addEventListener('click', function() {
+                            for (var j = 0; j < menu.length; j++) {
+                                menu[j].classList.toggle('hidden');
+                            }
+                        });
+                    }
+                }
+
+                // close
+                const close = document.querySelectorAll('.navbar-close');
+                const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+                if (close.length) {
+                    for (var i = 0; i < close.length; i++) {
+                        close[i].addEventListener('click', function() {
+                            for (var j = 0; j < menu.length; j++) {
+                                menu[j].classList.toggle('hidden');
+                            }
+                        });
+                    }
+                }
+
+                if (backdrop.length) {
+                    for (var i = 0; i < backdrop.length; i++) {
+                        backdrop[i].addEventListener('click', function() {
+                            for (var j = 0; j < menu.length; j++) {
+                                menu[j].classList.toggle('hidden');
+                            }
+                        });
+                    }
+                }
+            });
+        </script>
+        @yield('scripts')
 
 </body>
 
