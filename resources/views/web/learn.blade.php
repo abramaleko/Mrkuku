@@ -88,7 +88,7 @@
                             <p
                                 class="pt-2 text-sm text-gray-800 bg-gray-100 rounded-b-lg md:pt-3 lg:pt-5 md:text-base xl:text-lg">
                                 The minimum amount to invest is Tshs 500,000. You can revise our investment packages
-                                <a href="{{ route('investments') }}" target="_blank"
+                                <a href="{{ route('investments','#invest-packages') }}" target="_blank"
                                  class="text-blue-500 underline">
                                     here
                                 </a>
