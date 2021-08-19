@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44fb01301107fd51fa3ffa3ef03db6e1",
+    "content-hash": "40445b3ec2169eb84d0a9288ea1d6503",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -217,58 +217,6 @@
                 "source": "https://github.com/DASPRiD/Enum/tree/1.0.3"
             },
             "time": "2020-10-02T16:03:48+00:00"
-        },
-        {
-            "name": "dereuromark/media-embed",
-            "version": "0.3.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dereuromark/media-embed.git",
-                "reference": "a2be85ad4fc1e17328f8a53fe13a3808301adf80"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dereuromark/media-embed/zipball/a2be85ad4fc1e17328f8a53fe13a3808301adf80",
-                "reference": "a2be85ad4fc1e17328f8a53fe13a3808301adf80",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "fig-r/psr2r-sniffer": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mark Scherer",
-                    "homepage": "http://www.dereuromark.de",
-                    "role": "Author"
-                }
-            ],
-            "description": "A PHP library to deal with all those media services around, parsing their URLs and embedding their audio/video content in websites.",
-            "keywords": [
-                "audio",
-                "embed",
-                "iframe",
-                "media",
-                "php",
-                "video"
-            ],
-            "support": {
-                "issues": "https://github.com/dereuromark/media-embed/issues",
-                "source": "https://github.com/dereuromark/media-embed/tree/0.3.4"
-            },
-            "time": "2018-03-06T23:30:13+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2069,51 +2017,6 @@
             "time": "2021-07-13T05:03:28+00:00"
         },
         {
-            "name": "merujan99/laravel-video-embed",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Merujan99/laravel-video-embed.git",
-                "reference": "8cf08c585c8b9560960e80d8d3ce3c0d6640f554"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Merujan99/laravel-video-embed/zipball/8cf08c585c8b9560960e80d8d3ce3c0d6640f554",
-                "reference": "8cf08c585c8b9560960e80d8d3ce3c0d6640f554",
-                "shasum": ""
-            },
-            "require": {
-                "dereuromark/media-embed": "^0.3.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Merujan99\\LaravelVideoEmbed\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Meruzhan Hovhannisyan",
-                    "email": "merujan99@gmail.com"
-                }
-            ],
-            "description": "Laravel Package for dereuromark/MediaEmbed With Thumbnail",
-            "keywords": [
-                "laravel",
-                "package development"
-            ],
-            "support": {
-                "issues": "https://github.com/Merujan99/laravel-video-embed/issues",
-                "source": "https://github.com/Merujan99/laravel-video-embed/tree/master"
-            },
-            "time": "2020-08-26T12:35:46+00:00"
-        },
-        {
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.37",
             "source": {
@@ -3467,6 +3370,84 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "spatie/laravel-permission",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "78eaa5e06c313a9f3672a7571b4d83b913721b72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/78eaa5e06c313a9f3672a7571b4d83b913721b72",
+                "reference": "78eaa5e06c313a9f3672a7571b4d83b913721b72",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^6.0|^7.0|^8.0",
+                "illuminate/container": "^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "predis/predis": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 6.0 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "permissions",
+                "rbac",
+                "roles",
+                "security",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-permission/issues",
+                "source": "https://github.com/spatie/laravel-permission/tree/4.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-08-17T18:37:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8489,9 +8470,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "merujan99/laravel-video-embed": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-     {{$styles}}
+     {{$styles ?? ''}}
 
     @livewireStyles
 
@@ -305,6 +305,34 @@
                                     Out
                                 </a>
                             </form>
+                            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                              <!-- Team Management -->
+                              <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Manage Team') }}
+                            </div>
+                            <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                                    {{ __('Team Settings') }}
+                             </a>
+                              <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Team Settings') }}
+                            </div>
+                            @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                            <a href="{{ route('teams.create') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                                    {{ __('Create New Team') }}
+                             </a>
+                             <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Switch Teams') }}
+                            </div>
+                            @foreach (Auth::user()->allTeams() as $team)
+                            <x-jet-switchable-team :team="$team" />
+                           @endforeach
+                            @endcan
+
+                            @endif
+
+
                         </div>
                     </div>
                 </div>
