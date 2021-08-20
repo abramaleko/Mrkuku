@@ -429,14 +429,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- * 
+ *
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- * 
+ *
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 img,
@@ -1040,6 +1040,9 @@ select{
 .col-span-6{
 	grid-column: span 6 / span 6;
 }
+.m-4{
+	margin: 1rem;
+}
 .mx-auto{
 	margin-left: auto;
 	margin-right: auto;
@@ -1051,6 +1054,10 @@ select{
 .my-8{
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+}
+.mx-3{
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
 }
 .mx-4{
 	margin-left: 1rem;
@@ -1075,6 +1082,18 @@ select{
 .mx-8{
 	margin-left: 2rem;
 	margin-right: 2rem;
+}
+.mx-10{
+	margin-left: 2.5rem;
+	margin-right: 2.5rem;
+}
+.my-12{
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+.my-16{
+	margin-top: 4rem;
+	margin-bottom: 4rem;
 }
 .-mx-6{
 	margin-left: -1.5rem;
@@ -1112,21 +1131,21 @@ select{
 	margin-left: -1rem;
 	margin-right: -1rem;
 }
-.my-1{
-	margin-top: 0.25rem;
-	margin-bottom: 0.25rem;
+.mx-2{
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 .mx-10{
 	margin-left: 2.5rem;
 	margin-right: 2.5rem;
 }
-.my-12{
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+.my-1{
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
 }
-.my-16{
-	margin-top: 4rem;
-	margin-bottom: 4rem;
+.my-7{
+	margin-top: 1.75rem;
+	margin-bottom: 1.75rem;
 }
 .ml-3{
 	margin-left: 0.75rem;
@@ -1235,6 +1254,15 @@ select{
 }
 .ml-10{
 	margin-left: 2.5rem;
+}
+.mt-20{
+	margin-top: 5rem;
+}
+.mb-12{
+	margin-bottom: 3rem;
+}
+.mr-4{
+	margin-right: 1rem;
 }
 .block{
 	display: block;
@@ -1347,6 +1375,12 @@ select{
 .w-5\/6{
 	width: 83.333333%;
 }
+.w-11\/12{
+	width: 91.666667%;
+}
+.w-5\/6{
+	width: 83.333333%;
+}
 .w-64{
 	width: 16rem;
 }
@@ -1385,6 +1419,9 @@ select{
 }
 .max-w-md{
 	max-width: 28rem;
+}
+.max-w-4xl{
+	max-width: 56rem;
 }
 .max-w-6xl{
 	max-width: 72rem;
@@ -1506,6 +1543,9 @@ select{
 }
 .gap-20{
 	gap: 5rem;
+}
+.gap-3{
+	gap: 0.75rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-x-reverse: 0;
@@ -1649,6 +1689,10 @@ select{
 .border-indigo-600{
 	--tw-border-opacity: 1;
 	border-color: rgba(79, 70, 229, var(--tw-border-opacity));
+}
+.border-gray-500{
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
 }
 .bg-white{
 	--tw-bg-opacity: 1;
@@ -1889,8 +1933,8 @@ select{
 .pb-6{
 	padding-bottom: 1.5rem;
 }
-.pl-12{
-	padding-left: 3rem;
+.pl-4{
+	padding-left: 1rem;
 }
 .pt-8{
 	padding-top: 2rem;
@@ -1910,11 +1954,8 @@ select{
 .pl-10{
 	padding-left: 2.5rem;
 }
-.pt-16{
-	padding-top: 4rem;
-}
-.pl-4{
-	padding-left: 1rem;
+.pr-1{
+	padding-right: 0.25rem;
 }
 .text-left{
 	text-align: left;
@@ -1961,13 +2002,13 @@ select{
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
-.text-4xl{
-	font-size: 2.25rem;
-	line-height: 2.5rem;
-}
 .text-3xl{
 	font-size: 1.875rem;
 	line-height: 2.25rem;
+}
+.text-4xl{
+	font-size: 2.25rem;
+	line-height: 2.5rem;
 }
 .font-medium{
 	font-weight: 500;
@@ -1990,6 +2031,9 @@ select{
 .uppercase{
 	text-transform: uppercase;
 }
+.capitalize{
+	text-transform: capitalize;
+}
 .italic{
 	font-style: italic;
 }
@@ -2004,9 +2048,6 @@ select{
 }
 .leading-4{
 	line-height: 1rem;
-}
-.leading-snug{
-	line-height: 1.375;
 }
 .leading-none{
 	line-height: 1;
@@ -2029,9 +2070,6 @@ select{
 .tracking-wide{
 	letter-spacing: 0.025em;
 }
-.tracking-wider{
-	letter-spacing: 0.05em;
-}
 .tracking-tighter{
 	letter-spacing: -0.05em;
 }
@@ -2040,6 +2078,12 @@ select{
 }
 .tracking-normal{
 	letter-spacing: 0em;
+}
+.tracking-wider{
+	letter-spacing: 0.05em;
+}
+.tracking-tight{
+	letter-spacing: -0.025em;
 }
 .text-gray-500{
 	--tw-text-opacity: 1;
@@ -2369,6 +2413,14 @@ select{
 .hover\:text-gray-600:hover{
 	--tw-text-opacity: 1;
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.hover\:text-black:hover{
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+.hover\:text-gray-100:hover{
+	--tw-text-opacity: 1;
+	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 .hover\:text-blue-500:hover{
 	--tw-text-opacity: 1;
@@ -2852,14 +2904,20 @@ select{
 		margin-left: 0px;
 		margin-right: 0px;
 	}
+	.lg\:mt-0{
+		margin-top: 0px;
+	}
 	.lg\:ml-auto{
 		margin-left: auto;
 	}
 	.lg\:mr-3{
 		margin-right: 0.75rem;
 	}
-	.lg\:mt-0{
-		margin-top: 0px;
+	.lg\:mb-0{
+		margin-bottom: 0px;
+	}
+	.lg\:mt-8{
+		margin-top: 2rem;
 	}
 	.lg\:block{
 		display: block;
@@ -2909,6 +2967,10 @@ select{
 		padding-left: 10rem;
 		padding-right: 10rem;
 	}
+	.lg\:py-24{
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
 	.lg\:px-6{
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
@@ -2917,9 +2979,9 @@ select{
 		padding-top: 0.75rem;
 		padding-bottom: 0.75rem;
 	}
-	.lg\:py-24{
-		padding-top: 6rem;
-		padding-bottom: 6rem;
+	.lg\:px-10{
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
 	}
 	.lg\:pl-16{
 		padding-left: 4rem;
@@ -2940,6 +3002,14 @@ select{
 	.lg\:text-4xl{
 		font-size: 2.25rem;
 		line-height: 2.5rem;
+	}
+	.lg\:text-xl{
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+	.lg\:text-3xl{
+		font-size: 1.875rem;
+		line-height: 2.25rem;
 	}
 	.lg\:tracking-widest{
 		letter-spacing: 0.1em;
