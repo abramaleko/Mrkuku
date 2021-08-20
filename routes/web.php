@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\App\Admin\RolePermission;
+use App\Http\Livewire\App\Admin\Roles;
+use App\Http\Livewire\App\Admin\Permissions;
 use App\Http\Livewire\App\Blog\Create;
 use App\Http\Livewire\App\Blog\Dashboard;
 use Illuminate\Support\Facades\Route;
@@ -65,9 +68,22 @@ Route::prefix('blog')->name('blog.')->group(function(){
     Route::get('/create',Create::class )
     ->middleware('auth')
     ->name('create');
-
 });
 
+//admin routes
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/roles',Roles::class)
+    ->middleware('auth')
+    ->name('roles');
+
+    Route::get('/permissions',Permissions::class)
+    ->middleware('auth')
+    ->name('permissions');
+
+    Route::get('/role/{id}/permission',RolePermission::class)
+    ->middleware('auth')
+    ->name('role.permission');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

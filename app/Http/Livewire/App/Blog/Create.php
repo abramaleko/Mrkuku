@@ -6,6 +6,9 @@ use App\Models\Blog;
 use App\Models\blogCategories;
 use Livewire\Component;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class Create extends Component
 {
     public $categories;
@@ -26,7 +29,6 @@ class Create extends Component
 
     public function savePost()
     {
-        dd($this->content);
        $this->validate();
 
        Blog::create([
@@ -44,6 +46,10 @@ class Create extends Component
 
     public function render()
     {
+        //if user does not have the permissions
+        if (! auth()->user()->can('manage blog')) {
+            abort(403, 'Unauthorized.');
+        }
         return view('livewire.app.blog.create');
     }
 }

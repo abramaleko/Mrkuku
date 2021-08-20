@@ -12,6 +12,11 @@ class Dashboard extends Component
 
     public function render()
     {
+        //if user does not have the permissions
+        if (! auth()->user()->can('manage blog')) {
+            abort(403, 'Unauthorized.');
+        }
+        
         return view('livewire.app.blog.dashboard',[
             'posts'=>Blog::paginate(10)
         ]);
