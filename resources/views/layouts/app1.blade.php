@@ -96,10 +96,16 @@
                     </a>
                 </li>
                 </ul>
+                @guest
                 <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-gray-500 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600 rounded-xl"
-                    href="{{route('login')}}">Sign In</a>
-                <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
-                    href="{{route('register')}}">Sign up</a>
+                href="{{route('login')}}">Sign In</a>
+            <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
+                href="{{route('register')}}">Sign up</a>
+                @endguest
+                @auth
+                <a class="hidden py-3 text-sm font-bold tracking-wider text-white transition duration-200 bg-gray-500 rounded px-7 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600"
+                href="{{route('dashboard')}}">Dashboard</a>
+                @endauth
             </nav>
             <div class="relative z-50 hidden navbar-menu">
                 <div class="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop"></div>
@@ -147,12 +153,19 @@
                         </ul>
                     </div>
                     <div class="mt-auto">
+                        @guest
                         <div class="pt-6">
                             <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
                                 href="{{route('login')}}">Sign in</a>
                             <a class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-blue-600 hover:bg-blue-700 rounded-xl"
                                 href="{{route('register')}}">Sign Up</a>
                         </div>
+                        @endguest
+                        @auth
+                        <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
+                        href="{{route('dashboard')}}">Dashboard</a>
+                        @endauth
+
                         <p class="my-4 text-xs text-center text-gray-400">
                             <span>2021 © Mr Kuku Farmers Ltd</span>
                         </p>
