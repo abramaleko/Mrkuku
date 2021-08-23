@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +26,36 @@ class HomeController extends Controller
 
     public function contact(){
         return view('web.contact');
+    }
+
+    public function uploadContactMessage(Request $request)
+    {
+
+         $request->validate([
+             'name' =>'required|string',
+             'email'=> 'required|email',
+             'phone_no'=> 'required|numeric',
+             'context' => 'required|string|max:500',
+             "_token" => 'required',
+         ]);
+
+         $message=new Contact();
+         $message->name=$request->name;
+         $message->email=$request->email;
+         $message->phone_no=$request->phone_no;
+         $message->context=$request->context;
+         //if user is loged in
+         if (Auth::check()) {
+            $message->user_type='Investor';
+         }
+
+         $message->save();
+
+         $request->session()->flash('success', 'Thanks for reaching out to us, our team  will contact you shortly');
+
+         return back();
+
+
     }
 
 }
