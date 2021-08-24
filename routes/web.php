@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\App\Admin\Contacts;
 use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
 use App\Http\Livewire\App\Admin\Permissions;
@@ -34,6 +35,9 @@ Route::get('/learn',[HomeController::class,'learn'])
 
 Route::get('/contact',[HomeController::class,'contact'])
 ->name('contact');
+
+Route::post('/contact',[HomeController::class,'uploadContactMessage'])
+->name('uploadContactMessage');
 
 //Investments packages links
 Route::name('investments.')->group(function(){
@@ -83,6 +87,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/role/{id}/permission',RolePermission::class)
     ->middleware('auth')
     ->name('role.permission');
+
+    Route::get('/contacts',Contacts::class)
+    ->middleware('auth')
+    ->name('contacts');
+
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
