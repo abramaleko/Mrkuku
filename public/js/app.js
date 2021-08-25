@@ -22198,6 +22198,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/home.scss":
 /*!**********************************!*\
   !*** ./resources/sass/home.scss ***!
@@ -22237,10 +22250,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/blog/create.scss":
-/*!*****************************************!*\
-  !*** ./resources/sass/blog/create.scss ***!
-  \*****************************************/
+/***/ "./resources/sass/users.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/users.scss ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22250,10 +22263,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./resources/sass/blog/create.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/blog/create.scss ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22582,6 +22595,7 @@ process.umask = function() { return 0; };
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
 /******/ 			"css/blog/create": 0,
+/******/ 			"css/users": 0,
 /******/ 			"css/contact": 0,
 /******/ 			"css/investments": 0,
 /******/ 			"css/home": 0
@@ -22632,12 +22646,13 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/home.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/investments.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/contact.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/blog/create.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/blog/create","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/home.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/investments.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/contact.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/users.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/sass/blog/create.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/blog/create","css/users","css/contact","css/investments","css/home"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

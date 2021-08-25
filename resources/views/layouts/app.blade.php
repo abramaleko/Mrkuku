@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    {{-- styles section --}}
      {{$styles ?? ''}}
 
     @livewireStyles
@@ -186,6 +187,13 @@
                     <span class="mx-3">Contacts</span>
                 </a>
                 @endcan
+                @can('manage users')
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.contacts') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    href="{{route('admin.users')}}">
+                    <img src="{{asset('images/social-icons/management.png')}}" alt="dashboard" class="w-6 h-6">
+                    <span class="mx-3">Users</span>
+                </a>
+                @endcan
                 <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('profile.show') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                     href="{{ route('profile.show') }}">
                   <img src="{{asset('images/social-icons/settings.png')}}" class="w-6 h-6" alt="settings">
@@ -308,6 +316,12 @@
                                 {{ __('Manage Permissions') }}
                             </a>
                             @endcan
+                            @can('manage users')
+                            <a href="{{route('admin.users')}}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                            {{ __('Manage Users') }}
+                        </a>
+                            @endcan
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
@@ -342,6 +356,8 @@
     @stack('modals')
 
     @livewireScripts
+    {{ $scripts ?? ''}}
+
 </body>
 
 </html>

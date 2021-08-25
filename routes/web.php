@@ -6,6 +6,8 @@ use App\Http\Livewire\App\Admin\Contacts;
 use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
 use App\Http\Livewire\App\Admin\Permissions;
+use App\Http\Livewire\App\Admin\UserDetails;
+use App\Http\Livewire\App\Admin\Users;
 use App\Http\Livewire\App\Blog\Create;
 use App\Http\Livewire\App\Blog\Dashboard;
 use Illuminate\Support\Facades\Route;
@@ -92,6 +94,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
     ->middleware('auth')
     ->name('contacts');
 
+    Route::get('/users',Users::class)
+    ->middleware('auth')
+    ->name('users');
+
+    Route::get('/user/details/{id}',UserDetails::class)
+    ->middleware('auth')
+    ->name('user.details');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
