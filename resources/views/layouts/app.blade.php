@@ -188,7 +188,7 @@
                 </a>
                 @endcan
                 @can('manage users')
-                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.contacts') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.users') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                     href="{{route('admin.users')}}">
                     <img src="{{asset('images/social-icons/management.png')}}" alt="dashboard" class="w-6 h-6">
                     <span class="mx-3">Users</span>
