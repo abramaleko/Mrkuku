@@ -4,16 +4,13 @@
 </x-slot>
 
 <div class="py-8">
-    <div class="sm:px-6 lg:px-8 lg:pb-8">
-        <div class="flex flex-wrap mx-8 lg:block">
-            <h1 class="pl-6 text-lg font-bold text-gray-700 lg:float-left lg:text-4xl">Manage Roles</h1>
+        <div class="mx-8 lg:pb-8">
+            <h1 class="pb-8 text-xl font-bold text-gray-700 lg:pb-0 lg:pl-6 lg:float-left lg:text-4xl">Manage Roles</h1>
             <a wire:click="openModal"
                 class="px-8 py-3 mr-8 font-light tracking-wide text-white bg-gray-800 cursor-pointer lg:float-right hover:bg-gray-600">
                 Add Role
             </a>
         </div>
-    </div>
-
     <div class="flex flex-col mt-10">
         <div class="overflow-x-auto">
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">

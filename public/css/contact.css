@@ -10,3 +10,13 @@
 .call .number {
   font-family: "Raleway", sans-serif;
 }
+
+@media only screen and (max-width: 600px) {
+  .contact-form input {
+    width: 15rem;
+  }
+
+  textarea {
+    width: 20rem !important;
+  }
+}

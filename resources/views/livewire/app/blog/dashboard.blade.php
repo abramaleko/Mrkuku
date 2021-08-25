@@ -4,10 +4,10 @@
 
 <div class="py-8">
     <div class="sm:px-6 lg:px-8 lg:pb-8">
-        <div class="flex flex-wrap mx-8 lg:block">
-            <h1 class="pl-6 text-lg font-bold text-gray-700 lg:float-left lg:text-4xl">Blog posts</h1>
+        <div class="mx-8 ">
+            <h1 class="py-8 text-2xl font-bold text-gray-700 lg:pl-6 lg:float-left lg:text-4xl lg:py-0">Blog posts</h1>
             <a href="{{route('blog.create')}}"
-                class="px-8 py-3 mr-8 font-light tracking-wide text-white bg-gray-800 lg:float-right hover:bg-gray-600">
+                class="px-4 py-2 font-light tracking-wide text-white bg-gray-800 r-8 lg:py-3 lg:px-8 lg:float-right hover:bg-gray-600">
                 New Post
             </a>
         </div>

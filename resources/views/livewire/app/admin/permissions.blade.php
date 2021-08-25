@@ -7,7 +7,7 @@
    <div class="py-8">
        <div class="sm:px-6 lg:px-8 lg:pb-8">
            <div class="flex flex-wrap mx-8 lg:block">
-               <h1 class="pl-6 text-lg font-bold text-gray-700 lg:float-left lg:text-4xl">Manage Permissions</h1>
+               <h1 class="pb-8 text-xl font-bold text-gray-700 lg:float-left lg:text-4xl">Manage Permissions</h1>
                <a wire:click="openModal"
                    class="px-8 py-3 mr-8 font-light tracking-wide text-white bg-gray-800 cursor-pointer lg:float-right hover:bg-gray-600">
                    Add Permission
