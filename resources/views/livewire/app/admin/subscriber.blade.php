@@ -11,7 +11,7 @@
      {{-- Success is as dangerous as failure. --}}
      <div id='recipients' class="p-8 mt-6 bg-white rounded shadow lg:mt-0">
 
-         <h2 class="my-4 text-3xl text-gray-700 lg:my-8">Users</h2>
+         <h2 class="my-4 text-3xl text-gray-700 lg:my-8">Subscribers</h2>
          <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
              <thead>
                  <tr>
