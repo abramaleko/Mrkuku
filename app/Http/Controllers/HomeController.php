@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,7 +56,23 @@ class HomeController extends Controller
 
          return back();
 
+    }
 
+    public function saveSubscriber(Request $request)
+    {
+        if ($request->ajax()) {
+            //validate the request
+           $request->validate([
+               'email' => ['required','unique:subscribers,email,']
+           ]);
+
+           //save into database
+           Subscriber::create([
+               'email' => $request->email
+           ]);
+
+           return true;
+        }
     }
 
 }

@@ -6,6 +6,7 @@ use App\Http\Livewire\App\Admin\Contacts;
 use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
 use App\Http\Livewire\App\Admin\Permissions;
+use App\Http\Livewire\App\Admin\Subscriber;
 use App\Http\Livewire\App\Admin\UserDetails;
 use App\Http\Livewire\App\Admin\Users;
 use App\Http\Livewire\App\Blog\Create;
@@ -40,6 +41,9 @@ Route::get('/contact',[HomeController::class,'contact'])
 
 Route::post('/contact',[HomeController::class,'uploadContactMessage'])
 ->name('uploadContactMessage');
+
+Route::post('/subscribe',[HomeController::class,'saveSubscriber'])
+->name('saveSubscriber');
 
 //Investments packages links
 Route::name('investments.')->group(function(){
@@ -101,6 +105,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/user/details/{id}',UserDetails::class)
     ->middleware('auth')
     ->name('user.details');
+
+    Route::get('/subscribers',Subscriber::class)
+    ->middleware('auth')
+    ->name('subscribers');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
