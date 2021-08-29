@@ -71,10 +71,13 @@
     </div>
 
     <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
-
+     @include('ckfinder::setup')
     <script>
 DecoupledEditor
     .create( document.querySelector( '.document-editor__editable' ), {
+        ckfinder: {
+            uploadUrl: '{{ route('ckfinder_connector') }}?command=QuickUpload&type=Files'
+        }
 
     } )
     .then( editor => {

@@ -27,90 +27,101 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',[HomeController::class,'home'])
-->name('home');
+Route::get('/', [HomeController::class, 'home'])
+    ->name('home');
 
-Route::get('/investments',[HomeController::class,'investments'])
-->name('investments');
+Route::get('/investments', [HomeController::class, 'investments'])
+    ->name('investments');
 
-Route::get('/learn',[HomeController::class,'learn'])
-->name('learn');
+Route::get('/learn', [HomeController::class, 'learn'])
+    ->name('learn');
 
-Route::get('/contact',[HomeController::class,'contact'])
-->name('contact');
+Route::get('/contact', [HomeController::class, 'contact'])
+    ->name('contact');
 
-Route::post('/contact',[HomeController::class,'uploadContactMessage'])
-->name('uploadContactMessage');
+Route::post('/contact', [HomeController::class, 'uploadContactMessage'])
+    ->name('uploadContactMessage');
 
-Route::post('/subscribe',[HomeController::class,'saveSubscriber'])
-->name('saveSubscriber');
+Route::post('/subscribe', [HomeController::class, 'saveSubscriber'])
+    ->name('saveSubscriber');
 
 //Investments packages links
-Route::name('investments.')->group(function(){
-    Route::get('/investments/gold',function(){
-        return view ('web.gold');
+Route::name('investments.')->group(function () {
+    Route::get('/investments/gold', function () {
+        return view('web.gold');
     })->name('gold');
 
-    Route::get('/investments/diamond',function(){
-        return view ('web.diamond');
+    Route::get('/investments/diamond', function () {
+        return view('web.diamond');
     })->name('diamond');
 
 
-    Route::get('/investments/tanzanite',function(){
-        return view ('web.tanzanite');
+    Route::get('/investments/tanzanite', function () {
+        return view('web.tanzanite');
     })->name('tanzanite');
 });
 
-Route::get('posts./',[BlogController::class,'allPosts'] )
-->name('blog.allPosts');
+Route::get('posts./', [BlogController::class, 'allPosts'])
+    ->name('blog.allPosts');
 
 //blog routes
-Route::prefix('blog')->name('blog.')->group(function(){
+Route::prefix('blog')->name('blog.')->group(function () {
     // Route::get('/posts',[BlogController::class,'allPosts'] )
     // ->name('allPosts');
 
     //dashboard posts
-    Route::get('/dashboard',Dashboard::class )
-    ->middleware('auth')
-    ->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)
+        ->middleware('auth')
+        ->name('dashboard');
 
-   //create&save blog post
-    Route::get('/create',Create::class )
-    ->middleware('auth')
-    ->name('create');
+    //create&save blog post
+    Route::get('/create', Create::class)
+        ->middleware('auth')
+        ->name('create');
 });
 
 //admin routes
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/roles',Roles::class)
-    ->middleware('auth')
-    ->name('roles');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/roles', Roles::class)
+        ->middleware('auth')
+        ->name('roles');
 
-    Route::get('/permissions',Permissions::class)
-    ->middleware('auth')
-    ->name('permissions');
+    Route::get('/permissions', Permissions::class)
+        ->middleware('auth')
+        ->name('permissions');
 
-    Route::get('/role/{id}/permission',RolePermission::class)
-    ->middleware('auth')
-    ->name('role.permission');
+    Route::get('/role/{id}/permission', RolePermission::class)
+        ->middleware('auth')
+        ->name('role.permission');
 
-    Route::get('/contacts',Contacts::class)
-    ->middleware('auth')
-    ->name('contacts');
+    Route::get('/contacts', Contacts::class)
+        ->middleware('auth')
+        ->name('contacts');
 
-    Route::get('/users',Users::class)
-    ->middleware('auth')
-    ->name('users');
+    Route::get('/users', Users::class)
+        ->middleware('auth')
+        ->name('users');
 
-    Route::get('/user/details/{id}',UserDetails::class)
-    ->middleware('auth')
-    ->name('user.details');
+    Route::get('/user/details/{id}', UserDetails::class)
+        ->middleware('auth')
+        ->name('user.details');
 
-    Route::get('/subscribers',Subscriber::class)
-    ->middleware('auth')
-    ->name('subscribers');
+    Route::get('/subscribers', Subscriber::class)
+        ->middleware('auth')
+        ->name('subscribers');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//ckfinder routes
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    // ->middleware('auth')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    // ->middleware('auth')
+    ->name('ckfinder_browser');
+
