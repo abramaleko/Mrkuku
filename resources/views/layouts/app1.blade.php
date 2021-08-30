@@ -14,10 +14,10 @@
     @yield('styles')
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -31,7 +31,7 @@
                 </a>
                 <div class="lg:hidden">
                     <button class="flex items-center p-3 text-blue-600 navbar-burger">
-                        <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
                             <title>Mobile menu</title>
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                        <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                        <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -71,7 +71,7 @@
                         </a>
                     </li>
                     <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                        <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -84,7 +84,7 @@
                         </a>
                     </li>
                     <li class="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                        <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -121,7 +121,7 @@
                         </a>
                         <button class="navbar-close">
                             <svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12"></path>
