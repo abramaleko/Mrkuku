@@ -61,8 +61,10 @@ Route::name('investments.')->group(function () {
     })->name('tanzanite');
 });
 
-Route::get('posts./', [BlogController::class, 'allPosts'])
+Route::get('posts', [BlogController::class, 'allPosts'])
     ->name('blog.allPosts');
+Route::get('post/{id}', [BlogController::class, 'viewPosts'])
+        ->name('blog.viewPost');
 
 //blog routes
 Route::prefix('blog')->name('blog.')->group(function () {
@@ -117,11 +119,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 //ckfinder routes
-Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
-    // ->middleware('auth')
-    ->name('ckfinder_connector');
+// Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+//     // ->middleware('auth')
+//     ->name('ckfinder_connector');
 
-Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
-    // ->middleware('auth')
-    ->name('ckfinder_browser');
+// Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+//     // ->middleware('auth')
+//     ->name('ckfinder_browser');
 

@@ -16,7 +16,7 @@ class Blog extends Model
      *
      * @var array
      */
-    protected $fillable = ['title','content','category_id','status'];
+    protected $fillable = ['title','content','category_id','status','image_path'];
 
     public function category()
     {

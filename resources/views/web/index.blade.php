@@ -48,13 +48,13 @@
                 WHY INVEST WITH US ?
             </h2>
             <ol class="px-3 py-6 text-gray-500 list-disc md:px-0">
-                <li class="py-2 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                <li class="py-2 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                <li class="py-2 text-base">Proin vitae nibh id mauris sagittis convallis.</li>
-                <li class="py-2 text-base">Etiam tincidunt dolor euismod velit sagittis, tincidunt vestibulum risus feugiat.
+                <li class="py-2 text-base">Reliable income stream, grow your capital * 10 each month.</li>
+                <li class="py-2 text-base">Invest in Vetted Projects from Industry Experts </li>
+                <li class="py-2 text-base">Get connected to the Agri-business.</li>
+                {{-- <li class="py-2 text-base">Etiam tincidunt dolor euismod velit sagittis, tincidunt vestibulum risus feugiat.
                 </li>
                 <li class="py-2 text-base">Maecenas lobortis orci a mauris vulputate, id auctor tellus lobortis.</li>
-                <li class="py-2 text-base">Quisque ultricies leo id elit venenatis dapibus.</li>
+                <li class="py-2 text-base">Quisque ultricies leo id elit venenatis dapibus.</li> --}}
             </ol>
             <div class="flex justify-center pt-3">
                 <a href="{{ route('learn') }}"
@@ -170,7 +170,7 @@
                             You will be the first to know about our seminars ,new projects and giveaways.So stay tuned
                         </p>
                         <div class="flex justify-center mt-12">
-                            <a href="{{ route('register') }}"
+                            <a href="{{ route('blog.allPosts') }}"
                             class="px-12 py-4 font-light tracking-widest text-white bg-blue-400 border shadow-lg hover:bg-blue-300">
                             VISIT OUR BLOG
                         </a>
