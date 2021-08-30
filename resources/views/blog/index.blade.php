@@ -26,7 +26,7 @@
                                     <a href="#"
                                         class="hidden px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500 lg:block">{{ $post->category->category }}
                                     </a>
-                                </div>e
+                                </div>
                                 <div class="mt-2"><a href="{{route('blog.viewPost',$post->id)}}" class="text-2xl font-bold text-gray-700 hover:underline">
                                         {{ $post->title }}
                                     </a>
