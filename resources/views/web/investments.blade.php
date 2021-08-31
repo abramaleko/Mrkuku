@@ -270,94 +270,149 @@
     </section>
 
     <div class="mx-6 my-3 lg:mx-10 how-to-invest " id="how-to-invest">
-        <h2 class="mt-24 font-bold tracking-wide lg:tracking-widest header-text">HOW DO I START INVESTING ?</h2>
+        <h2 class="mt-24 font-bold tracking-wide lg:tracking-wide header-text">HOW DO I START INVESTING ?</h2>
         <p class="mt-5 text-gray-500 lea4ding-relaxed header-text2 font-extralight">
-            To start investing in Mr Kuku projects please kindly visit any of our branches which we will help you to get
-            more informations and procedures to join our projects.
+            To start investing in Mr Kuku projects please kindly visit any of our branches in which we will help you
+            to get started in only this few steps.
         </p>
-        <ol class="mx-4 ml-5 list-decimal list-outside">
+        <section class="text-gray-600 body-font">
+            <div class="container flex flex-wrap py-16">
+              <div class="relative flex pt-10 pb-20 mx-auto sm:items-center md:w-2/3">
+                <div class="absolute inset-0 flex items-center justify-center w-6 h-full">
+                  <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                </div>
+                <div class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mt-10 text-sm font-medium text-white bg-indigo-500 rounded-full sm:mt-0 title-font">1</div>
+                <div class="flex flex-col items-start flex-grow pl-6 md:pl-8 sm:items-center sm:flex-row">
+                  <div class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 text-indigo-500 bg-indigo-100 rounded-full">
+                    <img src="{{asset('images/user.png')}}" alt="user" class="w-12 h-12">
+                  </div>
+                  <div class="flex-grow mt-6 sm:pl-6 sm:mt-0">
+                    <h2 class="mb-1 text-xl font-medium text-gray-900 title-font">Personal Information</h2>
+                    <p class="leading-relaxed">
+                        We will require some personal information such as your full name,contact details such as email,phone
+                        number (what'sapp number preferable)
+                        also your current physical residence
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex pb-20 mx-auto sm:items-center md:w-2/3">
+                <div class="absolute inset-0 flex items-center justify-center w-6 h-full">
+                  <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                </div>
+                <div class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mt-10 text-sm font-medium text-white bg-indigo-500 rounded-full sm:mt-0 title-font">2</div>
+                <div class="flex flex-col items-start flex-grow pl-6 md:pl-8 sm:items-center sm:flex-row">
+                  <div class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 text-indigo-500 bg-indigo-100 rounded-full">
+                    <img src="{{asset('images/amount.png')}}" alt="user" class="w-12 h-12">
+                  </div>
+                  <div class="flex-grow mt-6 sm:pl-6 sm:mt-0">
+                    <h2 class="mb-1 text-xl font-medium text-gray-900 title-font">Amount to invest</h2>
+                    <p class="leading-relaxed">
+                        We will need to know the amount of capital which you want to invest or the number of chicks which
+                        will be reared in our poultry farms.Each chick costs a sum of Tshs 5,000 untill it's fully grown and
+                        ready to be sold, to see the breakdown cost for rearing each chick.
+                        <div x-data="{show:false}">
+                            <a @click="show = ! show " x-text=" show ? 'Hide' : 'Show'" class="pt-2 text-green-400 cursor-pointer hover:underline" ></a>
+                            <ul
+                            x-show="show"
+                            class="list-disc list-inside">
+                                <li class="my-2 text-base font-light">
+                                    DOC (Day Old Chick) - 1,500
+                                </li>
+                                <li class="my-2 text-base font-light">
+                                    Food & Medicine - 2,700
+                                </li>
+                                <li class="my-2 text-base font-light">
+                                    Management - 800
+                                </li>
+                            </ul>
+                        </div>
 
-            <li class="my-4 text-2xl">
-                <p class="font-bold text-gray-700 ">Personal Information of the customer</p>
-                <p class="py-2 text-lg font-medium leading-relaxed text-left text-gray-500">
-                    We will require some personal information such as your full name,contact details such as email,phone
-                    number (what'sapp number preferable)
-                    also your current physical residence
-                </p>
-            </li>
-
-            <li class="my-4 text-2xl ">
-                <p class="font-bold text-gray-700">Amount to invest</p>
-                <p class="py-2 text-lg font-medium text-left text-gray-500">
-                    We will need to know the amount of capital which you want to invest or the number of chicks which
-                    will be reared in our poultry farms.Each chick costs a sum of Tshs 5,000 untill it's fully grown and
-                    ready to be sold,
-                    here is the breakdown of the cost for rearing each chick
-                </p>
-                <ul class="list-disc list-inside">
-                    <li class="my-2 text-base font-light">
-                        DOC (Day Old Chick) - 1,500
-                    </li>
-                    <li class="my-2 text-base font-light">
-                        Food & Medicine - 2,700
-                    </li>
-                    <li class="my-2 text-base font-light">
-                        Management - 800
-                    </li>
-                </ul>
-            </li>
-
-            <li class="my-4 text-2xl">
-                <p class="font-bold text-gray-700 ">Preparation of Profoma Invoices</p>
-                <p class="py-2 text-lg font-medium text-left text-gray-500">
-                    We will provide you with two invoices to pay which are explained as follows
-                </p>
-                <ul class="list-disc list-inside">
-                    <li class="my-2 text-base font-light">
-                        Invoice for Mrkuku which is the tshs 800 for each chick
-                    </li>
-                    <li class="my-2 text-base font-light">
-                        Invoice for Bravo feed Mills which includes the 1,500 and 2,700 for each chick.
-                    </li>
-                </ul>
-            </li>
-
-            <li class="my-4 text-2xl">
-                <p class="font-bold text-gray-700">Deposit</p>
-                <p class="py-2 text-lg font-medium text-left text-gray-500">
-                    You will have a duration of 30 days to make deposits before the performa invoice has expired.we prefer
-                    bank direct deposits, We do not support payments via mobile payments or Sim banking.
-                </p>
-            </li>
-
-            <li class="my-4 text-2xl">
-                <p class="font-bold text-gray-700 ">Signing of a Contract</p>
-                <p class="py-2 text-lg font-medium text-left text-gray-500">
-                    When you're contract is ready, you are required to come with the following
-                </p>
-                <ul class="list-disc list-inside">
-                    <li class="my-2 text-base font-light">
-                        You're performa invoices
-                    </li>
-                    <li class="my-2 text-base font-light">
-                        Original bank pay slips of the proforma invoices
-                    </li>
-                    <li class="my-2 text-base font-light">
-                        A copy of your ID (NIDA,Driving Licence or Voting Id)
-                    </li>
-                    <li class="my-2 text-base font-light">
-                        Next of Kin information
-                    </li>
-                </ul>
-            </li>
-
-
-        </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex pb-20 mx-auto sm:items-center md:w-2/3">
+                <div class="absolute inset-0 flex items-center justify-center w-6 h-full">
+                  <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                </div>
+                <div class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mt-10 text-sm font-medium text-white bg-indigo-500 rounded-full sm:mt-0 title-font">3</div>
+                <div class="flex flex-col items-start flex-grow pl-6 md:pl-8 sm:items-center sm:flex-row">
+                  <div class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 text-indigo-500 bg-indigo-100 rounded-full">
+                    <img src="{{asset('images/invoice.png')}}" alt="user" class="w-12 h-12">
+                  </div>
+                  <div class="flex-grow mt-6 sm:pl-6 sm:mt-0">
+                    <h2 class="mb-1 text-xl font-medium text-gray-900 title-font">Preparation of Profoma Invoices</h2>
+                    <p class="leading-relaxed">
+                        We will provide you with two invoices to pay which are explained as follows
+                        <ul class="list-disc list-inside">
+                            <li class="my-1 text-base font-light">
+                                Invoice for Mrkuku which is the Tshs 800 for each chick
+                            </li>
+                            <li class="my-1 text-base font-light">
+                                Invoice for Bravo feed Mills which includes the 1,500 and 2,700 Tshs for each chick.
+                            </li>
+                        </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex pb-10 mx-auto sm:items-center md:w-2/3">
+                <div class="absolute inset-0 flex items-center justify-center w-6 h-full">
+                  <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                </div>
+                <div class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mt-10 text-sm font-medium text-white bg-indigo-500 rounded-full sm:mt-0 title-font">4</div>
+                <div class="flex flex-col items-start flex-grow pl-6 md:pl-8 sm:items-center sm:flex-row">
+                  <div class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 text-indigo-500 bg-indigo-100 rounded-full">
+                    <img src="{{asset('images/deposit.png')}}" alt="user" class="w-12 h-12">
+                  </div>
+                  <div class="flex-grow mt-6 sm:pl-6 sm:mt-0">
+                    <h2 class="mb-1 text-xl font-medium text-gray-900 title-font">Deposit</h2>
+                    <p class="leading-relaxed">
+                        You will have a duration of 30 days to make deposits before the performa invoice has expired.we prefer
+                        bank direct deposits, We do not support payments via mobile payments or Sim banking.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex pb-10 mx-auto sm:items-center md:w-2/3">
+                <div class="absolute inset-0 flex items-center justify-center w-6 h-full">
+                  <div class="w-1 h-full bg-gray-200 pointer-events-none"></div>
+                </div>
+                <div class="relative z-10 inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mt-10 text-sm font-medium text-white bg-indigo-500 rounded-full sm:mt-0 title-font">5</div>
+                <div class="flex flex-col items-start flex-grow pl-6 md:pl-8 sm:items-center sm:flex-row">
+                  <div class="inline-flex items-center justify-center flex-shrink-0 w-24 h-24 text-indigo-500 bg-indigo-100 rounded-full">
+                    <img src="{{asset('images/contract.png')}}" alt="user" class="w-12 h-12">
+                  </div>
+                  <div class="flex-grow mt-6 sm:pl-6 sm:mt-0">
+                    <h2 class="mb-1 text-xl font-medium text-gray-900 title-font">Sign Contract</h2>
+                    <p class="leading-relaxed">
+                        When you're contract is ready, you are required to come with the following.
+                        <ul class="list-disc list-inside">
+                            <li class="my-1 text-base font-light">
+                                You're performa invoices
+                            </li>
+                            <li class="my-1 text-base font-light">
+                                Original bank pay slips of the proforma invoices
+                            </li>
+                            <li class="my-1 text-base font-light">
+                                A copy of your ID (NIDA,Driving Licence or Voting Id)
+                            </li>
+                            <li class="my-1 text-base font-light">
+                                Next of Kin information
+                            </li>
+                        </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
     </div>
 
     <div class="mx-6 my-6 lg:mx-10 invest-us">
-        <h2 class="mt-24 font-bold tracking-wide lg:tracking-widest header-text">WHY INVEST WITH US ?</h2>
+        <h2 class="mt-4 font-bold tracking-wide lg:mt-24 lg:tracking-widest header-text">WHY INVEST WITH US ?</h2>
         <p class="mt-6 leading-relaxed text-gray-500 header-text2 font-extralight">
             Mr kuku farmers platform disintermediates this flawed investment model, by providing a platform of
             agriculture projects designed to generate cash flow returns from the farms directly back to investors.
