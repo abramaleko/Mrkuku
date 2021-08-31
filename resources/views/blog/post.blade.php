@@ -17,9 +17,11 @@
         </div>
 
 
+        @if ($post->image_path)
         <div class="my-4">
             <img src="{{asset('storage').'/'.$post->image_path}}" alt="{{$post->title}}" class="block max-w-xs rounded lg:max-w-2xl lg:w-auto">
         </div>
+        @endif
         <!-- Post Content-->
         <div class="my-6">
             {!!$post->content!!}

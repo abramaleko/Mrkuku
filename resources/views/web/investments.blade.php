@@ -269,16 +269,16 @@
         </div>
     </section>
 
-    <div class="mx-4 my-3 lg:mx-10 how-to-invest " id="how-to-invest">
+    <div class="mx-6 my-3 lg:mx-10 how-to-invest " id="how-to-invest">
         <h2 class="mt-24 font-bold tracking-wide lg:tracking-widest header-text">HOW DO I START INVESTING ?</h2>
         <p class="mt-5 text-gray-500 lea4ding-relaxed header-text2 font-extralight">
             To start investing in Mr Kuku projects please kindly visit any of our branches which we will help you to get
             more informations and procedures to join our projects.
         </p>
-        <ol class="my-6 list-decimal list-outside">
+        <ol class="mx-4 ml-5 list-decimal list-outside">
 
-            <li class="my-4">
-                <p class="text-2xl font-bold text-gray-700">Personal Information of the customer</p>
+            <li class="my-4 text-2xl">
+                <p class="font-bold text-gray-700 ">Personal Information of the customer</p>
                 <p class="py-2 text-lg font-medium leading-relaxed text-left text-gray-500">
                     We will require some personal information such as your full name,contact details such as email,phone
                     number (what'sapp number preferable)
@@ -286,8 +286,8 @@
                 </p>
             </li>
 
-            <li class="my-4">
-                <p class="text-2xl font-bold text-gray-700">Amount to invest</p>
+            <li class="my-4 text-2xl ">
+                <p class="font-bold text-gray-700">Amount to invest</p>
                 <p class="py-2 text-lg font-medium text-left text-gray-500">
                     We will need to know the amount of capital which you want to invest or the number of chicks which
                     will be reared in our poultry farms.Each chick costs a sum of Tshs 5,000 untill it's fully grown and
@@ -307,8 +307,8 @@
                 </ul>
             </li>
 
-            <li class="my-4">
-                <p class="text-2xl font-bold text-gray-700">Preparation of Profoma Invoices</p>
+            <li class="my-4 text-2xl">
+                <p class="font-bold text-gray-700 ">Preparation of Profoma Invoices</p>
                 <p class="py-2 text-lg font-medium text-left text-gray-500">
                     We will provide you with two invoices to pay which are explained as follows
                 </p>
@@ -322,16 +322,16 @@
                 </ul>
             </li>
 
-            <li class="my-4">
-                <p class="text-2xl font-bold text-gray-700">Deposit</p>
+            <li class="my-4 text-2xl">
+                <p class="font-bold text-gray-700">Deposit</p>
                 <p class="py-2 text-lg font-medium text-left text-gray-500">
                     You will have a duration of 30 days to make deposits before the performa invoice has expired.we prefer
                     bank direct deposits, We do not support payments via mobile payments or Sim banking.
                 </p>
             </li>
 
-            <li class="my-4">
-                <p class="text-2xl font-bold text-gray-700">Signing of a Contract</p>
+            <li class="my-4 text-2xl">
+                <p class="font-bold text-gray-700 ">Signing of a Contract</p>
                 <p class="py-2 text-lg font-medium text-left text-gray-500">
                     When you're contract is ready, you are required to come with the following
                 </p>
@@ -356,7 +356,7 @@
 
     </div>
 
-    <div class="mx-4 my-6 lg:mx-10 invest-us">
+    <div class="mx-6 my-6 lg:mx-10 invest-us">
         <h2 class="mt-24 font-bold tracking-wide lg:tracking-widest header-text">WHY INVEST WITH US ?</h2>
         <p class="mt-6 leading-relaxed text-gray-500 header-text2 font-extralight">
             Mr kuku farmers platform disintermediates this flawed investment model, by providing a platform of
