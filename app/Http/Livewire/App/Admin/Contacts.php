@@ -23,7 +23,7 @@ class Contacts extends Component
 
     public function selectMessage($id)
     {
-            $this->contact=Contact::select('name','email')->where('id',$id)->first();
+            $this->contact=Contact::select('name','email','phone_no')->where('id',$id)->first();
 
             $this->messages=Contact::where('name',$this->contact->name)
                                      ->where('email',$this->contact->email)
