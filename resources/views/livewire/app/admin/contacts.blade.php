@@ -59,201 +59,35 @@
                   <div class="flex flex-col ml-3">
                     <div class="text-sm font-semibold">{{$contact->name}}</div>
                     <div class="text-xs text-gray-500">{{$contact->email}}</div>
+                    <div class="pt-1 text-xs tracking-wide text-gray-500">{{$contact->phone_no}}</div>
                   </div>
                 </div>
                 <div class="h-full py-4 overflow-hidden">
                   <div class="h-full overflow-y-auto">
                     <div class="grid grid-cols-12 gap-y-2">
-                      <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                        <div class="flex flex-row items-center">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10"
-                          >
-                          <img src="https://ui-avatars.com/api/?name={{urlencode($contact->name)}} &color=ffffff &background=EC4899" alt="{{$contact->name}}" class="font-bold rounded-full">
-                          </div>
-                          <div
-                              class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl">
-
-                            <div>Hey How are you today?</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                        <div class="flex flex-row items-center">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl"
-                          >
-                            <div>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing
-                              elit. Vel ipsa commodi illum saepe numquam maxime
-                              asperiores voluptate sit, minima perspiciatis.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-6 col-end-13 p-3 rounded-lg">
-                        <div class="flex flex-row-reverse items-center justify-start">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 mr-3 text-sm bg-indigo-100 shadow rounded-xl"
-                          >
-                            <div>I'm ok what about you?</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-6 col-end-13 p-3 rounded-lg">
-                        <div class="flex flex-row-reverse items-center justify-start">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 mr-3 text-sm bg-indigo-100 shadow rounded-xl"
-                          >
-                            <div>
-                              Lorem ipsum dolor sit, amet consectetur adipisicing. ?
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                        <div class="flex flex-row items-center">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl"
-                          >
-                            <div>Lorem ipsum dolor sit amet !</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-6 col-end-13 p-3 rounded-lg">
-                        <div class="flex flex-row-reverse items-center justify-start">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 mr-3 text-sm bg-indigo-100 shadow rounded-xl"
-                          >
-                            <div>
-                              Lorem ipsum dolor sit, amet consectetur adipisicing. ?
-                            </div>
-                            <div
-                                class="absolute bottom-0 right-0 mr-2 -mb-5 text-xs text-gray-500"
-                            >
-                              Seen
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                        <div class="flex flex-row items-center">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl"
-                          >
-                            <div>
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                              Perspiciatis, in.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                        <div class="flex flex-row items-center">
-                          <div
-                              class="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-indigo-500 rounded-full"
-                          >
-                            A
-                          </div>
-                          <div
-                              class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl"
-                          >
+                        @foreach ($messages as $message)
+                        <div class="col-start-1 col-end-8 p-3 rounded-lg">
                             <div class="flex flex-row items-center">
-                              <button
-                                  class="flex items-center justify-center w-10 h-8 bg-indigo-600 rounded-full hover:bg-indigo-800"
+                              <div
+                                  class="flex items-center justify-center flex-shrink-0 w-10 h-10"
                               >
-                                <svg
-                                    class="w-6 h-6 text-white"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="1.5"
-                                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                                  ></path>
-                                  <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="1.5"
-                                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                  ></path>
-                                </svg>
-                              </button>
-                              <div class="flex flex-row items-center ml-4 space-x-px">
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-4 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-8 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-8 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-10 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-10 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-12 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-10 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-6 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-5 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-4 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-3 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-10 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-10 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-8 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-8 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-1 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-1 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-8 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-8 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-2 bg-gray-500 rounded-lg"></div>
-                                <div class="w-1 h-4 bg-gray-500 rounded-lg"></div>
+                              <img src="https://ui-avatars.com/api/?name={{urlencode($contact->name)}} &color=ffffff &background=EC4899" alt="{{$contact->name}}" class="font-bold rounded-full">
+                              </div>
+                              <div
+                                  class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl">
+
+                                <div>
+                                    <p>{{$message->context}}</p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
+
+                        @endforeach
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-row items-center">
+                {{-- <div class="flex flex-row items-center">
                   <div class="flex flex-row items-center w-full h-12 px-2 border rounded-3xl">
                     <button class="flex items-center justify-center w-10 h-10 ml-1 text-gray-400">
                       <svg class="w-5 h-5"
@@ -312,7 +146,7 @@
                       </svg>
                     </button>
                   </div>
-                </div>
+                </div> --}}
               </div>
 
             @endif

@@ -10,11 +10,13 @@
     <div class="grid grid-cols-1 px-3 pt-8 my-8 header md:grid-cols-2 md:gap-20">
 
         <div class="block px-8 md:px-10">
-            <h2 class="font-bold tracking-wide header-text">INVEST WITH US AND GROW YOUR INCOME *10% MORE IN
-                EVERY MONTH</h2>
+            <h2 class="font-bold tracking-wide header-text">
+                Grow Your Capital x 10% Monthly,Through Poultry Business
+            </h2>
             <p class="pt-6 text-gray-400 font-extralight" style="font-size: 22px; font-family: 'Raleway', sans-serif;">
-                Our modern poultry farm capable of rearing up to 1 Million chickens, invest and you can be one of
-                the owners of the chickens.
+                Our Modern Poultry Contract farming platform of 1 million monthly circulation capacity
+                for broiler chicken.Allows you to rear
+                chicken into our platform remotely and create profit (ROI) of 10% monthly.
             </p>
             <p class="py-2 font-bold text-center text-gray-600"
                 style="font-size: 22px; font-style:italic; font-family: 'Raleway', sans-serif;">
@@ -23,7 +25,7 @@
             <div class="flex justify-center pt-3">
                 <a href="{{ route('register') }}"
                     class="px-12 py-4 font-light tracking-wider text-white bg-blue-500 border shadow-lg hover:bg-blue-400">
-                    REGISTER NOW
+                    INVEST NOW
                 </a>
             </div>
         </div>

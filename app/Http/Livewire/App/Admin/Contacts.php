@@ -11,7 +11,7 @@ use Livewire\Component;
 class Contacts extends Component
 {
 
-    public $unreadCount, $messages,$contact;
+    public $unreadCount, $messages,$contact,$contact_messages;
     public $showMessage=false;
 
     protected $listeners = ['selectMessage'];
