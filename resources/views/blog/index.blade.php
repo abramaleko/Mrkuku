@@ -40,13 +40,13 @@
                                         class="text-blue-500 hover:underline">Read more
                                     </a>
                                     <div class="flex flex-wrap justify-start">
-                                        <div class="flex flex-wrap mr-4">
+                                        {{-- <div class="flex flex-wrap mr-4">
                                             <img src="{{ asset('images/comments.png') }}" class="z-10 w-6 h-6 lg:h-8 lg:w-8">
                                             <span
                                                 class="z-10 flex items-center justify-center w-6 h-6 mt-4 -ml-1 text-xs text-white bg-gray-900 rounded-full">
                                                 12
                                                 </span>
-                                        </div>
+                                        </div> --}}
                                         <a href="#" class="flex items-center">
                                             <img src="{{ asset('images/logo.jpeg') }}" alt="avatar"
                                                 class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">

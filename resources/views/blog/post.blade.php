@@ -53,16 +53,26 @@
                             id="context" placeholder='Type Your Comment' required></textarea>
                     </div>
                     <div class="flex items-start w-full px-3 md:w-full">
+                        @guest
+                        <div class="flex items-start w-1/2 px-2 mr-auto text-gray-700" id="showAfterSubmit">
+                            <svg fill="none" class="w-5 h-5 mr-1 text-gray-600" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="pt-px text-xs md:text-sm">Log in to comment to this post</p>
+                        </div>
+                        @endguest
                         <div class="items-start hidden w-1/2 px-2 mr-auto text-gray-700" id="showAfterSubmit">
                             <svg fill="none" class="w-5 h-5 mr-1 text-gray-600" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <p class="pt-px text-xs md:text-sm" id="showText"></p>
+                            <p class="pt-px text-xs md:text-sm" id="showText">Log in to comment to this post</p>
                         </div>
+
                         <div class="-mr-1">
                             <input type='submit' id="submit_comment"
-                                class="px-4 py-1 mr-1 font-medium tracking-wide text-gray-700 bg-white border border-gray-400 rounded-lg hover:bg-gray-100"
+                                class="px-4 py-1 mr-1 font-medium tracking-wide text-gray-700 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 disabled:opacity-50" {{Auth::check() ? '' : 'disabled'}}
                                 value='Post Comment'>
                         </div>
                     </div>
@@ -218,7 +228,7 @@
                     action: 'submit'
                 }).then(function(token) {
                     let comment = document.getElementById("context").value;
-                    let user_id = {{ Auth::user()->id }};
+                    let user_id = {{ Auth::user()->id ?? ''}};
                     let post_id = {{ $post->id }};
 
 
