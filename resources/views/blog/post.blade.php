@@ -1,61 +1,76 @@
 @extends('layouts.app1')
 @section('title')
-<title>Blog post</title>
+    <title>Blog post</title>
 @endsection
 @section('content')
-<div class="container w-full pt-20 mx-auto md:max-w-3xl">
+    <div class="container w-full mx-auto md:max-w-3xl pt-14">
 
-    <div class="w-full px-4 text-xl leading-normal text-gray-800 md:px-6" style="font-family:Georgia,serif;">
+        <div class="w-full px-4 text-xl leading-normal text-gray-800 md:px-6" style="font-family:Georgia,serif;">
 
-        <!--Title-->
-        <div class="font-sans">
-            <p class="text-base font-bold text-green-500 md:text-sm">&lt; <a href="{{route('blog.allPosts')}}" class="text-base font-bold text-green-500 no-underline md:text-sm hover:underline">
-                BACK TO BLOG
-            </a></p>
-                    <h1 class="pt-6 pb-2 font-sans text-3xl font-bold text-gray-900 break-normal md:text-4xl">{{$post->title}}</h1>
-                    <p class="text-sm font-normal text-gray-600 md:text-base">Published {{$post->created_at->format('jS F Y')}}</p>
-        </div>
-
-
-        @if ($post->image_path)
-        <div class="my-4">
-            <img src="{{asset('storage').'/'.$post->image_path}}" alt="{{$post->title}}" class="block max-w-xs rounded lg:max-w-2xl lg:w-auto">
-        </div>
-        @endif
-        <!-- Post Content-->
-        <div class="my-6">
-            {!!$post->content!!}
-        </div>
-
-    </div>
-
-    <!--Tags -->
-    <div class="px-4 py-6 text-base text-gray-500 md:text-sm">
-        Category:
-        <a href="#" class="text-base text-green-500 no-underline md:text-sm hover:underline">
-            {{$post->category->category}}
-        </a>
-    </div>
-
-    <!--Divider-->
-    <hr class="mx-4 mb-8 border-b-2 border-gray-400">
-
-
-    <!--Subscribe-->
-    <div class="container px-4">
-        <div class="p-4 font-sans text-center rounded-lg shadow-xl bg-gradient-to-b from-green-100 to-gray-100">
-            <h2 class="text-xl font-bold break-normal md:text-3xl">Subscribe to Our Newsletter</h2>
-            <h3 class="text-sm font-bold text-gray-600 break-normal md:text-base">Get the latest posts delivered right to your inbox</h3>
-            <div class="w-full pt-4 text-center">
-                <form action="#">
-                    <div class="flex flex-wrap items-center max-w-xl p-1 pr-0 mx-auto">
-                        <input type="email"placeholder="youremail@example.com" id="email" class="flex-1 p-3 mt-4 mr-2 text-gray-600 border border-gray-400 rounded shadow-md appearance-none focus:outline-none">
-                        <button type="button" id="submit" class="flex-1 block py-4 mt-4 text-base font-semibold tracking-wider text-white uppercase bg-green-500 rounded shadow appearance-none md:inline-block hover:bg-green-400">Subscribe</button>
-                    </div>
-                </form>
+            <!--Title-->
+            <div class="font-sans">
+                <p class="text-base font-bold text-green-500 md:text-sm">&lt; <a href="{{ route('blog.allPosts') }}"
+                        class="text-base font-bold text-green-500 no-underline md:text-sm hover:underline">
+                        BACK TO BLOG
+                    </a></p>
+                <h1 class="pt-6 pb-2 font-sans text-3xl font-bold text-gray-900 break-normal md:text-4xl">
+                    {{ $post->title }}</h1>
+                <p class="text-sm font-normal text-gray-600 md:text-base">Published
+                    {{ $post->created_at->format('jS F Y') }}</p>
             </div>
+
+
+            @if ($post->image_path)
+                <div class="my-4">
+                    <img src="{{ asset('storage') . '/' . $post->image_path }}" alt="{{ $post->title }}"
+                        class="block max-w-xs rounded lg:max-w-2xl lg:w-auto">
+                </div>
+            @endif
+            <!-- Post Content-->
+            <div class="my-6">
+                {!! $post->content !!}
+            </div>
+
+        </div>
+
+        <!--Tags -->
+        <div class="px-4 py-6 text-base text-gray-500 md:text-sm">
+            Category:
+            <a href="#" class="text-base text-green-500 no-underline md:text-sm hover:underline">
+                {{ $post->category->category }}
+            </a>
+        </div>
+
+        <!-- component -->
+        <!-- comment form -->
+        <div class="flex items-center justify-center w-auto mb-4 shadow-lg">
+            <form class="px-4 pt-2 bg-white rounded-lg">
+                <div class="flex flex-wrap mb-6 -mx-3">
+                    <h2 class="px-4 pt-3 pb-2 text-lg text-gray-800">Add a new comment</h2>
+                    <div class="w-full px-3 mt-2 mb-2 md:w-full">
+                        <textarea
+                            class="w-full h-20 px-3 py-2 font-medium leading-normal placeholder-gray-700 bg-gray-100 border border-gray-400 rounded resize-none focus:outline-none focus:bg-white"
+                            id="context" placeholder='Type Your Comment' required></textarea>
+                    </div>
+                    <div class="flex items-start w-full px-3 md:w-full">
+                        <div class="items-start hidden w-1/2 px-2 mr-auto text-gray-700" id="showAfterSubmit">
+                            <svg fill="none" class="w-5 h-5 mr-1 text-gray-600" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="pt-px text-xs md:text-sm" id="showText"></p>
+                        </div>
+                        <div class="-mr-1">
+                            <input type='submit' id="submit_comment"
+                                class="px-4 py-1 mr-1 font-medium tracking-wide text-gray-700 bg-white border border-gray-400 rounded-lg hover:bg-gray-100"
+                                value='Post Comment'>
+                        </div>
+                    </div>
+            </form>
         </div>
     </div>
+
+
     <!-- /Subscribe-->
 
 
@@ -74,7 +89,94 @@
     <!--/Author-->
 
     <!--Divider-->
-    <hr class="mx-4 mb-8 border-b-2 border-gray-400">
+    {{-- <hr class="mx-4 mb-8 border-b-2 border-gray-400">
+    <!-- component comments -->
+    <div class="max-w-screen-sm mx-4 antialiased lg:mx-0">
+        <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
+
+        <div class="space-y-4">
+
+            <div class="flex">
+                <div class="flex-shrink-0 mr-3">
+                    <img class="w-8 h-8 mt-2 rounded-full sm:w-10 sm:h-10"
+                        src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+                        alt="">
+                </div>
+                <div class="flex-1 px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
+                    <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
+                    <p class="text-sm">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                        magna aliquyam erat, sed diam voluptua.
+                    </p>
+                    <div class="flex items-center mt-4">
+                        <div class="flex mr-2 -space-x-2">
+                            <img class="w-6 h-6 border border-white rounded-full"
+                                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
+                                alt="">
+                            <img class="w-6 h-6 border border-white rounded-full"
+                                src="https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
+                                alt="">
+                        </div>
+                        <div class="text-sm font-semibold text-gray-500">
+                            5 Replies
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="flex-shrink-0 mr-3">
+                    <img class="w-8 h-8 mt-2 rounded-full sm:w-10 sm:h-10"
+                        src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+                        alt="">
+                </div>
+                <div class="flex-1 px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
+                    <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
+                    <p class="text-sm">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                        magna aliquyam erat, sed diam voluptua.
+                    </p>
+
+                    <h4 class="my-5 text-xs font-bold tracking-wide text-gray-400 uppercase">Replies</h4>
+
+                    <div class="space-y-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-3">
+                                <img class="w-6 h-6 mt-3 rounded-full sm:w-8 sm:h-8"
+                                    src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+                                    alt="">
+                            </div>
+                            <div class="flex-1 px-4 py-2 leading-relaxed bg-gray-100 rounded-lg sm:px-6 sm:py-4">
+                                <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
+                                <p class="text-xs sm:text-sm">
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                    magna aliquyam erat, sed diam voluptua.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mr-3">
+                                <img class="w-6 h-6 mt-3 rounded-full sm:w-8 sm:h-8"
+                                    src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+                                    alt="">
+                            </div>
+                            <div class="flex-1 px-4 py-2 leading-relaxed bg-gray-100 rounded-lg sm:px-6 sm:py-4">
+                                <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
+                                <p class="text-xs sm:text-sm">
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                                    magna aliquyam erat, sed diam voluptua.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
     <!--Next & Prev Links-->
     {{-- <div class="flex content-center justify-between px-4 pb-12 font-sans">
@@ -91,114 +193,65 @@
 
     <!--/Next & Prev Links-->
 
-</div>
+    </div>
 
-<!-- subscription modal -->
-<div class="fixed inset-0 z-50 flex items-center justify-center w-full overflow-hidden main-modal h-100 animated fadeIn faster"
-		style="background: rgba(0,0,0,.7);">
-		<div
-			class="z-50 w-auto mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg lg:w-8/12 modal-container">
-			<div class="text-left modal-content">
-				<!--Body-->
-				<div class="grid grid-cols-1 lg:grid-cols-2">
-                    <div class="hidden lg:block">
-                        <img src="{{asset('images/welcome.png')}}" alt="welcome image" class="w-full h-full ">
-                    </div>
-                    <div class="px-4 my-5">
-                        <div class="flex items-center justify-between py-5">
-                            <p class="font-light tracking-wide text-center text-gray-800"style="font-family: 'Raleway', sans-serif;">THANK YOU FOR SUBSCRIBING TO OUR NEWSFEED</p>
-                            <div class="z-50 ml-4 cursor-pointer modal-close">
-                                <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                    viewBox="0 0 18 18">
-                                    <path
-                                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="text-lg text-gray-500 font-extralight" style="font-family: 'Raleway', sans-serif;">
-                            You will be the first to know about our seminars ,new projects and giveaways.So stay tuned
-                        </p>
-                        <div class="flex justify-center mt-12">
-                            <a href="{{ route('blog.allPosts') }}"
-                            class="px-12 py-4 font-light tracking-widest text-white bg-blue-400 border shadow-lg hover:bg-blue-300">
-                            VISIT OUR BLOG
-                        </a>
-                        </div>
-
-                    </div>
-				</div>
-			</div>
-		</div>
-	</div>
 @endsection
 @section('scripts')
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous">
-</script>
-  <script>
-      //script for submitting subscription
-      $.ajaxSetup({
+    {{-- script for google captch protection --}}
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
+    {{-- jquery script --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        // script for submitting subscription
+        $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             }
         });
 
-      document.getElementById('submit').addEventListener('click',function(){
-          let input=document.getElementById('email').value;
-          if (input)
-          {
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('saveSubscriber') }}',
-                data: {email:input},
-                success:function (data) {
-                 document.getElementById('email').value='';
-                  openModal();
-                },
-                error:function(response){
-                    if (response.responseJSON.errors.email) {
-                     alert('It seems you have already subscribed to our Newsletter');
-                    }
-                }
+        document.getElementById("submit_comment").addEventListener("click", function(event) {
+            event.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute("{{ config('services.recaptcha.sitekey') }}", {
+                    action: 'submit'
+                }).then(function(token) {
+                    let comment = document.getElementById("context").value;
+                    let user_id = {{ Auth::user()->id }};
+                    let post_id = {{ $post->id }};
 
+
+                    // Add your logic to submit to your backend server here.
+
+                    $.ajax({
+                        type: 'Post',
+                        url: '{{ route('blog.commentPost') }}',
+                        data: {
+                            comment: comment,
+                            user_id: user_id,
+                            post_id: post_id,
+                            token: token
+                        },
+                        success: function(data) {
+                            //shows the success message and hides it after 4 seconds
+                            document.getElementById('showText').innerHTML =
+                                'You will see your comment once verified by us';
+                            document.getElementById('showAfterSubmit').style.display =
+                                "flex";
+                            setTimeout(function() {
+                                document.getElementById('showAfterSubmit').style
+                                    .display = "none";
+                            }, 4000);
+                            //clears the input
+                            document.getElementById("context").value='';
+                        }
+
+                    });
+
+                });
             });
-          }
-          else
-          alert('Please enter an email address to subscribe');
-      });
+        });
+    </script>
 
-      //script for modal
-      const modal = document.querySelector('.main-modal');
-		const closeButton = document.querySelectorAll('.modal-close');
-
-		const modalClose = () => {
-			modal.classList.remove('fadeIn');
-			modal.classList.add('fadeOut');
-			setTimeout(() => {
-				modal.style.display = 'none';
-			}, 500);
-		}
-
-		const openModal = () => {
-			modal.classList.remove('fadeOut');
-			modal.classList.add('fadeIn');
-			modal.style.display = 'flex';
-		}
-
-		for (let i = 0; i < closeButton.length; i++) {
-
-			const elements = closeButton[i];
-
-			elements.onclick = (e) => modalClose();
-
-			modal.style.display = 'none';
-
-			window.onclick = function (event) {
-				if (event.target == modal) modalClose();
-			}
-		}
-  </script>
 @endsection

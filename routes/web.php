@@ -66,6 +66,10 @@ Route::get('posts', [BlogController::class, 'allPosts'])
 Route::get('post/{id}', [BlogController::class, 'viewPosts'])
         ->name('blog.viewPost');
 
+ //submit comment route
+ Route::post('comment',[BlogController::class,'commentPost'])
+         ->name('blog.commentPost');
+
 //blog routes
 Route::prefix('blog')->name('blog.')->group(function () {
     // Route::get('/posts',[BlogController::class,'allPosts'] )
