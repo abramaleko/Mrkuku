@@ -19,10 +19,12 @@
                                {{$message->first()->context}}
                             </div>
                         </div>
+                        @if (! $message->first()->read)
                         <div class="self-end flex-shrink-0 mb-1 ml-2">
                             <span
-                                class="flex items-center justify-center w-5 h-5 text-xs text-white bg-red-500 rounded-full">5</span>
+                                class="flex items-center justify-center text-xs text-white bg-blue-500 rounded-full" style="height: 0.5rem; width:0.5rem;"></span>
                         </div>
+                        @endif
                     </div>
 
                 @endforeach

@@ -29,6 +29,17 @@ class Contacts extends Component
                                      ->where('email',$this->contact->email)
                                      ->get();
 
+            //updates the collection for the message is read
+            foreach ($this->messages as $message) {
+                //if message was not read
+               if ( ! $message->read) {
+                   $message->update(['read' => true]);
+               }
+            }
+
+            //updates the unread count
+            $this->getUnreadCount();
+
             $this->showMessage=true;
     }
 

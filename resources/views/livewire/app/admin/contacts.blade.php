@@ -9,9 +9,13 @@
                     <div class="flex flex-row items-center">
                         <div class="flex flex-row items-center">
                             <div class="text-xl font-semibold">Messages</div>
+                            @if ($unreadCount != 0)
                             <div
-                                class="flex items-center justify-center w-5 h-5 ml-2 text-xs font-medium text-white bg-red-500 rounded-full">
-                                {{ $unreadCount }}</div>
+                            class="flex items-center justify-center w-5 h-5 ml-2 text-xs font-medium text-white bg-red-500 rounded-full">
+                            {{ $unreadCount }}
+                        </div>
+                            @endif
+
                         </div>
                         <div class="ml-auto">
                             <button

@@ -17,6 +17,7 @@ class ContactAll extends Component
         $this->allMessages=Contact::orderBy('id','desc')
         ->get()->groupBy('email','name')
         ->all();
+
     }
 
     public function render()
