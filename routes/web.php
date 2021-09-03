@@ -68,6 +68,7 @@ Route::get('post/{id}', [BlogController::class, 'viewPosts'])
 
  //submit comment route
  Route::post('comment',[BlogController::class,'commentPost'])
+         ->middleware('auth')
          ->name('blog.commentPost');
 
 //blog routes
@@ -123,11 +124,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 //ckfinder routes
-// Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
-//     // ->middleware('auth')
-//     ->name('ckfinder_connector');
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    // ->middleware('auth')
+    ->name('ckfinder_connector');
 
-// Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
-//     // ->middleware('auth')
-//     ->name('ckfinder_browser');
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    // ->middleware('auth')
+    ->name('ckfinder_browser');
 
