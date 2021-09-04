@@ -9,7 +9,7 @@
             <div class="flex flex-wrap p-4 border-b">
                 <div class="">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <img class="object-cover w-full h-full rounded-full" src="{{ $user->profile_photo_url }}"
+                    <img class="object-cover w-16 h-16 rounded-full" src="{{ $user->profile_photo_url }}"
                         alt="{{ $user->name }}">
                 @endif
                 </div>

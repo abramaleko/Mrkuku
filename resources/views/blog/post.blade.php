@@ -54,13 +54,13 @@
                     </div>
                     <div class="flex items-start w-full px-3 md:w-full">
                         @guest
-                        <div class="flex items-start w-1/2 px-2 mr-auto text-gray-700" id="showAfterSubmit">
-                            <svg fill="none" class="w-5 h-5 mr-1 text-gray-600" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <p class="pt-px text-xs md:text-sm">Log in to comment to this post</p>
-                        </div>
+                            <div class="flex items-start w-1/2 px-2 mr-auto text-gray-700" id="showAfterSubmit">
+                                <svg fill="none" class="w-5 h-5 mr-1 text-gray-600" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <p class="pt-px text-xs md:text-sm">Log in to comment to this post</p>
+                            </div>
                         @endguest
                         <div class="items-start hidden w-1/2 px-2 mr-auto text-gray-700" id="showAfterSubmit">
                             <svg fill="none" class="w-5 h-5 mr-1 text-gray-600" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,8 +72,8 @@
 
                         <div class="-mr-1">
                             <input type='submit' id="submit_comment"
-                                class="px-4 py-1 mr-1 font-medium tracking-wide text-gray-700 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 disabled:opacity-50" {{Auth::check() ? '' : 'disabled'}}
-                                value='Post Comment'>
+                                class="px-4 py-1 mr-1 font-medium tracking-wide text-gray-700 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+                                {{ Auth::check() ? '' : 'disabled' }} value='Post Comment'>
                         </div>
                     </div>
             </form>
@@ -98,95 +98,34 @@
     </div> --}}
     <!--/Author-->
 
-    <!--Divider-->
-    {{-- <hr class="mx-4 mb-8 border-b-2 border-gray-400">
-    <!-- component comments -->
-    <div class="max-w-screen-sm mx-4 antialiased lg:mx-0">
-        <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
-
-        <div class="space-y-4">
-
-            <div class="flex">
-                <div class="flex-shrink-0 mr-3">
-                    <img class="w-8 h-8 mt-2 rounded-full sm:w-10 sm:h-10"
-                        src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
-                        alt="">
-                </div>
-                <div class="flex-1 px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
-                    <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
-                    <p class="text-sm">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                        magna aliquyam erat, sed diam voluptua.
-                    </p>
-                    <div class="flex items-center mt-4">
-                        <div class="flex mr-2 -space-x-2">
-                            <img class="w-6 h-6 border border-white rounded-full"
-                                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                                alt="">
-                            <img class="w-6 h-6 border border-white rounded-full"
-                                src="https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                                alt="">
+    @if (count($post->comments) > 0)
+        <!--Divider-->
+        <hr class="mx-4 mb-8 border-b-2 border-gray-400">
+        <!-- component comments -->
+        <div class="max-w-screen-sm mx-4 my-4 antialiased lg:my-8 lg:mx-0">
+            <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
+        @foreach ($post->comments->sortDesc() as $comment)
+                <div class="my-4 space-y-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0 mr-3">
+                                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                <img class="w-8 h-8 rounded-full"
+                                src="{{ $comment->user->profile_photo_url }}"
+                                alt="{{$comment->user->name}}">
+                                @endif
                         </div>
-                        <div class="text-sm font-semibold text-gray-500">
-                            5 Replies
+                        <div class="flex-1 px-4 py-2 leading-relaxed border-2 rounded-lg sm:px-6 sm:py-4">
+                            <strong>{{$comment->user->name}}</strong> <span class="text-xs text-gray-400">{{$comment->updated_at->diffForHumans()}}</span>
+                            <p class="text-sm">
+                              {{$comment->context}}
+                            </p>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="flex">
-                <div class="flex-shrink-0 mr-3">
-                    <img class="w-8 h-8 mt-2 rounded-full sm:w-10 sm:h-10"
-                        src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
-                        alt="">
                 </div>
-                <div class="flex-1 px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
-                    <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
-                    <p class="text-sm">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                        magna aliquyam erat, sed diam voluptua.
-                    </p>
-
-                    <h4 class="my-5 text-xs font-bold tracking-wide text-gray-400 uppercase">Replies</h4>
-
-                    <div class="space-y-4">
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-3">
-                                <img class="w-6 h-6 mt-3 rounded-full sm:w-8 sm:h-8"
-                                    src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
-                                    alt="">
-                            </div>
-                            <div class="flex-1 px-4 py-2 leading-relaxed bg-gray-100 rounded-lg sm:px-6 sm:py-4">
-                                <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
-                                <p class="text-xs sm:text-sm">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                    magna aliquyam erat, sed diam voluptua.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-3">
-                                <img class="w-6 h-6 mt-3 rounded-full sm:w-8 sm:h-8"
-                                    src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
-                                    alt="">
-                            </div>
-                            <div class="flex-1 px-4 py-2 leading-relaxed bg-gray-100 rounded-lg sm:px-6 sm:py-4">
-                                <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
-                                <p class="text-xs sm:text-sm">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                                    magna aliquyam erat, sed diam voluptua.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+        @endforeach
+    </div>
+    @endif
 
     <!--Next & Prev Links-->
     {{-- <div class="flex content-center justify-between px-4 pb-12 font-sans">
@@ -228,7 +167,7 @@
                     action: 'submit'
                 }).then(function(token) {
                     let comment = document.getElementById("context").value;
-                    let user_id = {{ Auth::user()->id ?? ''}};
+                    let user_id = {{ Auth::user()->id ?? '' }};
                     let post_id = {{ $post->id }};
 
 
@@ -254,7 +193,7 @@
                                     .display = "none";
                             }, 4000);
                             //clears the input
-                            document.getElementById("context").value='';
+                            document.getElementById("context").value = '';
                         }
 
                     });

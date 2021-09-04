@@ -13,7 +13,9 @@ class BlogController extends Controller
 
     public function allPosts()
     {
-        $posts=Blog::latest()->paginate(5);
+        $posts=Blog::latest()->withCount(['comments as comments_count' => function ($query) {
+            $query->where('verified', true);
+        }])->paginate(5);
 
         foreach ($posts as $post) {
             $post->content=strip_tags($post->content);
@@ -28,7 +30,9 @@ class BlogController extends Controller
 
    public function viewPosts($id)
    {
-       $post=Blog::find($id);
+       $post=Blog::with('comments')
+       ->where('id',$id)
+       ->first();
 
        return view('blog.post')->with('post',$post);
    }

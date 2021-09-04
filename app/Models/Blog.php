@@ -22,4 +22,9 @@ class Blog extends Model
     {
         return $this->belongsTo(blogCategories::class,'category_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class,'post_id');
+    }
 }
