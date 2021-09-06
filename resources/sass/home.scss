@@ -113,3 +113,17 @@
         opacity: 0;
     }
 }
+
+#bravo_corning
+{
+    iframe{
+        width:1200px;
+        height:500px;
+    }
+    @media only screen and (max-width:600px) {
+        iframe{
+           width: 100% !important;
+           height: 300px !important;;
+        }
+       }
+}

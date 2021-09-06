@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\blogCategories;
 use App\Models\Comments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class BlogController extends Controller
@@ -34,7 +35,11 @@ class BlogController extends Controller
        ->where('id',$id)
        ->first();
 
-       return view('blog.post')->with('post',$post);
+       $comments=$post->comments()->where('verified',true)->get();
+       return view('blog.post')->with([
+           'post' => $post,
+           'comments' => $comments
+        ]);
    }
 
    public function commentPost(Request $request)

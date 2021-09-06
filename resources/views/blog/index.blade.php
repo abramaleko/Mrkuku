@@ -42,13 +42,15 @@
                                     <div class="flex flex-wrap justify-start">
                                         <div class="flex flex-wrap mr-4">
                                             <img src="{{ asset('images/comments.png') }}" class="z-10 w-6 h-6 lg:h-8 lg:w-8">
+                                            @if ($post->comments_count > 0)
                                             <span
-                                                class="z-10 flex items-center justify-center w-6 h-6 mt-4 -ml-1 text-xs text-white bg-gray-900 rounded-full">
-                                               {{$post->comments_count}}
-                                                </span>
+                                            class="z-10 flex items-center justify-center w-6 h-6 mt-4 -ml-1 text-xs text-white bg-gray-900 rounded-full">
+                                           {{$post->comments_count}}
+                                            </span>
+                                            @endif
                                         </div>
                                         <a href="#" class="flex items-center">
-                                            <img src="{{ asset('images/logo.jpeg') }}" alt="avatar"
+                                            <img src="{{ asset('images/logo.jpeg') }}" alt="Mrkuku"
                                                 class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
                                             <h1 class="font-bold text-gray-700 hover:underline">Mr. Kuku</h1>
                                         </a>

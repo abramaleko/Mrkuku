@@ -98,13 +98,13 @@
     </div> --}}
     <!--/Author-->
 
-    @if (count($post->comments) > 0)
+    @if (count($comments) > 0)
         <!--Divider-->
         <hr class="mx-4 mb-8 border-b-2 border-gray-400">
         <!-- component comments -->
         <div class="max-w-screen-sm mx-4 my-4 antialiased lg:my-8 lg:mx-0">
             <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
-        @foreach ($post->comments->sortDesc() as $comment)
+        @foreach ($comments as $comment)
                 <div class="my-4 space-y-4">
                     <div class="flex">
                         <div class="flex-shrink-0 mr-3">
