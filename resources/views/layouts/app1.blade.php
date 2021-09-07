@@ -3,6 +3,16 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="title" content="Mr Kuku">
+    <meta name="description"
+        content="Wekeza na sisi ukuze kipato chako kwa asilimia 10 kila mwezi kwenye mabanda yetu ya kisasa">
+    <meta name="keywords"
+        content="Kuza kipato chako,modern poultry farming, broiler chicken farm,kuku wa broiler,grow your income">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Tariq Machibya">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -41,7 +51,7 @@
                     class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
                     <li>
                         <a class="text-gray-400 lg:text-lg hover:text-gray-500 {{ request()->routeIs('home') ? 'font-semibold text-blue-500' : '' }}"
-                        href="{{ route('home') }}">
+                            href="{{ route('home') }}">
                             Home
                         </a>
                     </li>
@@ -53,7 +63,7 @@
                         </svg>
                     </li>
                     <li><a class="text-gray-600 hover:text-gray-500 lg:text-lg {{ request()->routeIs('investments') ? 'font-semibold text-blue-500' : '' }}"
-                         href="{{ route('investments') }}">
+                            href="{{ route('investments') }}">
                             Investments
                         </a>
                     </li>
@@ -66,7 +76,7 @@
                     </li>
                     <li>
                         <a class="text-gray-600 hover:text-gray-500 lg:text-lg {{ request()->routeIs('blog.allPosts') ? 'font-semibold text-blue-500' : '' }}"
-                         href="{{ route('blog.allPosts') }}">
+                            href="{{ route('blog.allPosts') }}">
                             Blog
                         </a>
                     </li>
@@ -79,7 +89,7 @@
                     </li>
                     <li>
                         <a class="lg:text-lg text-gray-600 hover:text-gray-500 {{ request()->routeIs('learn') ? 'font-semibold text-blue-500' : '' }}"
-                         href="{{route('learn')}}">
+                            href="{{ route('learn') }}">
                             Learn
                         </a>
                     </li>
@@ -91,20 +101,20 @@
                         </svg>
                     </li>
                     <li><a class=" lg:text-lg text-gray-600 hover:text-gray-500 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
-                         href="{{ route('contact') }}">
-                        Contact
-                    </a>
-                </li>
+                            href="{{ route('contact') }}">
+                            Contact
+                        </a>
+                    </li>
                 </ul>
                 @guest
-                <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-gray-500 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600 rounded-xl"
-                href="{{route('login')}}">Sign In</a>
-            <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
-                href="{{route('register')}}">Sign up</a>
+                    <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-gray-500 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600 rounded-xl"
+                        href="{{ route('login') }}">Sign In</a>
+                    <a class="hidden px-6 py-3 text-sm font-bold text-white transition duration-200 bg-blue-500 lg:inline-block hover:bg-blue-600 rounded-xl"
+                        href="{{ route('register') }}">Sign up</a>
                 @endguest
                 @auth
-                <a class="hidden py-3 text-sm font-bold tracking-wider text-white transition duration-200 bg-gray-500 rounded px-7 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600"
-                href="{{route('dashboard')}}">Dashboard</a>
+                    <a class="hidden py-3 text-sm font-bold tracking-wider text-white transition duration-200 bg-gray-500 rounded px-7 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600"
+                        href="{{ route('dashboard') }}">Dashboard</a>
                 @endauth
             </nav>
             <div class="relative z-50 hidden navbar-menu">
@@ -132,38 +142,38 @@
                         <ul>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('home') ? 'font-semibold text-blue-500' : '' }}"
-                                    href="{{route('home')}}">Home</a>
+                                    href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('investments') ? 'font-semibold text-blue-500' : '' }}"
-                                    href="{{route('investments')}}">Investments</a>
+                                    href="{{ route('investments') }}">Investments</a>
                             </li>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('blog.allPosts') ? 'font-semibold text-blue-500' : '' }}"
-                                    href="{{route('blog.allPosts')}}">Blog</a>
+                                    href="{{ route('blog.allPosts') }}">Blog</a>
                             </li>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('learn') ? 'font-semibold text-blue-500' : '' }}"
-                                    href="{{route('learn')}}">Learn</a>
+                                    href="{{ route('learn') }}">Learn</a>
                             </li>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
-                                    href="{{route('contact')}}">Contact</a>
+                                    href="{{ route('contact') }}">Contact</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-auto">
                         @guest
-                        <div class="pt-6">
-                            <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
-                                href="{{route('login')}}">Sign in</a>
-                            <a class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-blue-600 hover:bg-blue-700 rounded-xl"
-                                href="{{route('register')}}">Sign Up</a>
-                        </div>
+                            <div class="pt-6">
+                                <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
+                                    href="{{ route('login') }}">Sign in</a>
+                                <a class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-blue-600 hover:bg-blue-700 rounded-xl"
+                                    href="{{ route('register') }}">Sign Up</a>
+                            </div>
                         @endguest
                         @auth
-                        <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
-                        href="{{route('dashboard')}}">Dashboard</a>
+                            <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
+                                href="{{ route('dashboard') }}">Dashboard</a>
                         @endauth
 
                         <p class="my-4 text-xs text-center text-gray-400">

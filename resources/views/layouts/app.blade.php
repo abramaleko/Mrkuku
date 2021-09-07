@@ -3,6 +3,16 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="title" content="Mr Kuku">
+    <meta name="description"
+        content="Wekeza na sisi ukuze kipato chako kwa asilimia 10 kila mwezi kwenye mabanda yetu ya kisasa">
+    <meta name="keywords"
+        content="Kuza kipato chako,modern poultry farming, broiler chicken farm,kuku wa broiler,grow your income">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Tariq Machibya">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -43,7 +53,8 @@
             <nav class="mt-10">
                 <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100  {{ request()->routeIs('dashboard') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                     href="{{ route('dashboard') }}">
-                    <img src="{{ asset('images/social-icons/dashboard.png') }}" alt="dashboard" class="w-6 h-6">
+                    <img src="{{ asset('images/social-icons/dashboard.png') }}" alt="dashboard"
+                        class="w-6 h-6">
 
                     <span class="mx-3">Dashboard</span>
                 </a>
@@ -406,14 +417,16 @@
                 @can('manage users')
                     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.users') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                         href="{{ route('admin.users') }}">
-                        <img src="{{ asset('images/social-icons/management.png') }}" alt="dashboard" class="w-6 h-6">
+                        <img src="{{ asset('images/social-icons/management.png') }}" alt="dashboard"
+                            class="w-6 h-6">
                         <span class="mx-3">Users</span>
                     </a>
                 @endcan
                 @can('view subscribers')
                     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.subscribers') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                         href="{{ route('admin.subscribers') }}">
-                        <img src="{{ asset('images/social-icons/subscription.png') }}" alt="dashboard" class="w-6 h-6">
+                        <img src="{{ asset('images/social-icons/subscription.png') }}" alt="dashboard"
+                            class="w-6 h-6">
                         <span class="mx-3">Subscribers</span>
                     </a>
                 @endcan
