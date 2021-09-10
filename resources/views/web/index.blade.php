@@ -178,7 +178,8 @@
         </div>
     </div>
 
-	<div class="fixed inset-0 z-50 flex items-center justify-center w-full overflow-hidden main-modal h-100 animated fadeIn faster"
+
+	<div class="fixed inset-0 z-50 hidden items-center justify-center w-full overflow-hidden main-modal h-100 animated fadeIn faster"
 		style="background: rgba(0,0,0,.7);">
 		<div
 			class="z-50 w-auto mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg lg:w-8/12 modal-container">

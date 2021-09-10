@@ -3,93 +3,65 @@
         Contact messages
     </x-slot>
     <div class="">
-        <div class="flex flex-row h-screen antialiased text-gray-800">
-            <div class="flex flex-row flex-shrink-0 p-4 bg-gray-100 w-96">
-                <div class="flex flex-col w-full h-full py-4 pl-4 pr-4 -mr-4">
+        <div class="flex flex-row h-screen antialiased text-gray-800 ">
+        <div class="flex flex-row flex-shrink-0 p-4 bg-gray-100 w-96 {{ $showMessage ? 'lg:block hidden' : '' }}">
+            <div class="flex flex-col w-full h-full py-4 pl-4 pr-4 -mr-4">
+                <div class="flex flex-row items-center">
                     <div class="flex flex-row items-center">
-                        <div class="flex flex-row items-center">
-                            <div class="text-xl font-semibold">Messages</div>
-                            @if ($unreadCount != 0)
+                        <div class="text-xl font-semibold"> Contact Messages</div>
+                        @if ($unreadCount != 0)
                             <div
-                            class="flex items-center justify-center w-5 h-5 ml-2 text-xs font-medium text-white bg-red-500 rounded-full">
-                            {{ $unreadCount }}
-                        </div>
-                            @endif
-
-                        </div>
-                        <div class="ml-auto">
-                            <button
-                                class="flex items-center justify-center text-gray-500 bg-gray-200 rounded-full h-7 w-7">
-                                <svg class="w-4 h-4 stroke-current" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                        </div>
+                                class="flex items-center justify-center w-5 h-5 ml-2 text-xs font-medium text-white bg-red-500 rounded-full">
+                                {{ $unreadCount }}
+                            </div>
+                        @endif
                     </div>
-                    <div class="mt-5">
-                        <ul class="flex flex-row items-center justify-between">
-                            <li>
-                                <a href="#"
-                                    class="relative flex items-center pb-3 text-xs font-semibold text-indigo-800">
-                                    <span>All Conversations</span>
-                                    <span class="absolute bottom-0 left-0 w-6 h-1 bg-indigo-800 rounded-full"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center pb-3 text-xs font-semibold text-gray-700">
-                                    <span>Investors</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center pb-3 text-xs font-semibold text-gray-700">
-                                    <span>Local's</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    @livewire('app.admin.contact-all')
                 </div>
+                @livewire('app.admin.contact-all')
             </div>
-            {{-- if true mount component --}}
-            @if ($showMessage)
-            <div
-            class="flex flex-col w-full h-full px-4 py-6 bg-white">
+        </div>
+        {{-- if true mount component --}}
+        @if ($showMessage)
+            <div class="flex flex-col w-full h-full px-4 py-6 bg-white">
+                <p class="py-4 text-base font-bold text-green-500 md:text-sm lg:hidden">&lt; <a
+                        wire:click="$toggle('showMessage')"
+                        class="text-base font-bold text-green-500 no-underline md:text-sm hover:underline">
+                        BACK TO MESSAGES
+                    </a>
+                </p>
                 <div class="flex flex-row items-center px-6 py-4 shadow rounded-2xl">
-                  <div class="flex items-center justify-center w-10 h-10 ounded-full">
-                    <img src="https://ui-avatars.com/api/?name={{urlencode($contact->name)}} &color=ffffff &background=EC4899" alt="{{$contact->name}}" class="font-bold rounded-full">
-                  </div>
-                  <div class="flex flex-col ml-3">
-                    <div class="text-sm font-semibold">{{$contact->name}}</div>
-                    <div class="text-xs text-gray-500">{{$contact->email}}</div>
-                    <div class="pt-1 text-xs tracking-wide text-gray-500">{{$contact->phone_no}}</div>
-                  </div>
+                    <div class="flex items-center justify-center w-10 h-10 ounded-full">
+                        <img src="https://ui-avatars.com/api/?name={{ urlencode($contact->name) }} &color=ffffff &background=EC4899"
+                            alt="{{ $contact->name }}" class="font-bold rounded-full">
+                    </div>
+                    <div class="flex flex-col ml-3">
+                        <div class="text-sm font-semibold">{{ $contact->name }}</div>
+                        <div class="text-xs text-gray-500">{{ $contact->email }}</div>
+                        <div class="pt-1 text-xs tracking-wide text-gray-500">{{ $contact->phone_no }}</div>
+                    </div>
                 </div>
                 <div class="h-full py-4 overflow-hidden">
-                  <div class="h-full overflow-y-auto">
-                    <div class="grid grid-cols-12 gap-y-2">
-                        @foreach ($messages as $message)
-                        <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                            <div class="flex flex-row items-center">
-                              <div
-                                  class="flex items-center justify-center flex-shrink-0 w-10 h-10"
-                              >
-                              <img src="https://ui-avatars.com/api/?name={{urlencode($contact->name)}} &color=ffffff &background=EC4899" alt="{{$contact->name}}" class="font-bold rounded-full">
-                              </div>
-                              <div
-                                  class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl">
+                    <div class="h-full overflow-y-auto">
+                        <div class="grid grid-cols-12 gap-y-2">
+                            @foreach ($messages as $message)
+                                <div class="col-start-1 col-end-12 p-3 rounded-lg lg:col-end-8">
+                                    <div class="flex flex-row lg:items-center">
+                                        <div class="flex items-center justify-center flex-shrink-0 w-10 h-10">
+                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($contact->name) }} &color=ffffff &background=EC4899"
+                                                alt="{{ $contact->name }}" class="font-bold rounded-full">
+                                        </div>
+                                        <div class="relative px-4 py-2 ml-3 text-sm bg-white shadow rounded-xl">
 
-                                <div>
-                                    <p>{{$message->context}}</p>
+                                            <div>
+                                                <p>{{ $message->context }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                            </div>
-                          </div>
 
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                  </div>
                 </div>
                 {{-- <div class="flex flex-row items-center">
                   <div class="flex flex-row items-center w-full h-12 px-2 border rounded-3xl">
@@ -151,10 +123,10 @@
                     </button>
                   </div>
                 </div> --}}
-              </div>
+            </div>
 
-            @endif
+        @endif
 
-        </div>
+    </div>
 
     </div>
