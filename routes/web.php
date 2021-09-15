@@ -7,10 +7,12 @@ use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
 use App\Http\Livewire\App\Admin\Permissions;
 use App\Http\Livewire\App\Admin\Subscriber;
+use App\Http\Livewire\App\Admin\Support\Support;
 use App\Http\Livewire\App\Admin\UserDetails;
 use App\Http\Livewire\App\Admin\Users;
 use App\Http\Livewire\App\Blog\Create;
 use App\Http\Livewire\App\Blog\Dashboard;
+use App\Http\Livewire\App\Support\InvestorSupport;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,6 +40,11 @@ Route::get('/learn', [HomeController::class, 'learn'])
 
 Route::get('/contact', [HomeController::class, 'contact'])
     ->name('contact');
+
+ //live support route
+ Route::get('/support',InvestorSupport::class)
+  ->middleware('auth')
+  ->name('investor.support');
 
 Route::post('/contact', [HomeController::class, 'uploadContactMessage'])
     ->name('uploadContactMessage');
@@ -104,6 +111,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/contacts', Contacts::class)
         ->middleware('auth')
         ->name('contacts');
+
+        Route::get('/support', Support::class)
+        ->middleware('auth')
+        ->name('support');
 
     Route::get('/users', Users::class)
         ->middleware('auth')

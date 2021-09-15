@@ -51,6 +51,10 @@ class Contacts extends Component
 
     public function render()
     {
+         //if user does not have the permissions
+         if (! auth()->user()->can('manage contacts')) {
+            abort(403, 'Unauthorized.');
+        }
         return view('livewire.app.admin.contacts');
     }
 }

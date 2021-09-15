@@ -407,6 +407,22 @@
                         <span class="mx-3">Blog</span>
                     </a>
                 @endcan
+                <!--for investors-->
+                @can('live support')
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.support') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    href="{{ route('investor.support') }}">
+                    <img src="{{ asset('images/social-icons/support.png') }}" alt="dashboard" class="h-7 w-7">
+                    <span class="mx-3">Support</span>
+                </a>
+                @endcan
+                   <!--for admins-->
+                   @can('support service')
+                   <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.support') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                       href="{{ route('admin.support') }}">
+                       <img src="{{ asset('images/social-icons/support.png') }}" alt="dashboard" class="h-7 w-7">
+                       <span class="mx-3">Support</span>
+                   </a>
+                   @endcan
                 @can('manage contacts')
                     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.contacts') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                         href="{{ route('admin.contacts') }}">

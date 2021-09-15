@@ -23,7 +23,8 @@
         {{-- if true mount component --}}
         @if ($showMessage)
             <div class="flex flex-col w-full h-full px-4 py-6 bg-white">
-                <p class="py-4 text-base font-bold text-green-500 md:text-sm lg:hidden">&lt; <a
+                <p class="py-4 text-base font-bold text-green-500 md:text-sm lg:hidden">&lt;&lt;
+                     <a
                         wire:click="$toggle('showMessage')"
                         class="text-base font-bold text-green-500 no-underline md:text-sm hover:underline">
                         BACK TO MESSAGES
