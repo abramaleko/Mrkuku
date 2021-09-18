@@ -57,7 +57,7 @@
                         </button>
                     </div>
 
-                    <div class="flex items-center text-center mt-7">
+                    {{-- <div class="flex items-center text-center mt-7">
                         <hr class="w-full border-gray-300 rounded-md border-1">
                         <label class="block w-full text-sm font-medium text-gray-600">
                             Login with
@@ -65,7 +65,7 @@
                         <hr class="w-full border-gray-300 rounded-md border-1">
                     </div>
 
-                    {{-- <div class="flex justify-center w-full mt-7">
+                    <div class="flex justify-center w-full mt-7">
                         <button class="px-4 py-2 mr-5 text-white transition duration-500 ease-in-out transform bg-blue-500 border-none shadow-xl cursor-pointer rounded-xl hover:shadow-inner hover:-translate-x hover:scale-105">
                             Facebook
                         </button>
