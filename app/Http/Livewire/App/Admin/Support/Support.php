@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\App\Admin\Support;
 
+use App\Events\NewMessage;
 use App\Models\Support as ModelsSupport;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,18 +38,22 @@ class Support extends Component
            }
         }
 
+
+        $this->emit('ListenForMessage',$this->investorRequest->id);
+
         $this->showMessage = true;
     }
 
     public function sendMessage()
     {
+     if ($this->messageInput !== '') {
         //if the request has not been assigned to a servitor then assign
         if (!$this->investorRequest->servitor_id) {
             $this->investorRequest->servitor_id = Auth::user()->id;
             $this->investorRequest->save();
         }
 
-        SupportChat::create([
+        $message=SupportChat::create([
             'support_id' => $this->investorRequest->id,
             'context' => $this->messageInput,
             'sender_id' => Auth::user()->id
@@ -59,13 +64,17 @@ class Support extends Component
         */
         $this->messageInput = '';
         $this->getSupportMessages();
+
+        broadcast(new NewMessage($message))->toOthers();
+     }
+
     }
 
     protected function getNewMessageCount()
     {
         $this->newMessageCount = ModelsSupport::where('servitor_id', null)->count();
     }
-    protected function getSupportMessages()
+    public function getSupportMessages()
     {
         $this->support_messages = SupportChat::with('user')->where('support_id', $this->investorRequest->id)
             ->get();

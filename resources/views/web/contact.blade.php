@@ -14,6 +14,24 @@
             <p class="mt-4 text-sm font-light leading-relaxed tracking-tight text-left text-gray-500 lg:text-base">
                 Whether you are curious about anything, were ready to answer any and all questions
             </p>
+            <div class="hidden lg:block">
+                <div class="flex mt-4 lg:mt-12">
+                    <div class="w-24 mt-4 mr-6 border-t-2 border-gray-400 lg:mt-5 lg:w-48"></div>
+                    <h2 class="text-xl font-bold tracking-wider text-center text-gray-600 lg:text-4xl">OR</h2>
+                    <div class="w-24 mt-4 ml-6 border-t-2 border-gray-400 lg:mt-5 lg:w-48"></div>
+                </div>
+                <div class="flex justify-center">
+                    <p class="mt-4 mr-4 text-sm font-light leading-relaxed tracking-tight text-gray-500 lg:mr-20 lg:text-base">
+                        Get live support from our online customer service team
+                    </p>
+                </div>
+                <div class="flex justify-center mt-6">
+                    <a href="{{route('investor.support')}}"
+                    class="py-4 mr-48 font-light tracking-wide text-white bg-blue-500 rounded shadow-2xl px-9 hover:bg-blue-300">
+                      GET SUPPORT
+                    </a>
+                </div>
+            </div>
         </div>
 
     <div class="contact-form">
@@ -85,11 +103,29 @@
 
                     <button id="recaptcha" data-sitekey="{{ config('services.recaptcha.sitekey') }}"
                         data-callback='onSubmit' data-action='submit'
-                        class="flex justify-center px-12 py-4 mx-4 tracking-widest text-white uppercase bg-gray-800 border border-transparent rounded-md lg:ml-8 g-recaptcha hover:bg-gray-600">
+                        class="flex justify-center px-12 py-3 mx-4 tracking-widest text-white uppercase bg-gray-800 border border-transparent rounded-md lg:py-4 lg:ml-8 g-recaptcha hover:bg-gray-600">
                         SUBMIT
                     </button>
                 </div>
             </form>
+            <div class="block mt-12 lg:hidden">
+                <div class="flex mt-4">
+                    <div class="w-24 mt-4 mr-6 border-t-2 border-gray-400 lg:mt-5 lg:w-48"></div>
+                    <h2 class="text-2xl font-bold tracking-wider text-center text-gray-600 lg:text-4xl">OR</h2>
+                    <div class="w-24 mt-4 ml-6 border-t-2 border-gray-400 lg:mt-5 lg:w-48"></div>
+                </div>
+                <div class="flex justify-center">
+                    <p class="mt-4 mr-4 text-sm font-light leading-relaxed tracking-tight text-gray-500 lg:mr-20 lg:text-base">
+                        Get live support from our online customer service team
+                    </p>
+                </div>
+                <div class="flex justify-center mt-4">
+                    <a href="{{route('investor.support')}}"
+                    class="flex justify-center px-12 py-3 mx-4 tracking-widest text-white uppercase bg-blue-500 border border-transparent rounded-md shadow-xl lg:ml-8 hover:bg-blue-300">
+                      GET SUPPORT
+                    </a>
+                </div>
+            </div>
         </div>
 
     </div>

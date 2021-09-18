@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\App\Support;
 
+use App\Events\NewMessage;
 use App\Models\Support;
 use App\Models\SupportChat;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class InvestorSupport extends Component
     public $messageInput;
     public $showMessage=false;
     public $investorRequests=[],$support_messages,$request;
-    public $WaitingList = false,$WaitingRequests;
+    public $WaitingList=false,$WaitingRequests;
 
 
     protected $listeners = ['selectMessage'];
@@ -59,14 +60,17 @@ class InvestorSupport extends Component
                    $message->update(['read' => true]);
                }
             }
+            $this->emit('ListenForMessage',$this->request->id);
 
             $this->showMessage=true;
     }
 
     public function sendMessage()
     {
-
-        SupportChat::create([
+        //there is messageInput
+      if ($this->messageInput !== '')
+      {
+        $message=SupportChat::create([
             'support_id' => $this->request->id,
             'context' => $this->messageInput,
             'sender_id' => Auth::user()->id
@@ -77,10 +81,14 @@ class InvestorSupport extends Component
         */
         $this->messageInput= '';
         $this->getSupportMessages();
+
+        broadcast(new NewMessage($message))->toOthers();
+      }
+
     }
 
 
-    protected function getSupportMessages()
+    public function getSupportMessages()
     {
         $this->support_messages=SupportChat::with('user')->where('support_id',$this->request->id)
             ->get();
@@ -116,6 +124,33 @@ class InvestorSupport extends Component
         //updates the table
         $this->getWaitingRequests();
 
+    }
+
+    public function openModal($modal)
+    {
+        switch ($modal) {
+            case '1':
+               $this->WaitingList=true;
+                break;
+                case '2':
+                    $this->newRequest=true;
+                     break;
+
+        }
+    }
+
+    public function closeModal($modal)
+    {
+        dd($modal);
+        switch ($modal) {
+            case '1':
+               $this->WaitingList=true;
+                break;
+                case '2':
+                    $this->newRequest=true;
+                     break;
+
+        }
     }
 
     public function render()

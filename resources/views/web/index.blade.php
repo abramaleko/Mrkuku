@@ -179,7 +179,7 @@
     </div>
 
 
-	<div class="fixed inset-0 z-50 hidden items-center justify-center w-full overflow-hidden main-modal h-100 animated fadeIn faster"
+	<div class="fixed inset-0 z-50 items-center justify-center hidden w-full overflow-hidden main-modal h-100 animated fadeIn faster"
 		style="background: rgba(0,0,0,.7);">
 		<div
 			class="z-50 w-auto mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg lg:w-8/12 modal-container">
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                         <p class="text-lg text-gray-500 font-extralight" style="font-family: 'Raleway', sans-serif;">
-                            You will be the first to know about our seminars ,new projects and giveaways.So stay tuned
+                            You will be the first to know about our seminars ,new projects and giveaways. So stay tuned
                         </p>
                         <div class="flex justify-center mt-12">
                             <a href="{{ route('blog.allPosts') }}"
@@ -246,6 +246,8 @@
                 error:function(response){
                     if (response.responseJSON.errors.email) {
                      alert('It seems you have already subscribed to our Newsletter');
+                     document.getElementById('email').value='';
+
                     }
                 }
 
