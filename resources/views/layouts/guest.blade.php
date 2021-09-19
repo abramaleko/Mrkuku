@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        {{$styles ?? ''}}
     </head>
     <body>
         <div class="font-sans antialiased text-gray-900">
