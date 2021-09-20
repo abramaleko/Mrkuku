@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleSignInController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Livewire\App\Admin\Contacts;
@@ -27,6 +28,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Google sign in routes
+
+//redirect to the oauth provider
+Route::get('/auth/redirect',[GoogleSignInController::class,'redirectUser'])->name('google-signIn');
+
+//authorize user
+Route::get('/auth/callback',[GoogleSignInController::class,'authorizeUser']);
 
 
 Route::get('/', [HomeController::class, 'home'])
