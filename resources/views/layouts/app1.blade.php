@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="title" content="Mr Kuku">
     <meta name="description"
-        content="Wekeza na sisi ukuze kipato chako kwa asilimia 10 kila mwezi kwenye mabanda yetu ya kisasa">
+        content="Kuza kipato chako kwa asilimia 10 kila mwezi ukiwekeza katika mradi wa Mr kuku">
     <meta name="keywords"
         content="Kuza kipato chako,modern poultry farming, broiler chicken farm,kuku wa broiler,grow your income">
     <meta name="robots" content="index, follow">
@@ -252,7 +252,8 @@
                     Email : info@mrkuku.org
                 </p>
                 <p class="text-base tracking-widest text-center text-gray-500 ">
-                    Call us : 0778 999 009
+                    Call us :  +255-677-092-941
+
                 </p>
                 <p class="py-6 text-base tracking-widest text-center text-gray-500 ">
                     &copy; 2021 Mr Kuku Ltd, All rights reserved.
