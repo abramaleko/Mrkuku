@@ -369,7 +369,7 @@
                   <div class="flex-grow mt-6 sm:pl-6 sm:mt-0">
                     <h2 class="mb-1 text-xl font-medium text-gray-900 title-font">Deposit</h2>
                     <p class="leading-relaxed">
-                        You will have a duration of 30 days to make deposits before the performa invoice has expired.we prefer
+                        You will have a duration of 30 days to make deposits before the profoma invoices have expired. We prefer
                         bank direct deposits, We do not support payments via mobile payments or Sim banking.
                     </p>
                   </div>
@@ -390,7 +390,7 @@
                         When you're contract is ready, you are required to come with the following.
                         <ul class="list-disc list-inside">
                             <li class="my-1 text-base font-light">
-                                You're performa invoices
+                                You're profoma invoices
                             </li>
                             <li class="my-1 text-base font-light">
                                 Original bank pay slips of the proforma invoices

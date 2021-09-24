@@ -3,17 +3,17 @@
     <title>Diamond package</title>
 @endsection
 @section('content')
-    <section class="mt-8 ml-10">
-        <h2 class=" text-gray-800 font-bold text-4xl ">Diamond package</h2>
-        <p class="text-gray-600 font-light text-lg text-left my-4">
+    <section class="mx-8 mt-8 lg:ml-10">
+        <h2 class="text-4xl font-bold text-gray-800 ">Diamond package</h2>
+        <p class="my-4 text-lg font-light text-left text-gray-600">
             The minimum capital for this package is Tshs 5,000,000/- and the maximum is Tshs 9,999,999/-
         </p>
 
-        <div class="compulsory-benefits mt-4">
-            <h2 class="font-bold text-2xl mt-6 mb-3 ">
+        <div class="mt-4 compulsory-benefits">
+            <h2 class="mt-6 mb-3 text-2xl font-bold ">
                 Compulsory benefits
             </h2>
-            <ul class="list-disc list-outside text-lg text-gray-600 font-light">
+            <ul class="text-lg font-light text-gray-600 list-disc list-outside">
                 <li class="py-2">
                     In every month you will get a 10% ROI (Return On Investment) of the amount investment
                 </li>
@@ -24,11 +24,11 @@
             </ul>
         </div>
 
-        <div class="other-benefits mt-4">
-            <h2 class="font-bold text-2xl mt-6 mb-3 ">
+        <div class="mt-4 other-benefits">
+            <h2 class="mt-6 mb-3 text-2xl font-bold ">
                 Other Benefits
             </h2>
-            <ul class="list-disc list-outside text-lg text-gray-600 font-light">
+            <ul class="text-lg font-light text-gray-600 list-disc list-outside">
                 <li class="py-2">
                     If you will not withdraw your ROI (10%) in 3 months which is a total of 30% ROI, a bonus of 15% from the
                     30% ROI will be awarded
@@ -46,8 +46,8 @@
                 </li>
             </ul>
         </div>
-          <h2 class="font-extrabold text-2xl my-2 tracking-wide leading-loose">NOTE :</h2>
-          <p class="text-lg text-left leading-relaxed tracking-normal font-light text-gray-600">
+          <h2 class="my-2 text-2xl font-extrabold leading-loose tracking-wide">NOTE :</h2>
+          <p class="text-lg font-light leading-relaxed tracking-normal text-left text-gray-600">
              Normally after depositing the capital, you will have to wait for 30 days for the contract to offically start. But if you choose
              to opt for 6 or 12 months ROI (Return on Investment) withdrawal the contract will start immediately after deposit and ROI will be
              paid immediately after maturity.

@@ -255,7 +255,19 @@
                     Call us :  +255-677-092-941
 
                 </p>
-                <p class="py-6 text-base tracking-widest text-center text-gray-500 ">
+                <p class="pt-4 text-base tracking-widest text-center text-gray-500 ">
+                    <a target="_blank"  href="{{ route('terms.show') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900 hover:underline">
+                        Terms of Service
+                    </a>
+
+                </p>
+                <p class="pt-4 text-base tracking-widest text-center text-gray-500 ">
+                    <a target="_blank" href="{{ route('policy.show') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900 hover:underline">
+                        Privacy Policy
+                    </a>
+
+                </p>
+                <p class="py-4 text-base tracking-widest text-center text-gray-500 ">
                     &copy; 2021 Mr Kuku Ltd, All rights reserved.
                 </p>
             </div>
