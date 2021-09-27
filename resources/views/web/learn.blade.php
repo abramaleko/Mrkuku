@@ -95,7 +95,7 @@
                             </p>
                         </div>
                     </li>
-                    <li class="py-6 border-b border-gray-200 border-solid">
+                    <li class="py-6 border-b border-gray-200 border-solid" id="risk-plan">
                         <div class="flex items-center justify-between">
                             <h2 class="w-10/12 text-base text-gray-800 md:text-xl xl:text-2xl">How safe is my investment,
                                 are there any risks ?</h2>
@@ -134,13 +134,13 @@
                                     we do not manage this kind of risks though the investor can also opt to insure his investment by using third parties such as insurance companies.
                                 </li>
                                 <li class="my-2 text-base font-light">
-                                    Natural death :- This include the mortality rate of broiler chicken, where by biologically its ranges from 2% upto 6% of reared chicks, Due this case we advice our investor to add extra 10% of the number of chicks inorder to cover mortatily rate.
-                                  For this chicks of mortality coverage, investor will required to pay only 1,500Tsh  per chick (Not 5,000 Tshs) .And the amount paid for mortality
+                                    Natural death :- This include the mortality rate of broiler chicken, where by biologically its ranges from 2% up to 6% of reared chicks, Due this case we advice our investor to add extra 10% of the number of chicks in order to cover mortatily rate.
+                                  For this chicks of mortality coverage, investor will required to pay only 1,500 Tsh  per chick (Not 5,000 Tshs). And the amount paid for mortality
                                      covarage will be refunded to the investor at the end of the contract.
                                 </li>
                                 <li class="my-2 text-base font-light">
                                     Management risks :- This are risks which are caused by poor management such as poor shelter, hunger and diseases which can be treated.
-                                    For this kind of risks is very rarely tp occur to our projects since we have implement different mechanisms,techniques and strategies to control it, But if the risk occur Mr kuku farmers limited will incure the loss and the investor will get capital  and the ROI as we agreeed on the contract.
+                                    For this kind of risks is very rarely tp occur to our projects since we have implement different mechanisms,techniques and strategies to control it. But if the risk occur Mr kuku farmers limited will incure the loss and the investor will get capital and the ROI as we agreeed on the contract.
                                 </li>
                             </ul>
                         </div>
