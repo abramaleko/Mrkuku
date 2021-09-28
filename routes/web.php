@@ -13,6 +13,8 @@ use App\Http\Livewire\App\Admin\UserDetails;
 use App\Http\Livewire\App\Admin\Users;
 use App\Http\Livewire\App\Blog\Create;
 use App\Http\Livewire\App\Blog\Dashboard;
+use App\Http\Livewire\App\Investor\Investments;
+use App\Http\Livewire\App\Investor\ProjectCalculator;
 use App\Http\Livewire\App\Support\InvestorSupport;
 use Illuminate\Support\Facades\Route;
 
@@ -100,6 +102,15 @@ Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/create', Create::class)
         ->middleware('auth')
         ->name('create');
+});
+
+//investor route
+Route::prefix('investor')->name('investor.')->middleware('auth')
+->group(function(){
+
+    Route::get('/investments',Investments::class)->name('myInvestments');
+
+    Route::get('/calculator',ProjectCalculator::class)->name('calculator');
 });
 
 //admin routes
