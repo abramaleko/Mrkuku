@@ -60,8 +60,8 @@
                 </a>
 
                 @can('view investments')
-                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-                        href="/ui-elements">
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100  {{ request()->routeIs('investor.myInvestments') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                        href="{{route('investor.myInvestments')}}">
                         <svg class="w-6 h-6" viewBox="-29 0 487 487.71802" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="m308.949219 398.578125 70.199219-33.15625c15.476562-7.816406 34.363281-2.085937 42.890624 13.007813l-142.691406 92.300781c-19.128906 8.828125-40.597656 11.257812-61.21875 6.929687l-98.410156-27.621094c-9.058594-2.539062-18.746094-1.480468-27.039062 2.960938l-20.582032 11.011719 2.769532-100.371094.820312.019531c29.410156-20.894531 68.03125-23.597656 100.0625-7l5.890625 3.050782c9.207031 4.769531 19.378906 7.398437 29.75 7.679687l57.847656 1.597656c18.15625.496094 34.046875 12.335938 39.710938 29.589844zm0 0"
@@ -446,6 +446,12 @@
                         <span class="mx-3">Subscribers</span>
                     </a>
                 @endcan
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.calculator') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    href="{{ route('investor.calculator') }}">
+                    <img src="{{ asset('images/social-icons/calculator.png') }}" class="w-6 h-6" alt="project calculator">
+                    <span class="mx-3">Project Calculator</span>
+                </a>
+                
                 <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('profile.show') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                     href="{{ route('profile.show') }}">
                     <img src="{{ asset('images/social-icons/settings.png') }}" class="w-6 h-6" alt="settings">
