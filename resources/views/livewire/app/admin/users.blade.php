@@ -3,9 +3,9 @@
 </x-slot>
 <x-slot name="styles">
     <!--Regular Datatables CSS-->
-	 <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+	 <link href="{{asset('css/dataTables.min.css')}}" rel="stylesheet">
 	 <!--Responsive Extension Datatables CSS-->
-	 <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+	 <link href="{{asset('css/responsiveDataTables.min.css')}}" rel="stylesheet">
 </x-slot>
 
     {{-- Success is as dangerous as failure. --}}
@@ -47,11 +47,10 @@
 
 <x-slot name="scripts">
     <!-- jQuery -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 
 	<!--Datatables -->
-	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script src="{{asset('js/datatables.min.js')}}"></script>
 	<script>
 		$(document).ready(function() {
 

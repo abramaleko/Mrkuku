@@ -4,9 +4,9 @@
 
     <x-slot name="styles">
         <!--Regular Datatables CSS-->
-        <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link href="{{ asset('css/dataTables.min.css') }}" rel="stylesheet">
         <!--Responsive Extension Datatables CSS-->
-        <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+        <link href="{{ asset('css/responsiveDataTables.min.css') }}" rel="stylesheet">
     </x-slot>
 
     <div class="container px-6 py-8 mx-auto">
@@ -75,7 +75,7 @@
             </div>
         </div>
 
-    <div wire:ignore class="flex flex-col mt-8" id="blogposts">
+        <div wire:ignore class="flex flex-col mt-8" id="blogposts">
             <h2 class="py-4 text-3xl text-gray-700 ">All posts</h2>
             <div class="p-8 bg-white rounded-md">
                 <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
@@ -187,20 +187,20 @@
         <div class="flex flex-col mt-8">
             <h2 class="py-4 text-3xl text-gray-700 ">New Comments</h2>
             @if (Session::has('message'))
-            <div class="flex p-3 my-4 bg-green-100 rounded-md">
-                <svg class="flex-shrink-0 w-8 h-8 mr-2 text-green-600 stroke-current stroke-2" viewBox="0 0 24 24"
-                    fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M0 0h24v24H0z" stroke="none" />
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M9 12l2 2 4-4" />
-                </svg>
+                <div class="flex p-3 my-4 bg-green-100 rounded-md">
+                    <svg class="flex-shrink-0 w-8 h-8 mr-2 text-green-600 stroke-current stroke-2" viewBox="0 0 24 24"
+                        fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M0 0h24v24H0z" stroke="none" />
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
 
-                <div class="text-green-700">
-                    <div>
-                        {{ Session::get('message') }}
+                    <div class="text-green-700">
+                        <div>
+                            {{ Session::get('message') }}
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -231,39 +231,41 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($newCommments as $comment)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 w-10 h-10">
-                                                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                                <img class="w-10 h-10 rounded-full"
-                                                src="{{ $comment->user->profile_photo_url }}"
-                                                alt="{{$comment->user->name}}">
-                                                @endif
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    {{$comment->user->name}}
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 w-10 h-10">
+                                                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                                        <img class="w-10 h-10 rounded-full"
+                                                            src="{{ $comment->user->profile_photo_url }}"
+                                                            alt="{{ $comment->user->name }}">
+                                                    @endif
                                                 </div>
-                                                <div class="text-sm text-gray-500">
-                                                    {{$comment->user->email}}
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{ $comment->user->name }}
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        {{ $comment->user->email }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$comment->post->title}}</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-900">{{$comment->context}}</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$comment->created_at->diffForHumans()}}</div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <a wire:click='verifyComment({{$comment->id}})' class="px-4 py-2 text-white bg-indigo-600 rounded cursor-pointer hover:bg-indigo-900">Verify</a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">{{ $comment->post->title }}</div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div class="text-sm text-gray-900">{{ $comment->context }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">
+                                                {{ $comment->created_at->diffForHumans() }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                            <a wire:click='verifyComment({{ $comment->id }})'
+                                                class="px-4 py-2 text-white bg-indigo-600 rounded cursor-pointer hover:bg-indigo-900">Verify</a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -276,11 +278,10 @@
     </div>
     <x-slot name="scripts">
         <!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
         <!--Datatables -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="{{ asset('js/datatables.min.js') }}"></script>
         <script>
             $(document).ready(function() {
 
