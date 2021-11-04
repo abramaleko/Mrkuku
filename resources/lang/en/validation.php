@@ -138,6 +138,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'slips.*'=>[
+           'mimes' => 'The payment slips are of unsupported type, supported types are images and pdf',
+
+        ]
     ],
 
     /*

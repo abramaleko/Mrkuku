@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire\App\Investor;
 
+use App\Models\Investments;
+use App\Models\Projects;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ProjectCalculator extends Component
@@ -13,6 +16,12 @@ class ProjectCalculator extends Component
     public $showChickCalcu = false, $calculatedChicks = false;
     public $chicksNo,$investmentCapital;
     public $PerInvestmentCalcu=false,$showChickCalcuMethod=false,$ChickCalcuMethod,$calculatedCapital=false;
+    public $projects;
+
+   public function mount()
+   {
+       $this->projects=Projects::all();
+   }
 
     public function updatedProjectChoice()
     {
@@ -34,10 +43,18 @@ class ProjectCalculator extends Component
                 $this->PerInvestmentCalcu = true;
                 $this->showChickCalcu = false;
 
+                $this->calculatedChicks = false;
+                $this->calculatedCapital = false;
+
+
                 break;
                 case 2:
                 $this->showChickCalcu = true;
                 $this->PerInvestmentCalcu = false;
+
+                $this->calculatedChicks = false;
+                $this->calculatedCapital = false;
+
                 break;
 
         }
@@ -127,8 +144,23 @@ class ProjectCalculator extends Component
     {
         unset($this->investmentCapital);
         $this->calculatedCapital = false;
-
     }
+
+    public function addToInvestment()
+    {
+       Investments::create(
+           [
+               'project_id' => $this->projectChoice,
+               'user_id' => Auth::id(),
+               'amount' => $this->capital,
+               //to be changed when a new project is introduced
+               'units' => $this->chicksNo,
+            ]
+       );
+
+       return redirect()->route('investor.myInvestments');
+    }
+
 
     public function render()
     {

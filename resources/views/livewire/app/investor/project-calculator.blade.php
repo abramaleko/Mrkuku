@@ -16,7 +16,9 @@
             <span class="text-xl font-bold text-gray-700">Project Name :</span>
             <select wire:model="projectChoice" class="block w-auto mt-4 rounded form-select lg:ml-8 lg:w-72 lg:mt-0">
                 <option>Choose ...</option>
-                <option value="1">Mr kuku chicken rearing</option>
+                @foreach ($projects as $project)
+                <option value="{{$project->id}}">{{$project->name}}</option>
+                @endforeach
             </select>
         </label>
     </div>
@@ -55,10 +57,13 @@
                 class="px-6 py-2 tracking-wide text-white bg-blue-500 rounded hover:bg-blue-400 {{ (($chicksNo == '') || ($chicksNo < 100)) ? 'disabled:opacity-25' : '' }}">
                     CALCULATE
                 </button>
-                <button {{ (($chicksNo == '') || ($chicksNo < 100)) ? 'disabled' : '' }}
-                    class="px-6 py-2 mt-4 tracking-wide text-white bg-green-500 rounded lg:ml-8 hover:bg-green-400 lg:mt-0 {{ (($chicksNo == '') || ($chicksNo < 100)) ? 'disabled:opacity-25' : '' }}">
+                @can('view investments')
+                <button wire:click="addToInvestment"
+                {{ $calculatedChicks ? '' : 'disabled' }}
+                    class="px-6 py-2 mt-4 tracking-wide text-white bg-green-500 rounded lg:ml-8 hover:bg-green-400 lg:mt-0 {{ $calculatedChicks ? '' : 'disabled:opacity-25' }}">
                     ADD TO MY INVESTMENTS
                 </button>
+                @endcan
             </div>
 
             @if ($calculatedChicks)
@@ -158,10 +163,13 @@
             class="px-6 py-2 tracking-wide text-white bg-blue-500 rounded hover:bg-blue-400 {{ (($investmentCapital == '') || ($investmentCapital < 500000)) ? 'disabled:opacity-25' : '' }}">
                 CALCULATE
             </button>
-            <button {{ (($investmentCapital == '') || ($investmentCapital < 500000)) ? 'disabled' : '' }}
-                class="px-6 py-2 mt-4 tracking-wide text-white bg-green-500 rounded lg:ml-8 hover:bg-green-400 lg:mt-0 {{ (($investmentCapital == '') || ($investmentCapital < 500000)) ? 'disabled:opacity-25' : '' }}">
+            @can('view investments')
+            <button wire:click="addToInvestment"
+            {{ $calculatedCapital ? '' : 'disabled' }}
+                class="px-6 py-2 mt-4 tracking-wide text-white bg-green-500 rounded lg:ml-8 hover:bg-green-400 lg:mt-0 {{ $calculatedCapital ? '' : 'disabled:opacity-25'}}">
                 ADD TO MY INVESTMENTS
             </button>
+            @endcan
         </div>
         @if ($calculatedCapital)
         <div class="mt-8 text-gray-700">

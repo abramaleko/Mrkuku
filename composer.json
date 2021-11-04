@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "ckfinder/ckfinder-laravel-package": "^3.5",
+        "clegginabox/pdf-merger": "dev-master",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -15,7 +16,9 @@
         "laravel/sanctum": "^2.6",
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
+        "laraveldaily/laravel-invoices": "^2.0",
         "livewire/livewire": "^2.5",
+        "madnest/madzipper": "^1.1",
         "pusher/pusher-php-server": "^7.0",
         "spatie/laravel-permission": "^4.3"
     },

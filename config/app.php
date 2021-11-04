@@ -167,7 +167,8 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
-
+        LaravelDaily\Invoices\InvoiceServiceProvider::class,
+        Madnest\Madzipper\MadzipperServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -233,6 +234,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Invoice' => LaravelDaily\Invoices\Facades\Invoice::class,
+        'Zip' => ZanySoft\Zip\ZipFacade::class,
+
+
 
 
     ],

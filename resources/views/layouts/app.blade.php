@@ -451,7 +451,16 @@
                     <img src="{{ asset('images/social-icons/calculator.png') }}" class="w-6 h-6" alt="project calculator">
                     <span class="mx-3">Project Calculator</span>
                 </a>
-                
+
+                @can('verify slips')
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.verification-center') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    href="{{ route('admin.verification-center') }}">
+                    <img src="{{ asset('images/social-icons/check.png') }}" class="w-6 h-6" alt="project calculator">
+                    <span class="mx-3">Verification Center</span>
+                </a>
+                @endcan
+
+
                 <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('profile.show') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                     href="{{ route('profile.show') }}">
                     <img src="{{ asset('images/social-icons/settings.png') }}" class="w-6 h-6" alt="settings">

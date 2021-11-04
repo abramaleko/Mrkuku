@@ -3,10 +3,13 @@
 use App\Http\Controllers\Auth\GoogleSignInController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Livewire\App\Admin\Contacts;
+use App\Http\Livewire\App\Admin\PaymentDetail;
 use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
 use App\Http\Livewire\App\Admin\Permissions;
+use App\Http\Livewire\App\Admin\SlipVerify;
 use App\Http\Livewire\App\Admin\Subscriber;
 use App\Http\Livewire\App\Admin\Support\Support;
 use App\Http\Livewire\App\Admin\UserDetails;
@@ -14,7 +17,9 @@ use App\Http\Livewire\App\Admin\Users;
 use App\Http\Livewire\App\Blog\Create;
 use App\Http\Livewire\App\Blog\Dashboard;
 use App\Http\Livewire\App\Investor\Investments;
+use App\Http\Livewire\App\Investor\InvoiceDetails;
 use App\Http\Livewire\App\Investor\ProjectCalculator;
+use App\Http\Livewire\App\Investor\SubmitSlips;
 use App\Http\Livewire\App\Support\InvestorSupport;
 use Illuminate\Support\Facades\Route;
 
@@ -111,6 +116,14 @@ Route::prefix('investor')->name('investor.')->middleware('auth')
     Route::get('/investments',Investments::class)->name('myInvestments');
 
     Route::get('/calculator',ProjectCalculator::class)->name('calculator');
+
+    Route::get('invoice/{id}',InvoiceDetails::class)->name('invoice-details');
+
+    Route::get('invoice/verify/{investment}',[InvoiceController::class,'showSubmitPage'])->name('invoice-submit-paymentslips');
+
+    Route::post('invoice/verify/{investment}',[InvoiceController::class,'submitSlips'])->name('invoice-upload-paymentslips');
+
+    Route::get('/invoice/pdf/{investment}/{download?}',[InvoiceController::class,'printInvoice'])->name('print-invoice');
 });
 
 //admin routes
@@ -146,6 +159,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/subscribers', Subscriber::class)
         ->middleware('auth')
         ->name('subscribers');
+
+        Route::get('/verification_center', SlipVerify::class)
+        ->middleware('auth')
+        ->name('verification-center');
+
+        Route::get('/verify/investment/{investment}', PaymentDetail::class)
+        ->middleware('auth')
+        ->name('payment-detail');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
