@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\GoogleSignInController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Livewire\App\Admin\Contacts;
@@ -169,10 +170,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('payment-detail');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
 //ckfinder routes
 Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
