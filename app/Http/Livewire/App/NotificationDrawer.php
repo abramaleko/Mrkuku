@@ -14,8 +14,6 @@ class NotificationDrawer extends Component
      public function mount()
      {
          $this->notifications=Auth::user()->unreadNotifications;
-
-        //  dd($this->notifications->first()->data['user_name']);
      }
 
      public function updatePhoneNotification($id)
