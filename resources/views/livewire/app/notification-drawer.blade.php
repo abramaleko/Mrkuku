@@ -2,13 +2,16 @@
     <div x-data="{ notificationOpen: false }" class="relative">
         <button @click="notificationOpen = ! notificationOpen"
             class="flex mx-4 text-gray-600 focus:outline-none">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                 </path>
             </svg>
+            @if (count($notifications) != 0)
+            <span class="w-5 h-5 mt-4 text-sm text-center text-white bg-blue-600 rounded-full " style="margin-left: -0.2rem;">{{count($notifications)}}</span>
+            @endif
         </button>
 
         <div x-show="notificationOpen" @click="notificationOpen = false"
@@ -31,6 +34,19 @@
            </a>
                @endif
 
+               @if ($notification->type == "App\Notifications\ContractSigning")
+               <a wire:click="updatePhoneNotification('{{$notification->id}}')"
+                class="flex items-center px-4 py-3 -mx-2 text-gray-600 cursor-pointer hover:text-white hover:bg-indigo-600">
+                {{-- <img class="w-8 h-8 rounded-full "
+                    src="{{asset('images/icons/phone.png')}}"
+                    alt="avatar"> --}}
+                <p class="mx-2 text-sm">
+                    <span class="font-bold" href="#">Congratulations, </span>you're payment slips have been approved and contract is ready for you to sign <span
+                        class="text-xs font-bold text-indigo-400" href="#"> {{$notification->created_at->diffForHumans()}}</span>
+                </p>
+            </a>
+               @endif
+               <hr>
             @endforeach
 
 
