@@ -48,10 +48,12 @@
                             <td>{{ $investment->created_at->format('jS F Y') }}</td>
                             <td>
                                 @if ($investment->invoice_id != '')
-                                    <a href="{{route('investor.print-invoice',$investment->id)}}" target="_blank"
+                                     @if (! $investment->verified)
+                                     <a href="{{route('investor.print-invoice',$investment->id)}}" target="_blank"
                                         class="px-6 tracking-tighter text-green-600 hover:text-green-900">
                                         View Invoice
                                     </a>
+                                     @endif
                                     @else
                                     <a wire:click="generateInvoice({{$investment->id}})" wire:loading.class="hidden"
                                     class="px-6 tracking-tighter text-green-600 cursor-pointer hover:text-green-900">

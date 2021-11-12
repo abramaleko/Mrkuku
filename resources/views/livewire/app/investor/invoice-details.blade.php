@@ -79,12 +79,13 @@
     </div>
 
     <div class="flex flex-wrap mt-8">
+        @if ( ! $investment->verified)
         <a href="{{ route('investor.print-invoice', $investment->id, true) }}"
             class="px-8 py-3 font-light tracking-wide text-white bg-blue-500 rounded hover:bg-blue-400"
             style="width: 20rem;">
             DOWNLOAD PROFOMA INVOICE
-
         </a>
+        @endif
         @if (!$investment->invoice->verification_attachments)
             <a target="_blank" href="{{ route('investor.invoice-submit-paymentslips', $investment->id) }}"
                 class="px-8 py-3 mt-4 font-light tracking-widest text-center text-white bg-green-500 rounded hover:bg-green-400 lg:mt-0 lg:ml-4"
@@ -94,25 +95,89 @@
         @endif
     </div>
 
-    <!-- Mr kuku profoma -->
-    <div class="mt-12">
-        <h1 class="text-xl font-bold tracking-tighter text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
-            1 : &nbsp; Mr KuKu Farmers Limited Profoma Invoice
-        </h1>
+    @if (! $investment->verified)
+  <!-- Profoma details -->
+  <div class="mt-12">
+    <h1 class="text-xl font-bold tracking-tighter text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
+        1 : &nbsp; Mr KuKu Farmers Limited Profoma Invoice
+    </h1>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            Description :
+        </div>
+        <div class="mt-2 text-gray-600 break-words lg:ml-8 lg:mt-0">
+            Farm rearing management fees
+        </div>
+    </div>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            Quantity:
+        </div>
+        <div class="ml-8 text-gray-600 ">
+            {{ number_format($investment->units) }} chicks
+        </div>
+    </div>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            Unit price:
+        </div>
+        <div class="ml-8 text-gray-600 ">
+            800
+        </div>
+    </div>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            Total :
+        </div>
+        <div class="ml-8 text-gray-600 ">
+            {{ number_format($investment->rear_cost) }} Tshs
+        </div>
+    </div>
+    <h1 class="mt-8 text-xl font-semibold text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
+        Bank Details
+    </h1>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            NBC BANK:
+        </div>
+        <div class="ml-8 tracking-wide text-gray-600">
+            011103039843
+        </div>
+    </div>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            AMANA BANK:
+        </div>
+        <div class="ml-8 tracking-wide text-gray-600">
+            003120959810001
+        </div>
+    </div>
+    <h3 class="mt-4 font-serif text-lg font-semibold tracking-wide text-gray-700 lg:text-xl">
+        MR KUKU FARMERS LIMITED
+    </h3>
+</div>
+
+<div class="mt-12">
+    <h1 class="text-xl font-bold tracking-tighter text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
+        2 : &nbsp; Bravo Feeds Mill Limited Profoma Invoice
+    </h1>
+
+    <div class="lg:ml-8">
         <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
             <div class="font-semibold text-gray-600">
-                Description :
+                A)&nbsp; Description :
             </div>
-            <div class="mt-2 text-gray-600 break-words lg:ml-8 lg:mt-0">
-                Farm rearing management fees
+            <div class="ml-3 text-gray-600 break-words lg:ml-8 lg:mt-0">
+                Broiler Chicks
             </div>
         </div>
+
         <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
             <div class="font-semibold text-gray-600">
                 Quantity:
             </div>
             <div class="ml-8 text-gray-600 ">
-                {{ number_format($investment->units) }} chicks
+                {{ number_format($investment->doc_quantity) }}
             </div>
         </div>
         <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
@@ -120,7 +185,7 @@
                 Unit price:
             </div>
             <div class="ml-8 text-gray-600 ">
-                800
+                1,500
             </div>
         </div>
         <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
@@ -128,134 +193,73 @@
                 Total :
             </div>
             <div class="ml-8 text-gray-600 ">
-                {{ number_format($investment->rear_cost) }} Tshs
+                {{ number_format($investment->doc_cost) }} Tshs
             </div>
         </div>
-        <h1 class="mt-8 text-xl font-semibold text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
-            Bank Details
-        </h1>
-        <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-            <div class="font-semibold text-gray-600">
-                NBC BANK:
-            </div>
-            <div class="ml-8 tracking-wide text-gray-600">
-                011103039843
-            </div>
-        </div>
-        <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-            <div class="font-semibold text-gray-600">
-                AMANA BANK:
-            </div>
-            <div class="ml-8 tracking-wide text-gray-600">
-                003120959810001
-            </div>
-        </div>
-        <h3 class="mt-4 font-serif text-lg font-semibold tracking-wide text-gray-700 lg:text-xl">
-            MR KUKU FARMERS LIMITED
-        </h3>
     </div>
-
-    <div class="mt-12">
-        <h1 class="text-xl font-bold tracking-tighter text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
-            2 : &nbsp; Bravo Feeds Mill Limited Profoma Invoice
-        </h1>
-
-        <div class="lg:ml-8">
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    A)&nbsp; Description :
-                </div>
-                <div class="ml-3 text-gray-600 break-words lg:ml-8 lg:mt-0">
-                    Broiler Chicks
-                </div>
-            </div>
-
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    Quantity:
-                </div>
-                <div class="ml-8 text-gray-600 ">
-                    {{ number_format($investment->doc_quantity) }}
-                </div>
-            </div>
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    Unit price:
-                </div>
-                <div class="ml-8 text-gray-600 ">
-                    1,500
-                </div>
-            </div>
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    Total :
-                </div>
-                <div class="ml-8 text-gray-600 ">
-                    {{ number_format($investment->doc_cost) }} Tshs
-                </div>
-            </div>
-        </div>
-        <div class="mt-8 lg:ml-8">
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    B)&nbsp; Description :
-                </div>
-                <div class="ml-3 text-gray-600 break-words m lg:ml-8 lg:mt-0">
-                    Chicken Feeds
-                </div>
-            </div>
-
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    Quantity:
-                </div>
-                <div class="ml-8 text-gray-600 ">
-                    {{ number_format($this->investment->units) }}
-                </div>
-            </div>
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    Unit price:
-                </div>
-                <div class="ml-8 text-gray-600 ">
-                    2,700
-                </div>
-            </div>
-            <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
-                <div class="font-semibold text-gray-600">
-                    Total :
-                </div>
-                <div class="ml-8 text-gray-600 ">
-                    {{ number_format($investment->feed_cost) }} Tshs
-                </div>
-            </div>
-        </div>
-        <p class="py-4 text-xl font-extrabold tracking-wide text-gray-700 lg:text-2xl">
-            Grand Total - {{ number_format($investment->doc_cost + $investment->feed_cost) }} Tshs
-        </p>
-        <h1 class="mt-4 text-xl font-semibold text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
-            Bank Details
-        </h1>
+    <div class="mt-8 lg:ml-8">
         <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
             <div class="font-semibold text-gray-600">
-                NBC BANK:
+                B)&nbsp; Description :
             </div>
-            <div class="ml-8 tracking-wide text-gray-600">
-                011103039855
+            <div class="ml-3 text-gray-600 break-words m lg:ml-8 lg:mt-0">
+                Chicken Feeds
+            </div>
+        </div>
+
+        <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+            <div class="font-semibold text-gray-600">
+                Quantity:
+            </div>
+            <div class="ml-8 text-gray-600 ">
+                {{ number_format($this->investment->units) }}
             </div>
         </div>
         <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
             <div class="font-semibold text-gray-600">
-                AMANA BANK:
+                Unit price:
             </div>
-            <div class="ml-8 tracking-wide text-gray-600">
-                003111162140003
+            <div class="ml-8 text-gray-600 ">
+                2,700
             </div>
         </div>
-        <h3 class="mt-4 font-serif text-lg font-semibold tracking-wide text-gray-700 lg:text-xl">
-            BRAVO FEEDS MILLS LTD
-        </h3>
+        <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+            <div class="font-semibold text-gray-600">
+                Total :
+            </div>
+            <div class="ml-8 text-gray-600 ">
+                {{ number_format($investment->feed_cost) }} Tshs
+            </div>
+        </div>
     </div>
+    <p class="py-4 text-xl font-extrabold tracking-wide text-gray-700 lg:text-2xl">
+        Grand Total - {{ number_format($investment->doc_cost + $investment->feed_cost) }} Tshs
+    </p>
+    <h1 class="mt-4 text-xl font-semibold text-gray-700 lg:text-2xl lg:py-0 lg:tracking-wide">
+        Bank Details
+    </h1>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            NBC BANK:
+        </div>
+        <div class="ml-8 tracking-wide text-gray-600">
+            011103039855
+        </div>
+    </div>
+    <div class="flex flex-wrap mt-4 text-lg lg:text-xl ">
+        <div class="font-semibold text-gray-600">
+            AMANA BANK:
+        </div>
+        <div class="ml-8 tracking-wide text-gray-600">
+            003111162140003
+        </div>
+    </div>
+    <h3 class="mt-4 font-serif text-lg font-semibold tracking-wide text-gray-700 lg:text-xl">
+        BRAVO FEEDS MILLS LTD
+    </h3>
+</div>
+    @endif
+
 
         <!-- Modal1 -->
         <div
