@@ -18,6 +18,8 @@ class DashboardController extends Controller
     public function index()
     {
         //notifications dispatch
+        $counter=0;
+
         if (! (Auth::user()->phone_no)) {
 
            if (count(Auth::user()->unreadNotifications) == 0)
@@ -25,9 +27,12 @@ class DashboardController extends Controller
            else
            {
             foreach (Auth::user()->unreadNotifications as $notification) {
-                if ($notification->type != "App\Notifications\AddPhoneNumber") {
-                 Auth::user()->notify(new AddPhoneNumber(Auth::user()->name));
+                if ($notification->type == "App\Notifications\AddPhoneNumber") {
+                    $counter=+1;
                 }
+            }
+            if ($counter == 0) {
+                Auth::user()->notify(new AddPhoneNumber(Auth::user()->name));
             }
            }
 
