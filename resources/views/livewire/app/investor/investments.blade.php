@@ -64,11 +64,14 @@
                                         Processing ...
                                    </div>
                                 @endif
+                                @if ($investment->verified)
+                                <a href="{{route('investor.invoice-details',$investment->id)}}" target="_blank" class="px-6 tracking-wide text-green-600 hover:text-green-900 hover:underline">Contract</a>
+                                @endif
                                  @if ($investment->invoice_id)
-                                 <a href="{{route('investor.invoice-details',$investment->id)}}" target="_blank" class="px-6 text-indigo-600 hover:text-indigo-900">Details</a>
+                                 <a href="{{route('investor.invoice-details',$investment->id)}}" target="_blank" class="px-6 tracking-wide text-indigo-600 hover:text-indigo-900 hover:underline">Details</a>
                                  @endif
                                 @if ( ! $investment->verified)
-                                   <a wire:click="deleteInvoice({{$investment->id}})" class="px-6 text-red-700 cursor-pointer hover:text-red-900">Delete</a>
+                                   <a wire:click="deleteInvoice({{$investment->id}})" class="px-6 text-red-700 cursor-pointer hover:text-red-900 hover:underline">Delete</a>
                                 @endif
                             </td>
                         </tr>

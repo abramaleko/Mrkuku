@@ -45,6 +45,19 @@ class Investments extends Component
 
    }
 
+   public function deleteInvoice( ModelsInvestments $investment)
+   {
+       //if the investment has an invoice record
+     if ($investment->invoice_id) {
+         $investment->invoice->delete();
+     }
+
+     $investment->delete();
+
+     return redirect()->route('investor.myInvestments');
+
+   }
+
 
 
 
