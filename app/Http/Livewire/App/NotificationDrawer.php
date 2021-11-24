@@ -28,6 +28,11 @@ class NotificationDrawer extends Component
         return redirect()->route('profile.show');
     }
 
+    public function updateSlipDeclinedNotification($notification)
+    {
+      dd($notification);
+    }
+
     public function render()
     {
         return view('livewire.app.notification-drawer');

@@ -19,6 +19,7 @@ class Investments extends Component
        ->where('user_id',Auth::user()->id)
        ->orderBy('id','desc')
        ->get();
+
    }
 
    public function generateInvoice(ModelsInvestments $investment)

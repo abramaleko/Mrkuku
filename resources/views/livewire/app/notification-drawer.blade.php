@@ -46,6 +46,19 @@
                 </p>
             </a>
                @endif
+
+               @if ($notification->type == "App\Notifications\slipsDeclined")
+               <a wire:click='updateSlipDeclinedNotification'
+                class="flex items-center px-4 py-3 -mx-2 text-gray-600 cursor-pointer hover:text-white hover:bg-indigo-600">
+                {{-- <img class="w-8 h-8 rounded-full "
+                    src="{{asset('images/icons/phone.png')}}"
+                    alt="avatar"> --}}
+                <p class="mx-2 text-sm">
+                    <span class="font-bold" href="#">Sorry, </span>you're payment slips have been declined for more information click here. <span
+                        class="text-xs font-bold text-indigo-400" href="#"> {{$notification->created_at->diffForHumans()}}</span>
+                </p>
+            </a>
+               @endif
                <hr>
             @endforeach
 

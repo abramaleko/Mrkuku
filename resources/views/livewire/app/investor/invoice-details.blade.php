@@ -62,13 +62,13 @@
             Status:
         </div>
         <div class="ml-8 text-gray-600 ">
-            @if ($investment->invoice->verification_attachments == '')
+            @if ($investment->invoice->verification_attachments == '' && $investment->invoice->verification_error == '')
                 Payment slips have not been submitted for verification
             @elseif (($investment->invoice->verification_attachments) && ( !$investment->invoice->verified) && ($investment->invoice->verification_error == ''))
                 Submitted for verification
             @elseif ($investment->verified)
                  Payment slips verified
-            @elseif (($investment->invoice->verification_attachments) && ( !$investment->invoice->verified) &&  ($investment->invoice->verification_error))
+            @elseif (($investment->invoice->verification_attachments == '')  &&  ($investment->invoice->verification_error != ''))
                  Payment Slips verification failed, for more details click
                  <a class="text-green-600 cursor-pointer hover:underline" @click="showModal1 = true">
                      here..

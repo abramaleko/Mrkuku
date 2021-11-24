@@ -146,6 +146,7 @@
                     </ul>
                 </section>
 
+                @if (!$investment->invoice->verification_attachments)
                 <!-- sticky footer -->
                 <footer class="flex justify-end px-8 pt-4 pb-8">
                     <button type="submit"
@@ -159,6 +160,8 @@
                 </footer>
             </article>
             <form action="">
+                @endif
+
 
 
 

@@ -64,8 +64,11 @@
                                         Processing ...
                                    </div>
                                 @endif
-                                @if ($investment->verified)
-                                <a href="{{route('investor.invoice-details',$investment->id)}}" target="_blank" class="px-6 tracking-wide text-green-600 hover:text-green-900 hover:underline">Contract</a>
+                                @if ($investment->verified && $investment->contract_id && ! $investment->contract->next_of_kin_id)
+                                <a href="{{route('investor.sign-contract',$investment->contract->id)}}" target="_blank" class="px-6 tracking-wide text-green-600 hover:text-green-900 hover:underline">Contract</a>
+                                @endif
+                                @if ($investment->verified && $investment->contract_id &&  $investment->contract->next_of_kin_id)
+                                <a href="" class="px-6 tracking-wide text-green-600 hover:text-green-900 hover:underline">View Contract</a>
                                 @endif
                                  @if ($investment->invoice_id)
                                  <a href="{{route('investor.invoice-details',$investment->id)}}" target="_blank" class="px-6 tracking-wide text-indigo-600 hover:text-indigo-900 hover:underline">Details</a>

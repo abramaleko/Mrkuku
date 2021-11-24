@@ -20,6 +20,7 @@ use App\Http\Livewire\App\Blog\Dashboard;
 use App\Http\Livewire\App\Investor\Investments;
 use App\Http\Livewire\App\Investor\InvoiceDetails;
 use App\Http\Livewire\App\Investor\ProjectCalculator;
+use App\Http\Livewire\App\Investor\SignContract;
 use App\Http\Livewire\App\Investor\SubmitSlips;
 use App\Http\Livewire\App\Support\InvestorSupport;
 use Illuminate\Support\Facades\Route;
@@ -125,6 +126,8 @@ Route::prefix('investor')->name('investor.')->middleware('auth')
     Route::post('invoice/verify/{investment}',[InvoiceController::class,'submitSlips'])->name('invoice-upload-paymentslips');
 
     Route::get('/invoice/pdf/{investment}/{download?}',[InvoiceController::class,'printInvoice'])->name('print-invoice');
+
+    Route::get('/investment/contract/{contract}',SignContract::class)->name('sign-contract');
 });
 
 //admin routes

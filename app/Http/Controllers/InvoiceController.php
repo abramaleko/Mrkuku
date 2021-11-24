@@ -206,21 +206,6 @@ class InvoiceController extends Controller
             'slips.*' => 'file|mimes:pdf,jpg,jpeg,png,webp|max:5000'
         ], $messages);
 
-        //check for previous files attached if so delete them
-        if ($investment->invoice->verification_attachments) {
-            $paths=unserialize($investment->invoice->verification_attachments);
-            Storage::delete($paths);
-
-
-            //clears the previous paths
-             $paths=[];
-
-            //clears the the verification errors for rebsumission
-            $investment->invoice->verification_error='';
-        }
-
-
-
         //save the payment slips in the payment-slips directory
         foreach ($request->file('slips') as $slip) {
             $path = Storage::putFile('public/payment-slips', $slip);
@@ -228,6 +213,7 @@ class InvoiceController extends Controller
         }
         //serialize paths and store them to database
         $investment->invoice->verification_attachments = serialize($paths);
+        $investment->invoice->verification_error='';
         $investment->invoice->save();
 
         $request->session()->flash('success', 'Congratulations on submitting your payment slips, we will soon notify you once we have approved these slips');

@@ -101,25 +101,37 @@
 
 
     <!-- confirmation modal-->
-    <x-jet-confirmation-modal wire:model="verifySlip">
+    <x-jet-dialog-modal wire:model="verifySlip">
         <x-slot name="title">
             Verifiy Payment Slips
         </x-slot>
 
         <x-slot name="content">
-            Are you sure you want to verify this payment slips ?
+           To verify the payment slips please enter the date when the payments where made.
+            <div class="mt-4">
+                <label class="block my-4">
+                    <span class="text-lg font-bold text-gray-500">
+                        Payment Date :
+                    </span>
+                    <input type="date" class="block mt-1 mb-2 border-blue-500 rounded-md" wire:model.defer="payment_date"/>
+                    @error('payment_date') <span
+                            class="block text-sm font-semibold text-red-500">{{ $message }}</span>
+                    @enderror
+                </label>
+            </div>
         </x-slot>
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('verifySlip')" wire:loading.attr="disabled">
-                Nevermind
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ml-2" wire:click="VerifySlipFunction" wire:loading.attr="disabled">
                 Verify
             </x-jet-danger-button>
+
         </x-slot>
-    </x-jet-confirmation-modal>
+    </x-jet-dialog-modal>
 
 
     <!-- Decline modal -->

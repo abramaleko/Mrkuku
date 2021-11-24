@@ -25,4 +25,9 @@ class Investments extends Model
     {
         return $this->belongsTo(Projects::class);
     }
+
+    public function contract()
+    {
+        return $this->belongsTo(Contracts::class,'contract_id');
+    }
 }
