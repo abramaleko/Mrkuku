@@ -253,7 +253,7 @@
                     Email : info@mrkuku.org
                 </p>
                 <p class="text-base tracking-widest text-center text-gray-500 ">
-                    Call us :  +255-677-092-941
+                    Call us :  +255 659 071 309
 
                 </p>
                 <p class="pt-4 text-base tracking-widest text-center text-gray-500 ">

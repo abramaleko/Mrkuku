@@ -135,7 +135,7 @@
         <div class="block lg:px-10">
             <h2 class="mt-8 text-3xl font-bold text-gray-700 lg:text-4xl ">You can Call us at</h2>
             <h3 class="my-8 text-xl italic text-gray-700 lg:text-3xl number">
-                +255-677-092-941
+                +255 659 071 309
             </h3>
 
             <p class="text-gray-400 lg:pt-6 font-extralight" style="font-size: 22px; font-family: 'Raleway', sans-serif;">
