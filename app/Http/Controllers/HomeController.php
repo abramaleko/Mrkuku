@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
@@ -14,7 +15,11 @@ class HomeController extends Controller
     // to view the pages
 
     public function home(){
-        return view('web.index');
+        $blog=Blog::latest()->take(3)->get();
+
+        return view('web.index',[
+            'blog_posts' => $blog,
+        ]);
     }
 
     public function investments(){

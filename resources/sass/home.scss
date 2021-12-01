@@ -1,36 +1,3 @@
-.header
-{
-    .header-text{
-        font-size: 35px;
-    }
-     @media only screen and (max-width:600px)
-    {
-        .header-text{
-            font-size: 30px !important;
-        }
-    }
-}
-
-.invest
-{
-    margin-top: 7rem;
-
-    @media only screen and (max-width:600px) {
-      margin-top: 5rem;
-    }
-
-    .header-invest
-    {
-        font-size: 35px;
-    }
-         @media only screen and (max-width:600px)
-    {
-        .header-invest{
-            font-size: 25px !important;
-            text-align: center;
-        }
-    }
-}
 
 .video
 {
@@ -48,29 +15,6 @@
  }
 }
 
-.newsletter
-{
-    margin-top: 5rem;;
-   .header-text{
-       font-size: 32px;
-   }
-   .header-text2{
-       font-size: 22px;
-       font-family: 'Raleway', sans-serif;
-   }
-   @media only screen and (max-width:600px) {
-       .header-text{
-          font-size: 20px !important;
-       }
-      .header-text2{
-          font-size: 18px !important;
-      }
-      .subscribe{
-          display: block;
-          margin-top: 2rem;
-      }
-   }
-}
 
 .animated {
     -webkit-animation-duration: 1s;
@@ -127,3 +71,135 @@
         }
        }
 }
+@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
+.header-hero::before {
+    content: '';
+    z-index: -1;
+    opacity: .9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    --bg-opacity: 1;
+    background-color: #bee3f8;
+    background-color: rgba(190, 227, 248, var(--bg-opacity));
+  }
+  .sticky{
+position: -webkit-sticky;
+position: sticky;
+}
+  .sticky {
+position: fixed;
+padding-top: 1rem;
+padding-bottom: 1rem;
+--bg-opacity: 1;
+background-color: #fff;
+background-color: rgba(255, 255, 255, var(--bg-opacity));
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+  .main-btn {
+display: inline-block;
+padding-left: 2rem;
+padding-right: 2rem;
+padding-top: 1rem;
+padding-bottom: 1rem;
+font-weight: 700;
+--text-opacity: 1;
+color: #fff;
+color: rgba(255, 255, 255, var(--text-opacity));
+transition-duration: 300ms;
+--bg-opacity: 1;
+background-color: #2b6cb0;
+background-color: rgba(43, 108, 176, var(--bg-opacity));
+border-radius: 9999px;
+}
+
+.main-btn:hover {
+--bg-opacity: 1;
+background-color: #63b3ed;
+background-color: rgba(99, 179, 237, var(--bg-opacity));
+}
+.gradient-btn {
+background-image: linear-gradient(to right, #0067f4 0%, #2bdbdc 50%, #0067f4 100%);
+background-size: 200% auto;
+overflow: hidden;
+}
+
+.gradient-btn:hover {
+background-position: right center;
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.main-btn.video-popup {
+--text-opacity: 1;
+color: #3182ce;
+color: rgba(49, 130, 206, var(--text-opacity));
+--bg-opacity: 1;
+background-color: #fff;
+background-color: rgba(255, 255, 255, var(--bg-opacity));
+}
+
+.main-btn.video-popup:hover {
+--bg-opacity: 1;
+background-color: #fff;
+background-color: rgba(255, 255, 255, var(--bg-opacity));
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.section-title .line {
+  background: linear-gradient(#fe8464 0%, #fe6e9a 100%);
+  width: 10rem;
+  height: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+.section-title .title {
+  font-size: 32px;
+  padding-top: 0.5rem;
+  font-weight: 700;
+}
+.carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+  }
+
+  .carousel-item {
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+  }
+
+  #carousel-1:checked ~ .control-1,
+  #carousel-2:checked ~ .control-2,
+  #carousel-3:checked ~ .control-3 {
+    display: block;
+  }
+
+  .carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+  }
+
+  #carousel-1:checked
+    ~ .control-1
+    ~ .carousel-indicators
+    li:nth-child(1)
+    .carousel-bullet,
+  #carousel-2:checked
+    ~ .control-2
+    ~ .carousel-indicators
+    li:nth-child(2)
+    .carousel-bullet,
+  #carousel-3:checked
+    ~ .control-3
+    ~ .carousel-indicators
+    li:nth-child(3)
+    .carousel-bullet {
+    color: #2b6cb0;
+    /*Set to match the Tailwind colour you want the active one to be */
+  }
+

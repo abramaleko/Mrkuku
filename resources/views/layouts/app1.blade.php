@@ -32,7 +32,7 @@
 
 <body class="font-sans antialiased">
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-white">
         <!-- component -->
         <div class="bg-blue-500">
             <nav class="relative flex items-center justify-between px-4 py-4 bg-white">
@@ -192,6 +192,7 @@
     position: relative;
     height: 20rem;
     background-color: #FFFFFF;">
+            <div class="pb-6 border-t-2 border-gray-300 border-dashed "></div>
             <nav class="flex flex-wrap justify-center mx-6 mb-4">
                 <div class="px-6 py-2">
                     <a href="{{ route('home') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
