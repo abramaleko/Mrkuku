@@ -68,7 +68,7 @@ class HomeController extends Controller
         if ($request->ajax()) {
             //validate the request
            $request->validate([
-               'email' => ['required','unique:subscribers,email,']
+               'email' => ['required','unique:subscribers','email']
            ]);
 
            //save into database

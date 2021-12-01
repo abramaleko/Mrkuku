@@ -437,7 +437,7 @@
                 },
                 error:function(response){
                     if (response.responseJSON.errors.email) {
-                     alert('It seems you have already subscribed to our Newsletter');
+                     alert(response.responseJSON.errors.email[0]);
                      document.getElementById('email').value='';
 
                     }
