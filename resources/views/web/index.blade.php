@@ -103,7 +103,7 @@
             </div> <!-- row -->
           <div class="mx-auto">
             <div class="w-auto overflow-hidden rounded-lg ">
-                <iframe src="https://www.youtube.com/embed/ARhairD_dkM?autoplay=1&rel=0"  frameborder="0"></iframe>
+                <iframe src="https://www.youtube.com/embed/d0JHNk2hMaw"  frameborder="0"></iframe>
             <div class="flex flex-col mt-10 sm:flex-row">
               <div class="text-center sm:w-1/3 sm:pr-8 sm:py-8">
                 <div class="inline-flex items-center justify-center w-20 h-20 ">
@@ -113,14 +113,14 @@
                   <h2 class="mt-4 text-lg font-medium text-gray-900 title-font">Mr.Kuku</h2>
                   <div class="w-12 h-1 mt-2 mb-4 bg-indigo-500 rounded"></div>
                   <p class="text-base">
-                    BRAVO COMMERCIAL CORN FARMING
+                    Funga Mwaka Vema na Mr Kuku
                   </p>
                 </div>
               </div>
               <div class="pt-4 mt-4 text-center border-t border-gray-200 sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left">
                 <p class="mb-4 text-lg leading-relaxed">
-                    Mr Kuku Farmers Ltd And Bravo Feeds Mill Ltd Food Manufacturing Factory, Now Enables You To Participate In Maize Farming By Contract Without Intefering With Your Other Activities
-                    <a href="{{route('blog.viewPost',3)}}" class="inline-flex items-center ml-2 text-indigo-500 cursor-pointer hover:underline">Learn More
+                    Tunakupa nafasi katika mabanda yetu na kukufugia kuku wako, Tengeza faida hadi 10% kila mwezi bila kuacha unachofanya kila siku katika kutengeneza kipato.
+                    <a href="{{route('blog.viewPost',14)}}" class="inline-flex items-center ml-2 text-indigo-500 cursor-pointer hover:underline">Read More
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
