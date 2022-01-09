@@ -470,3 +470,20 @@
     </div>
 
 @endsection
+
+@section('scripts')
+<script>
+    var botmanWidget = {
+        frameEndpoint: '{{route("botman")}}',
+        title:  'Mr.Kuku Bot',
+        introMessage: 'Hello, I am Mr.KuKu bot 🐔 and what is your name. You can start by saying My name is ... ',
+        bubbleAvatarUrl: '{{asset('images/logo.jpeg')}}',
+        mainColor: '#3292db',
+        headerTextColor: '#fff',
+        aboutText: 'Powered By Mr.Kuku systems',
+        aboutLink: 'https://mrkuku.org/'
+    };
+
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+@endsection

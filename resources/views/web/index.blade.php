@@ -3,10 +3,8 @@
 <title>Mr Kuku</title>
 @endsection
 @section('styles')
-<link
-  rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
-/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 
  <link rel="stylesheet" href="{{asset('css/home.css')}}">
  <!--====== Tailwind CSS ======-->
@@ -480,4 +478,18 @@
 			}
 		}
   </script>
+  <script>
+    var botmanWidget = {
+        frameEndpoint: '{{route("botman")}}',
+        title:  'Mr.Kuku Bot',
+        introMessage: 'Hello, I am Mr.KuKu bot 🐔 and what is your name. You can start by saying My name is ... ',
+        bubbleAvatarUrl: '{{asset('images/logo.jpeg')}}',
+        mainColor: '#3292db',
+        headerTextColor: '#fff',
+        aboutText: 'Powered By Mr.Kuku systems',
+        aboutLink: 'https://mrkuku.org/'
+    };
+
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 @endsection

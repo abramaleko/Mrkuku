@@ -28,6 +28,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/botman', function (  ) {
+    app('botman')->listen();
+});
+
+Route::get('/bot', function () {
+   return view('web.bot');
+})->name('botman');
+
+
 //Google sign in routes
 
 //redirect to the oauth provider

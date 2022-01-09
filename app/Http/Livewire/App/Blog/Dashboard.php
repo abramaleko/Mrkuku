@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-
+    
     public $posts,$comments,$newCommments,$trending_posts;
 
     public function mount()
