@@ -2,6 +2,10 @@
 @section('title')
     <title>Investments</title>
 @endsection
+@section('meta-description')
+<meta name="description"
+        content="Jinsi ya kuwekeza kwenye miradi yetu ya Mr kuku">
+@endsection
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/investments.css') }}">
 @endsection

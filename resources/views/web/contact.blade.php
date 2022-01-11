@@ -2,6 +2,10 @@
 @section('title')
     <title>Contact Us </title>
 @endsection
+@section('meta-description')
+<meta name="description"
+        content="Jinsi  ya kufika ofisini kwetu au tuachie ujumbe mfupi wa maneno">
+@endsection
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 @endsection

@@ -2,6 +2,10 @@
 @section('title')
     <title>Learn</title>
 @endsection
+@section('meta-description')
+<meta name="description"
+        content="Tambuwa taarifa kadhaa kuhusu Mr kuku">
+@endsection
 @section('content')
 
     <div class="pt-8">

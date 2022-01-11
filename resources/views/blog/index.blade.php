@@ -2,6 +2,10 @@
 @section('title')
     <title>Blog</title>
 @endsection
+@section('meta-description')
+<meta name="description"
+        content="Ukurasa wa Mr kuku wenye taarifa mbalimbali kuhusu Miradi yetu">
+@endsection
 @section('content')
     <div class="overflow-x-hidden bg-gray-100">
         <div class="px-6 py-8">

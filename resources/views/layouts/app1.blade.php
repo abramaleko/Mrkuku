@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="title" content="Mr Kuku">
-    <meta name="description"
-        content="Kuza kipato chako kwa asilimia 10 kila mwezi ukiwekeza katika mradi wa Mr kuku">
+    @yield('meta-description')
     <meta name="keywords"
         content="Kuza kipato chako,modern poultry farming, broiler chicken farm,kuku wa broiler,grow your income">
     <meta name="robots" content="index, follow">

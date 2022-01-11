@@ -2,6 +2,10 @@
 @section('title')
 <title>Mr Kuku</title>
 @endsection
+@section('meta-description')
+<meta name="description"
+        content="Kuza kipato chako kwa asilimia 10 kila mwezi ukiwekeza katika mradi wa Mr kuku">
+@endsection
 @section('styles')
  <link rel="stylesheet" href="{{asset('css/home.css')}}">
 @endsection
