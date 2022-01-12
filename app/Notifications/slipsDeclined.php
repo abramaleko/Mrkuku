@@ -61,7 +61,7 @@ class slipsDeclined extends Notification
     public function toArray($notifiable)
     {
         return [
-            'invoice_id' => $this->invoice_id
+            'investment_id' => $this->invoice_id
         ];
     }
 }

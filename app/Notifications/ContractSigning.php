@@ -58,7 +58,7 @@ class ContractSigning extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user' => $this->user->name
+            'investment_id' => $this->invoice_id
         ];
     }
 }

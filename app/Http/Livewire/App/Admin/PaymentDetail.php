@@ -48,7 +48,7 @@ class PaymentDetail extends Component
         //clears the input
         $this->reasonDecline = '';
 
-        $this->investment->user->notify(new slipsDeclined($this->investment->invoice->id));
+        $this->investment->user->notify(new slipsDeclined($this->investment->id));
 
 
         return session()->flash('message', 'Successfully declined');
@@ -86,7 +86,7 @@ class PaymentDetail extends Component
         $this->investment->invoice->save();
 
         //flashes a notification to the investor
-        $this->investment->user->notify(new ContractSigning($this->investment->user_id));
+        $this->investment->user->notify(new ContractSigning($this->investment->id));
 
 
         return redirect()->route('admin.verification-center');

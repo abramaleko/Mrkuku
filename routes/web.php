@@ -22,6 +22,7 @@ use App\Http\Livewire\App\Investor\InvoiceDetails;
 use App\Http\Livewire\App\Investor\ProjectCalculator;
 use App\Http\Livewire\App\Investor\SignContract;
 use App\Http\Livewire\App\Investor\SubmitSlips;
+use App\Http\Livewire\App\NotificationDrawer;
 use App\Http\Livewire\App\Support\InvestorSupport;
 use Illuminate\Support\Facades\Route;
 
@@ -183,4 +184,7 @@ Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderC
 Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
     // ->middleware('auth')
     ->name('ckfinder_browser');
+
+ Route::middleware(['auth:sanctum', 'verified'])->get('/notifications',NotificationDrawer::class)->name('notifications');
+
 

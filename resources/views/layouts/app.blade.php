@@ -497,15 +497,15 @@
                     <a href="/">
                     <div class="flex mx-4 lg:mx-0">
                             <img src="{{asset('images/home.png')}}" alt="home"
-                             class="w-10 h-6 pl-3 ">
-                             <span class="pl-2 text-lg text-gray-700 hover:text-blue-500">Home</span>
+                             class="w-10 h-6 pl-3">
+                             <span class="pl-3 text-lg text-gray-700 hover:text-blue-500">Home</span>
 
                     </div>
                     </a>
                     </div>
 
                 <div class="flex items-center">
-                    @livewire('app.notification-drawer')
+                    @livewire('app.notification-button')
 
                     <div x-data="{ dropdownOpen: false }" class="relative">
                         <button @click="dropdownOpen = ! dropdownOpen"
