@@ -10,9 +10,9 @@ use Livewire\Component;
 
 class SlipVerify extends Component
 {
-    public $pendingSlips;
-    public $verifiedSlips;
-    public $showPending=true;
+    
+
+    public $search;
 
     public function mount()
     {
