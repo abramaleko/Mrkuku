@@ -35,7 +35,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-purple-900">
         <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
             class="fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden"></div>
 
@@ -51,7 +51,7 @@
             </div>
 
             <nav class="mt-10">
-                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100  {{ request()->routeIs('dashboard') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100  {{ request()->routeIs('dashboard') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                     href="{{ route('dashboard') }}">
                     <img src="{{ asset('images/social-icons/dashboard.png') }}" alt="dashboard"
                         class="w-6 h-6">
@@ -60,7 +60,7 @@
                 </a>
 
                 @can('view investments')
-                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100  {{ request()->routeIs('investor.myInvestments') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100  {{ request()->routeIs('investor.myInvestments') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                         href="{{route('investor.myInvestments')}}">
                         <svg class="w-6 h-6" viewBox="-29 0 487 487.71802" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -277,7 +277,7 @@
                 @endcan
 
                 @can('manage blog')
-                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('blog.dashboard') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('blog.dashboard') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                         href="{{ route('blog.dashboard') }}">
                         <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" class="w-6 h-6"
                             xmlns="http://www.w3.org/2000/svg">
@@ -409,7 +409,7 @@
                 @endcan
                 <!--for investors-->
                 @can('live support')
-                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.support') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.support') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                     href="{{ route('investor.support') }}">
                     <img src="{{ asset('images/social-icons/support.png') }}" alt="dashboard" class="h-7 w-7">
                     <span class="mx-3">Support</span>
@@ -417,21 +417,21 @@
                 @endcan
                    <!--for admins-->
                    @can('support service')
-                   <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.support') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                   <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.support') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                        href="{{ route('admin.support') }}">
                        <img src="{{ asset('images/social-icons/support.png') }}" alt="dashboard" class="h-7 w-7">
                        <span class="mx-3">Support</span>
                    </a>
                    @endcan
                 @can('manage contacts')
-                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.contacts') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.contacts') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                         href="{{ route('admin.contacts') }}">
                         <img src="{{ asset('images/social-icons/contact.png') }}" alt="dashboard" class="w-6 h-6">
                         <span class="mx-3">Contacts</span>
                     </a>
                 @endcan
                 @can('manage users')
-                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.users') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.users') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                         href="{{ route('admin.users') }}">
                         <img src="{{ asset('images/social-icons/management.png') }}" alt="dashboard"
                             class="w-6 h-6">
@@ -439,21 +439,21 @@
                     </a>
                 @endcan
                 @can('view subscribers')
-                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.subscribers') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.subscribers') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                         href="{{ route('admin.subscribers') }}">
                         <img src="{{ asset('images/social-icons/subscription.png') }}" alt="dashboard"
                             class="w-6 h-6">
                         <span class="mx-3">Subscribers</span>
                     </a>
                 @endcan
-                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.calculator') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.calculator') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                     href="{{ route('investor.calculator') }}">
                     <img src="{{ asset('images/social-icons/calculator.png') }}" class="w-6 h-6" alt="project calculator">
                     <span class="mx-3">Project Calculator</span>
                 </a>
 
                 @can('verify slips')
-                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.verification-center') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.verification-center') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                     href="{{ route('admin.verification-center') }}">
                     <img src="{{ asset('images/social-icons/check.png') }}" class="w-6 h-6" alt="project calculator">
                     <span class="mx-3">Verification Center</span>
@@ -461,7 +461,7 @@
                 @endcan
 
 
-                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('profile.show') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('profile.show') ? 'text-gray-100 bg-gray-600 bg-opacity-25 border rounded-md mx-4 ' : '' }}"
                     href="{{ route('profile.show') }}">
                     <img src="{{ asset('images/social-icons/settings.png') }}" class="w-6 h-6" alt="settings">
                     <span class="mx-3">Profile Settings</span>
@@ -498,7 +498,7 @@
                     <div class="flex mx-4 lg:mx-0">
                             <img src="{{asset('images/home.png')}}" alt="home"
                              class="w-10 h-6 pl-3">
-                             <span class="pl-3 text-lg text-gray-700 hover:text-blue-500">Home</span>
+                             <span class="pl-3 text-lg text-gray-700 md:text-xl hover:text-blue-500">Home</span>
 
                     </div>
                     </a>
