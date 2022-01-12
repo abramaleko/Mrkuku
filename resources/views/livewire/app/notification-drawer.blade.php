@@ -23,7 +23,7 @@
     <div class="px-6 py-8 ">
         <h1 class="text-2xl font-bold tracking-wide text-gray-700 lg:text-3xl lg:py-0 lg:pl-4">Notifications</h1>
 
-        <button wire:click="markAllAsRead" class="px-6 py-2 mt-8 text-white bg-blue-500 rounded-md lg:mt-10 hover:bg-blue-400">
+        <button wire:click="markAllAsRead" class="px-6 py-2 mt-4 text-white bg-green-500 rounded-md lg:mt-8 hover:bg-green-600">
             Mark All As Read
         </button>
 
