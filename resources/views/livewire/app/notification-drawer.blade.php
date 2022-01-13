@@ -143,6 +143,11 @@
             <div class="mt-4">
                 {{ $notifications->links() }}
             </div>
+            @if (count($notifications)===0)
+               <div class="flex justify-center text-sm font-bold text-gray-500 lg:text-xl">
+                    Sorry, there are no new comments for you
+               </div>
+            @endif
         </div>
 
 
