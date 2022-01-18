@@ -13,5 +13,10 @@ class Contracts extends Model
 
     protected $fillable=['project_id','investor_id','amount','start_date'];
 
+    public function investor()
+    {
+        return $this->belongsTo(User::class,'investor_id');
+    }
+
 
 }
