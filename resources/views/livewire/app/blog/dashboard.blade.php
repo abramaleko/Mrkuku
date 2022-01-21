@@ -9,7 +9,6 @@
         <link href="{{ asset('css/responsiveDataTables.min.css') }}" rel="stylesheet">
     </x-slot>
 
-    <div class="container px-6 py-8 mx-auto">
 
 
         <div class="sm:px-6 lg:px-8 lg:pb-14">
