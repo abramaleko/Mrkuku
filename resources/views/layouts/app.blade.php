@@ -549,6 +549,12 @@
                             <a href="{{ route('profile.show') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile
                             </a>
+                            @can('manage settings')
+                            <a href="{{ route('admin.settings') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                            {{ __('Settings') }}
+                           </a>
+                            @endcan
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <a href="{{ route('api-tokens.index') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">API

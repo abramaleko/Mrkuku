@@ -10,6 +10,7 @@ use App\Http\Livewire\App\Admin\PaymentDetail;
 use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
 use App\Http\Livewire\App\Admin\Permissions;
+use App\Http\Livewire\App\Admin\Settings;
 use App\Http\Livewire\App\Admin\SlipVerify;
 use App\Http\Livewire\App\Admin\Subscriber;
 use App\Http\Livewire\App\Admin\Support\Support;
@@ -172,6 +173,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/verify/investment/{investment}', PaymentDetail::class)
         ->middleware('auth')
         ->name('payment-detail');
+
+        Route::get('/settings',Settings::class)
+        ->middleware('auth')
+        ->name('settings');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
