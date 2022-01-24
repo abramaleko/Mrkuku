@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddBankInfoIdToContractsTable extends Migration
+class CreateSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddBankInfoIdToContractsTable extends Migration
      */
     public function up()
     {
-        Schema::table('contracts', function (Blueprint $table) {
-            $table->foreignId('bank_info_id')->constrained('bank_infos')->onDelete('cascade')->nullable();
-
+        Schema::create('settings', function (Blueprint $table) {
+            $table->id();
+            $table->string('setting');
+            $table->string('value');
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade')->nullable();
         });
     }
 
@@ -26,8 +28,6 @@ class AddBankInfoIdToContractsTable extends Migration
      */
     public function down()
     {
-        Schema::table('contracts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('settings');
     }
 }

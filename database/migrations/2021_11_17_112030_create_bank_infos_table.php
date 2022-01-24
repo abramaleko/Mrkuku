@@ -18,6 +18,8 @@ class CreateBankInfosTable extends Migration
             $table->string('bank_name');
             $table->string('account_name');
             $table->string('account_number');
+           $table->foreignId('bank_info_id')->constrained('bank_infos')->onDelete('cascade')->nullable();
+
             $table->timestamps();
         });
     }
