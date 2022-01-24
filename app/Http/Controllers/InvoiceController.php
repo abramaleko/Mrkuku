@@ -27,13 +27,23 @@ class InvoiceController extends Controller
 
         */
 
-        $invoice1 = $this->printInvoice1($investment);
+       /*check investment belongs to which project
+        1=chicken rearing project
+        2= corn farming project
+
+       */
+       if ($investment->project_id === 1) {
+        $invoice1 = $this->printRearingInvoice1($investment);
+        $invoice2 = $this->printRearingInvoice2($investment);
+       }
+       elseif ($investment->project_id === 2) {
+        $invoice1 = $this->printCornInvoice1($investment);
+        $invoice2 = $this->printCornInvoice2($investment);
+       }
         $invoice1->filename = 'invoice1' . rand(100, 1000) . '.pdf';
         $invoice1->save('public');
 
 
-
-        $invoice2 = $this->printInvoice2($investment);
         $invoice2->filename = 'invoice2' . rand(100, 1000) . '.pdf';
         $invoice2->save('public');
 
@@ -51,12 +61,12 @@ class InvoiceController extends Controller
             return $merge->merge('download', 'invoices.pdf', 'P');
     }
 
-    //invoice 2
-    protected function printInvoice2($investment)
+    //invoice 2 for chicken rearing project
+    protected function printRearingInvoice2($investment)
     {
         $client = new Party([
             'name'          => 'Bravo Feeds Mill Limited',
-            'phone'         => '0677 092921',
+            'phone'         => '0659-071309',
             'custom_fields' => [
                 'TIN #'        => '141-790-919',
             ],
@@ -113,12 +123,12 @@ class InvoiceController extends Controller
         return $invoice;
     }
 
-    //invoice 1
-    protected function printInvoice1($investment)
+    //invoice 1 for chicken rearing project
+    protected function printRearingInvoice1($investment)
     {
         $client = new Party([
             'name'          => 'Mr Kuku Farmers Limited',
-            'phone'         => '0677 092921',
+            'phone'         => '0659-071309',
             'custom_fields' => [
                 'TIN #'        => '141-097-253',
             ],
@@ -134,7 +144,7 @@ class InvoiceController extends Controller
 
         $item = [
             (new InvoiceItem())
-                ->title('Farm rearing Management Fees')
+                ->title('Chicken Rearing Management Fees')
                 ->pricePerUnit(800)
                 ->quantity($investment->units)
         ];
@@ -144,6 +154,127 @@ class InvoiceController extends Controller
             'BANK DETAILS',
             'NBC BANK: 011103039843',
             'AMANA BANK: 003120959810001',
+        ];
+        $notes = implode("<br>", $notes);
+
+        $invoice = Invoice::make('Profoma Invoice')
+            ->seller($client)
+            ->buyer($customer)
+            ->date($investment->invoice->created_at)
+            ->dateFormat('m/d/Y')
+            ->payUntilDays(30)
+            ->currencyCode('Tshs')
+            ->currencyFraction('Cents')
+            ->currencyFormat('{VALUE} Tshs ')
+            ->currencyThousandsSeparator(',')
+            ->currencyDecimalPoint('.')
+            ->addItems($item)
+            ->notes($notes)
+            ->setCustomData(
+                $investment->invoice->invoice_number
+            )
+            ->logo(public_path('images/logo.jpeg'));
+
+        // And return invoice itself to browser or have a different view
+        return $invoice;
+    }
+
+
+//invoice 1 for corn farming project
+protected function printCornInvoice1($investment)
+{
+    $client = new Party([
+        'name'          => 'Bravo Feeds Mill Limited',
+        'phone'         => '0659-071309',
+        'custom_fields' => [
+            'TIN #'        => '141-790-919',
+        ],
+    ]);
+
+    $customer = new Party([
+        'name'          => $investment->user->name,
+        'phone'       => $investment->user->phone_no,
+        'custom_fields' => [
+            'email'          =>  $investment->user->email,
+        ],
+    ]);
+
+    $item = [
+        (new InvoiceItem())
+            ->title('Land Rent')
+            ->pricePerUnit(1020000)
+            ->quantity($investment->units),
+
+    ];
+
+    $notes = [
+        '',
+        'BANK DETAILS',
+        'NBC BANK: 011103039855',
+        'EQUITY BANK: 3003211761898',
+    ];
+    $notes = implode("<br>", $notes);
+
+    $invoice = Invoice::make('Profoma Invoice')
+        ->seller($client)
+        ->buyer($customer)
+        ->date($investment->invoice->created_at)
+        ->dateFormat('m/d/Y')
+        ->payUntilDays(30)
+        ->currencyCode('Tshs')
+        ->currencyFraction('Cents')
+        ->currencyFormat('{VALUE} Tshs ')
+        ->currencyThousandsSeparator(',')
+        ->currencyDecimalPoint('.')
+        ->addItems($item)
+        ->notes($notes)
+        ->setCustomData(
+            $investment->invoice->invoice_number
+        );
+
+
+    // And return invoice itself to browser or have a different view
+    return $invoice;
+}
+
+
+
+    //invoice 2 for corn farming project
+    protected function printCornInvoice2($investment)
+    {
+        $client = new Party([
+            'name'          => 'Mr Kuku Farmers Limited',
+            'phone'         => '0659-071309',
+            'custom_fields' => [
+                'TIN #'        => '141-097-253',
+            ],
+        ]);
+
+        $customer = new Party([
+            'name'          => $investment->user->name,
+            'phone'       => $investment->user->phone_no,
+            'custom_fields' => [
+                'email'          =>  $investment->user->email,
+            ],
+        ]);
+
+        $item = [
+            (new InvoiceItem())
+                ->title('Inputs')
+                ->pricePerUnit(189000)
+                ->quantity($investment->units),
+
+                (new InvoiceItem())
+                ->title('Management Fee')
+                ->pricePerUnit(66000)
+                ->quantity($investment->units),
+        ];
+
+        $notes = [
+            '',
+            'BANK DETAILS',
+            'NBC BANK: 011103039843',
+            'EQUITY BANK: 3003211761800',
         ];
         $notes = implode("<br>", $notes);
 
