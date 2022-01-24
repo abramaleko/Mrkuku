@@ -45,7 +45,11 @@ class DashboardController extends Controller
         ->sum('amount');
 
        //calculate the percentage rise or fall of investment in each month
+       try {
         $investmentFlow=( (intval($amountInvestedThisWeek) - intval($amountInvestedPreviousWeek) ) * 100) / intval($amountInvestedThisWeek);
+       } catch (\DivisionByZeroError $th) {
+           $investmentFlow=0;
+       }
 
 
         $totalAmountInvested=Contracts::sum('amount');
