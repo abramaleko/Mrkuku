@@ -61,7 +61,7 @@
         <div class="font-bold text-gray-600">
             Status:
         </div>
-        <div class="ml-8 text-gray-600 ">
+        <div class="text-gray-600 lg:ml-8 ">
             @if ($investment->invoice->verification_attachments == '' && $investment->invoice->verification_error == '')
                 Payment slips have not been submitted for verification
             @elseif (($investment->invoice->verification_attachments) && ( !$investment->invoice->verified) && ($investment->invoice->verification_error == ''))
@@ -81,14 +81,14 @@
     <div class="flex flex-wrap mt-8">
         @if ( ! $investment->verified)
         <a href="{{ route('investor.print-invoice', $investment->id, true) }}"
-            class="px-8 py-3 font-light tracking-wide text-white bg-blue-500 rounded hover:bg-blue-400"
+            class="px-8 py-3 text-sm font-light tracking-wide text-white bg-blue-500 rounded hover:bg-blue-400 lg:text-base"
             style="width: 20rem;">
             DOWNLOAD PROFOMA INVOICE
         </a>
         @endif
         @if (!$investment->invoice->verification_attachments)
             <a target="_blank" href="{{ route('investor.invoice-submit-paymentslips', $investment->id) }}"
-                class="px-8 py-3 mt-4 font-light tracking-widest text-center text-white bg-green-500 rounded hover:bg-green-400 lg:mt-0 lg:ml-4"
+                class="px-8 py-3 mt-4 text-sm font-light tracking-widest text-center text-white bg-green-500 rounded hover:bg-green-400 lg:mt-0 lg:ml-4 lg:text-base"
                 style="width: 20rem;">
                 VERIFY PAYMENT
             </a>
@@ -119,7 +119,7 @@
             x-transition:leave-end="scale-0"
           >
             <header class="flex items-center justify-between p-2">
-              <h2 class="font-semibold">Reason for decline</h2>
+              <h2 class="text-lg font-semibold">Reason for Decline</h2>
               <button class="p-2 focus:outline-none" @click="showModal1 = false">
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                   <path
@@ -129,13 +129,13 @@
               </button>
             </header>
             <main class="p-2">
-              <p>
-                 {{$investment->invoice->verification_error}}
+              <p class="p-4 text-base text-gray-700 bg-gray-100 rounded-md">
+                 {{ucfirst($investment->invoice->verification_error)}}
               </p>
             </main>
             <footer class="flex justify-center p-2">
               <a href="{{ route('investor.invoice-submit-paymentslips', $investment->id) }}"
-                class="p-4 font-semibold tracking-wide text-white transition-all duration-300 bg-green-600 rounded shadow-lg hover:bg-green-700 focus:outline-none focus:ring hover:shadow-none"
+                class="p-3 font-semibold tracking-wide text-white transition-all duration-300 bg-green-600 rounded shadow-lg hover:bg-green-700 focus:outline-none focus:ring hover:shadow-none"
                 @click="showModal1 = false"
               >
                 Resubmit Slips

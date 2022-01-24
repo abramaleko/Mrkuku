@@ -137,7 +137,7 @@
     <!-- Decline modal -->
     <x-jet-dialog-modal wire:model="declineSlip">
         <x-slot name="title">
-            {{ __('Decline payment Slip') }}
+            {{ __('Decline Payment Slip') }}
         </x-slot>
 
         <x-slot name="content">
