@@ -118,7 +118,7 @@
               <div class="pt-4 mt-4 text-center border-t border-gray-200 sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left">
                 <p class="mb-4 text-lg leading-relaxed">
                     Tunakupa nafasi katika mabanda yetu na kukufugia kuku wako, Tengeza faida hadi 10% kila mwezi bila kuacha unachofanya kila siku katika kutengeneza kipato.
-                    <a href="{{route('blog.viewPost',14)}}" class="inline-flex items-center ml-2 text-indigo-500 cursor-pointer hover:underline">Read More
+                    <a href="https://blog.mrkuku.org/" class="inline-flex items-center ml-2 text-indigo-500 cursor-pointer hover:underline">Read More
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
@@ -131,37 +131,25 @@
 
         <!--====== BLOG PART START ======-->
 
-        <section id="blog" class="mt-12 blog_area">
-            <div class="container">
-                <div class="justify-center row">
-                    <div class="w-full lg:w-1/2">
-                        <div class="pb-6 text-center section_title">
-                            <h5 class="sub_title">Blog</h5>
-                            <h4 class="main_title">From The Blog</h4>
-                        </div> <!-- section title -->
-                    </div>
-                </div> <!-- row -->
-                <div class="justify-center row lg:justify-start">
-                    @foreach ($blog_posts as $post)
-                    <div class="w-full md:w-8/12 lg:w-6/12 xl:w-4/12">
-                        <div class="h-full mx-3 mt-8 overflow-hidden transition-all duration-300 bg-white single_blog rounded-xl hover:shadow-lg">
-                            <div class="blog_image">
-                                <img src="{{ asset('storage') . '/' . $post->image_path }}" alt="{{ $post->title }}" class="w-full" style="width: 392px; height:392px;">
-                            </div>
-                            <div class="p-4 blog_content md:p-5">
-                                <ul class="flex justify-between blog_meta">
-                                    <li class="text-sm text-body-color md:text-base">By: <a href="#" class="text-body-color hover:text-theme-color">Mr.Kuku</a></li>
-                                    <li class="text-sm text-body-color md:text-base">{{$post->created_at->format('jS F Y')}}</li>
-                                </ul>
-                                <h3 class="blog_title"><a href="#">{{$post->title}}</a></h3>
-                                <a target="_blank" href="{{route('blog.viewPost',$post->id)}}" class="more_btn">Read More</a>
-                            </div>
-                        </div> <!-- row -->
-                    </div>
-                    @endforeach
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </section>
+<section class="text-gray-600 body-font">
+  <div class="container flex flex-col items-center px-5 py-24 mx-auto md:flex-row">
+    <div class="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
+      <h1 class="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">Check out our Latest News!
+        <br class="hidden lg:inline-block">Mr.Kuku Blog
+      </h1>
+      <p class="mb-8 leading-relaxed">Visit our journal To find the latest company news and business articles
+
+      </p>
+      <div class="flex justify-center">
+        <a href="https://blog.mrkuku.org" target="_blank"
+        class="inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">Visit Now</a>
+      </div>
+    </div>
+    <div class="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
+      <img class="object-center rounded lg:max-h-full max-h-96 " alt="hero" src="{{asset('images/blog-index.png')}}" style="width: 720px; height:600px;">
+    </div>
+  </div>
+</section>
 
         <!--====== BLOG PART ENDS ======-->
 
@@ -394,7 +382,7 @@
                             You will be the first to know about our seminars ,new projects and giveaways. So stay tuned
                         </p>
                         <div class="flex justify-center mt-12">
-                            <a href="{{ route('blog.allPosts') }}"
+                            <a href="https://blog.mrkuku.org"
                             class="px-12 py-4 font-light tracking-widest text-white bg-blue-400 border shadow-lg hover:bg-blue-300">
                             VISIT OUR BLOG
                         </a>
