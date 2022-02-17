@@ -15,6 +15,7 @@ class SupportAll extends Component
     public function mount()
     {
         $messages=Support::where('investor_id',Auth::user()->id)
+        ->where('servitor_id','!=',null)
         ->orderBy('id','desc')
         ->get();
         foreach ($messages as $message) {

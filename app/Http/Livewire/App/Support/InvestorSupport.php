@@ -10,59 +10,69 @@ use Livewire\Component;
 
 class InvestorSupport extends Component
 {
-    public $mountNewIssue=false,$newRequest=false,$issueDetail;
 
-    public $messageInput;
-    public $showMessage=false;
-    public $investorRequests=[],$support_messages,$request;
-    public $WaitingList=false,$WaitingRequests;
+    public $issueRequests,$support_messages;
 
+    //chats properties
+    public $showChats = false,$request,$messageInput;
 
-    protected $listeners = ['selectMessage'];
+    //modals
+    public $newRequest=false,$issueDetail;
 
-    protected $messages = [
-        'issueDetail.required' => 'Please fill this field in order to request support from our team',
-    ];
+    public $waitingList=false,$waitingRequests;
 
     public function mount()
     {
-        /*
-        check if user has previous issues if true
-        show previous issues if not show new issue
-        component
-        */
-        if (Support::where('investor_id',Auth::user()->id)->count() == 0) {
-            $this->mountNewIssue=true;
-        }
+        //load issue request which are already allocated
+        $this->issueRequests = Support::with('chats')
+            ->where('investor_id', Auth::user()->id)
+            ->where('servitor_id', '!=', null)
+            ->orderBy('id', 'desc')
+            ->get();
 
-        $this->getWaitingRequests();
-
+            $this->getWaitingRequests();
     }
 
+
+    //this are issue requests which has not yet been assigned to servitor
     public function getWaitingRequests()
     {
-        $this->WaitingRequests=Support::where('investor_id',Auth::user()->id)
+        $this->waitingRequests=Support::where('investor_id',Auth::user()->id)
         ->where('servitor_id',null)
         ->orderBy('id','desc')
         ->get();
     }
-
-    public function selectMessage(Support $support)
+    public function deleteRequest(Support $support)
     {
-            $this->request=$support;
+        $support->delete();
 
-            $this->getSupportMessages();
+        //updates the table
+        $this->getWaitingRequests();
 
-            // updates the collection for the message is read
-            foreach ($this->support_messages as $message) {
-                //if message was not read and if not the author of the message then update
-               if ( (! $message->read) && $message->sender_id != Auth::user()->id) {
-                   $message->update(['read' => true]);
-               }
-            }
-            $this->emit('ListenForMessage',$this->request->id);
+        $this->reset('waitingList');
 
-            $this->showMessage=true;
+    }
+
+    public function selectedChat(Support $support)
+    {
+        $this->request=$support;
+
+        $this->getSupportMessagesProperty();
+
+        //listens for new message in a broadcasting channel
+        $this->emit('ListenForMessage',$this->request->id);
+
+        //show chats
+        $this->showChats = true;
+
+    }
+
+    //returns the chats for a particular issue request
+    public function getSupportMessagesProperty()
+    {
+        return $this->support_messages=SupportChat::with('user')
+        ->where('support_id',$this->request->id)
+        ->get();
     }
 
     public function sendMessage()
@@ -80,20 +90,13 @@ class InvestorSupport extends Component
         Clears the input and updates the chat messages
         */
         $this->messageInput= '';
-        $this->getSupportMessages();
+        $this->getSupportMessagesProperty();
 
+        //broadcasts to other users in the current channel
         broadcast(new NewMessage($message))->toOthers();
       }
 
     }
-
-
-    public function getSupportMessages()
-    {
-        $this->support_messages=SupportChat::with('user')->where('support_id',$this->request->id)
-            ->get();
-    }
-
 
     public function issueRequest()
     {
@@ -106,10 +109,7 @@ class InvestorSupport extends Component
         $setSupport->issue_detail=$this->issueDetail;
         $setSupport->save();
 
-        unset($this->issueDetail);
-        //closes the modal if open
-        if ($this->newRequest)
-        $this->request=false;
+        $this->reset(['issueDetail']);
 
         $this->getWaitingRequests();
 
@@ -117,46 +117,11 @@ class InvestorSupport extends Component
 
     }
 
-    public function deleteRequest(Support $support)
-    {
-        $support->delete();
-
-        //updates the table
-        $this->getWaitingRequests();
-
-    }
-
-    public function openModal($modal)
-    {
-        switch ($modal) {
-            case '1':
-               $this->WaitingList=true;
-                break;
-                case '2':
-                    $this->newRequest=true;
-                     break;
-
-        }
-    }
-
-    public function closeModal($modal)
-    {
-        dd($modal);
-        switch ($modal) {
-            case '1':
-               $this->WaitingList=true;
-                break;
-                case '2':
-                    $this->newRequest=true;
-                     break;
-
-        }
-    }
 
     public function render()
     {
-          //if user does not have the permissions
-          if (! auth()->user()->can('live support')) {
+        //if user does not have the permissions
+        if (!auth()->user()->can('live support')) {
             abort(403, 'Unauthorized.');
         }
         return view('livewire.app.support.investor-support');
