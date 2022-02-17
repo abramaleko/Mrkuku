@@ -75,8 +75,8 @@
                         </svg>
                     </li>
                     <li>
-                        <a class="text-gray-600 hover:text-gray-500 lg:text-lg {{ request()->routeIs('blog.allPosts') ? 'font-semibold text-blue-500' : '' }}"
-                            href="{{ route('blog.allPosts') }}">
+                        <a target="_blank" class="text-gray-600 hover:text-gray-500 lg:text-lg"
+                            href="https://blog.mrkuku.org">
                             Blog
                         </a>
                     </li>
@@ -149,8 +149,8 @@
                                     href="{{ route('investments') }}">Investments</a>
                             </li>
                             <li class="mb-1">
-                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('blog.allPosts') ? 'font-semibold text-blue-500' : '' }}"
-                                    href="{{ route('blog.allPosts') }}">Blog</a>
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 "
+                                    href="https://blog.mrkuku.org">Blog</a>
                             </li>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('learn') ? 'font-semibold text-blue-500' : '' }}"
@@ -206,7 +206,7 @@
                     </a>
                 </div>
                 <div class="px-6 py-2">
-                    <a href="{{ route('blog.allPosts') }}"
+                    <a href="https://blog.mrkuku.org"
                         class="text-base leading-6 text-gray-500 hover:text-gray-900">
                         Blog
                     </a>

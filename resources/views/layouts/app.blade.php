@@ -276,7 +276,7 @@
 
                 @endcan
 
-                @can('manage blog')
+                {{-- @can('manage blog')
                     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('blog.dashboard') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                         href="{{ route('blog.dashboard') }}">
                         <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" class="w-6 h-6"
@@ -406,7 +406,7 @@
                         </svg>
                         <span class="mx-3">Blog</span>
                     </a>
-                @endcan
+                @endcan --}}
                 <!--for investors-->
                 @can('live support')
                 <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('investor.support') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
