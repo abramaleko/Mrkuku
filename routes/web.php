@@ -85,31 +85,31 @@ Route::name('investments.')->group(function () {
     })->name('tanzanite');
 });
 
-Route::get('posts', [BlogController::class, 'allPosts'])
-    ->name('blog.allPosts');
-Route::get('post/{id}', [BlogController::class, 'viewPosts'])
-        ->name('blog.viewPost');
+// Route::get('posts', [BlogController::class, 'allPosts'])
+//     ->name('blog.allPosts');
+// Route::get('post/{id}', [BlogController::class, 'viewPosts'])
+//         ->name('blog.viewPost');
 
  //submit comment route
- Route::post('comment',[BlogController::class,'commentPost'])
-         ->middleware('auth')
-         ->name('blog.commentPost');
+//  Route::post('comment',[BlogController::class,'commentPost'])
+//          ->middleware('auth')
+//          ->name('blog.commentPost');
 
 //blog routes
-Route::prefix('blog')->name('blog.')->group(function () {
-    // Route::get('/posts',[BlogController::class,'allPosts'] )
-    // ->name('allPosts');
+// Route::prefix('blog')->name('blog.')->group(function () {
+//     Route::get('/posts',[BlogController::class,'allPosts'] )
+//     ->name('allPosts');
 
-    //dashboard posts
-    Route::get('/dashboard', Dashboard::class)
-        ->middleware('auth')
-        ->name('dashboard');
+//     //dashboard posts
+//     Route::get('/dashboard', Dashboard::class)
+//         ->middleware('auth')
+//         ->name('dashboard');
 
-    //create&save blog post
-    Route::get('/create', Create::class)
-        ->middleware('auth')
-        ->name('create');
-});
+//     //create&save blog post
+//     Route::get('/create', Create::class)
+//         ->middleware('auth')
+//         ->name('create');
+// });
 
 //admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
