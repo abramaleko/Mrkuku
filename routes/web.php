@@ -82,6 +82,11 @@ Route::name('investments.')->group(function () {
     })->name('tanzanite');
 });
 
+//redirect to external link
+Route::get('/posts',function(){
+    return redirect()->away('https://blog.mrkuku.org/');
+});
+
 //admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/roles', Roles::class)
