@@ -113,7 +113,7 @@
                         href="{{ route('register') }}">Sign up</a>
                 @endguest
                 @auth
-                    <a class="hidden py-3 text-sm font-bold tracking-wider text-white transition duration-200 bg-gray-500 rounded px-7 lg:inline-block lg:ml-auto lg:mr-3 hover:bg-gray-600"
+                    <a class="hidden px-6 py-3 text-sm font-bold tracking-wider text-white transition duration-200 bg-purple-500 rounded-lg lg:inline-block lg:ml-auto lg:mr-3 hover:bg-purple-600"
                         href="{{ route('dashboard') }}">Dashboard</a>
                 @endauth
             </nav>
