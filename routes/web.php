@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleSignInController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Livewire\App\Admin\Contacts;
 use App\Http\Livewire\App\Admin\RolePermission;
@@ -11,8 +10,6 @@ use App\Http\Livewire\App\Admin\Subscriber;
 use App\Http\Livewire\App\Admin\Support\Support;
 use App\Http\Livewire\App\Admin\UserDetails;
 use App\Http\Livewire\App\Admin\Users;
-use App\Http\Livewire\App\Blog\Create;
-use App\Http\Livewire\App\Blog\Dashboard;
 use App\Http\Livewire\App\Support\InvestorSupport;
 use Illuminate\Support\Facades\Route;
 
@@ -84,32 +81,6 @@ Route::name('investments.')->group(function () {
         return view('web.tanzanite');
     })->name('tanzanite');
 });
-
-// Route::get('posts', [BlogController::class, 'allPosts'])
-//     ->name('blog.allPosts');
-// Route::get('post/{id}', [BlogController::class, 'viewPosts'])
-//         ->name('blog.viewPost');
-
- //submit comment route
-//  Route::post('comment',[BlogController::class,'commentPost'])
-//          ->middleware('auth')
-//          ->name('blog.commentPost');
-
-//blog routes
-// Route::prefix('blog')->name('blog.')->group(function () {
-//     Route::get('/posts',[BlogController::class,'allPosts'] )
-//     ->name('allPosts');
-
-//     //dashboard posts
-//     Route::get('/dashboard', Dashboard::class)
-//         ->middleware('auth')
-//         ->name('dashboard');
-
-//     //create&save blog post
-//     Route::get('/create', Create::class)
-//         ->middleware('auth')
-//         ->name('create');
-// });
 
 //admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
