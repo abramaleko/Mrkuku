@@ -34,8 +34,8 @@
 
     <div class="min-h-screen bg-white">
         <!-- component -->
-        <div class="bg-blue-500">
-            <nav class="relative flex items-center justify-between px-4 py-4 bg-white">
+        <div class="">
+            <nav class="relative flex items-center justify-between px-4 py-4 bg-gradient-to-l from-indigo-300">
                 <a class="ml-4 leading-none" href="{{ route('home') }}">
                     <x-jet-application-mark class="block w-auto h-9" />
                 </a>
@@ -172,8 +172,9 @@
                             </div>
                         @endguest
                         @auth
-                            <a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl"
-                                href="{{ route('dashboard') }}">Dashboard</a>
+                            <a href="{{ route('dashboard') }}" class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center text-white bg-gray-500 hover:bg-gray-600 rounded-xl" >
+                            Dashboard
+                        </a>
                         @endauth
 
                         <p class="my-4 text-xs text-center text-gray-400">
@@ -274,6 +275,8 @@
             </div>
 
         </div>
+    </div>
+
         <script>
             // Burger menus
             document.addEventListener('DOMContentLoaded', function() {
