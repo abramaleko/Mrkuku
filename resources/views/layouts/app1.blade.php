@@ -50,12 +50,12 @@
                 <ul
                     class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
                     <li>
-                        <a class="text-gray-400 lg:text-lg hover:text-gray-500 {{ request()->routeIs('home') ? 'font-semibold text-blue-500' : '' }}"
+                        <a class="text-gray-600 lg:text-lg hover:text-gray-500 {{ request()->routeIs('home') ? 'font-semibold text-blue-500' : '' }}"
                             href="{{ route('home') }}">
                             Home
                         </a>
                     </li>
-                    <li class="text-gray-300">
+                    <li class="text-gray-700">
                         <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -67,7 +67,7 @@
                             Investments
                         </a>
                     </li>
-                    <li class="text-gray-300">
+                    <li class="text-gray-700">
                         <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -80,7 +80,7 @@
                             Blog
                         </a>
                     </li>
-                    <li class="text-gray-300">
+                    <li class="text-gray-700">
                         <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -93,13 +93,25 @@
                             Learn
                         </a>
                     </li>
-                    <li class="text-gray-300">
+                    <li class="text-gray-700">
                         <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
+                    <li><a class=" lg:text-lg text-gray-600 hover:text-gray-500 {{ request()->routeIs('careers') ? 'font-semibold text-blue-500' : '' }}"
+                        href="{{ route('careers') }}">
+                        Careers
+                    </a>
+                </li>
+                <li class="text-gray-700">
+                    <svg xmlns="https://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                        class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                </li>
                     <li><a class=" lg:text-lg text-gray-600 hover:text-gray-500 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
                             href="{{ route('contact') }}">
                             Contact
@@ -155,6 +167,10 @@
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('learn') ? 'font-semibold text-blue-500' : '' }}"
                                     href="{{ route('learn') }}">Learn</a>
+                            </li>
+                            <li class="mb-1">
+                                <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
+                                    href="{{ route('careers') }}">Careers</a>
                             </li>
                             <li class="mb-1">
                                 <a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('contact') ? 'font-semibold text-blue-500' : '' }}"
@@ -215,6 +231,11 @@
                 <div class="px-6 py-2">
                     <a href="{{ route('learn') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
                         Learn
+                    </a>
+                </div>
+                <div class="px-6 py-2">
+                    <a href="{{ route('careers') }}" class="text-base leading-6 text-gray-500 hover:text-gray-900">
+                        Careers
                     </a>
                 </div>
                 <div class="px-6 py-2">

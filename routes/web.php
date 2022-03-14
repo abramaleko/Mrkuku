@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\Auth\GoogleSignInController;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\Admin\JobApplicants;
+use App\Http\Livewire\Admin\JobsDashboard;
+use App\Http\Livewire\Admin\NewJob;
+use App\Http\Livewire\Admin\ShortListed;
 use App\Http\Livewire\App\Admin\Contacts;
 use App\Http\Livewire\App\Admin\RolePermission;
 use App\Http\Livewire\App\Admin\Roles;
@@ -54,6 +58,20 @@ Route::get('/learn', [HomeController::class, 'learn'])
 
 Route::get('/contact', [HomeController::class, 'contact'])
     ->name('contact');
+
+Route::get('/careers', [HomeController::class, 'careers'])
+    ->name('careers');
+
+Route::get('/careers/{job}', [HomeController::class, 'jobDescription'])
+    ->name('jobDescription');
+
+Route::get('/careers/{job}/apply', [HomeController::class, 'jobApplication'])
+    ->middleware('auth')
+    ->name('jobApplication');
+
+Route::post('/careers/apply', [HomeController::class, 'submitApplication'])
+    ->middleware('auth')
+    ->name('submitApplication');
 
  //live support route
  Route::get('/support',InvestorSupport::class)
@@ -135,4 +153,24 @@ Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderC
 Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
     // ->middleware('auth')
     ->name('ckfinder_browser');
+
+
+// jobs routes
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+
+    Route::get('/jobs',JobsDashboard::class)->name('jobDashboard');
+
+    Route::get('/job/new',NewJob::class)->name('newJob');
+
+
+Route::get('/jobs/{job}/applicants',JobApplicants::class)
+->middleware('auth')
+->name('jobApplicants');
+Route::get('/jobs/{job}/shortlisted',ShortListed::class)
+->middleware('auth')
+->name('shortListed');
+
+
+
+});
 

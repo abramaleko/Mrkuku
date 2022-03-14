@@ -292,13 +292,22 @@
                        <span class="mx-3">Support</span>
                    </a>
                    @endcan
-                @can('manage contacts')
+                {{-- @can('manage contacts')
                     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.contacts') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                         href="{{ route('admin.contacts') }}">
                         <img src="{{ asset('images/social-icons/contact.png') }}" alt="dashboard" class="w-6 h-6">
                         <span class="mx-3">Contacts</span>
                     </a>
+                @endcan --}}
+                @can('manage jobs')
+                    <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('jobDashboard') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
+                        href="{{ route('jobDashboard') }}">
+                        <img src="{{ asset('images/social-icons/jobs.png') }}" alt="jobs"
+                            class="w-6 h-6">
+                        <span class="mx-3">Jobs</span>
+                    </a>
                 @endcan
+
                 @can('manage users')
                     <a class="flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ request()->routeIs('admin.users') ? 'text-gray-100 bg-gray-700 bg-opacity-25' : '' }}"
                         href="{{ route('admin.users') }}">
@@ -333,18 +342,14 @@
                     </button>
 
                     <div class="relative mx-4 lg:mx-0">
+                       <a href="/">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                            <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                </path>
-                            </svg>
+                            <img src="{{asset('images/home.png')}}" class="w-5 h-5">
                         </span>
-
-                        <input class="w-32 pl-10 pr-4 rounded-md form-input sm:w-64 focus:border-indigo-600" type="text"
-                            placeholder="Search">
+                        <p class="text-gray-700 pl-9 hover:text-blue-500">
+                            Home
+                        </p>
+                       </a>
                     </div>
                 </div>
 
